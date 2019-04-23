@@ -17,6 +17,7 @@ let items;
 let viewModel;
 let drawer;
 let page;
+let myItems = new ObservableArray();
 
 function onNavigatingTo(args) {
     page = args.object;
@@ -40,7 +41,7 @@ function onNavigatingTo(args) {
         console.log('Download Started');
         let file = fs.path.join(folder.path, "/assets/zip/prova.zip");
         let dest = fs.path.join(fs.knownFolders.currentApp().path, "/assets/zip");
-        let url = "http://www.mobilemind.com.br/makeyourself/coollife/images-2.1.zip";
+        let url = "https://www.zipshare.com/fileDownload/eyJhcmNoaXZlSWQiOiI1MDU1MGQ4My02MzIzLTQ0MjMtYTBmOS04ZDFiODFkZGM4YmEiLCJlbWFpbCI6ImNpcm9naXVzZXBwZS5kZXZpdGEwMDFAc3R1ZGVudGkudW5pcGFydGhlbm9wZS5pdCJ9";
         httpModule.getFile(url, file).then(function (r) {
             console.log(r.path);
 
@@ -102,24 +103,26 @@ function onNavigatingTo(args) {
                             fileJson.readText().then(function (data) {
                                 let jsonData = JSON.parse(data);
                                 //console.log(jsonData);
-                                for (let i = 0; i < data.length; i++) {
+                                for (let i = 0; i < jsonData['items'].length; i++) {
                                     let img_name = jsonData['items'][i]['field_image'];
                                     let path_img = url_main.path + "/" +img_name;
                                     console.log(path_img);
-                                    let title = (jsonData['items'][i]['title']).split('>')[1].split('<')[0];
+                                    let title = jsonData['items'][i]['title'];
 
                                     if(img_name != "") {
                                         items.push({
                                             "id": jsonData['items'][i]['nid'],
                                             "image": path_img,
-                                            "title": title
+                                            "title": title,
+                                            "other_image": jsonData['items'][i]['field_other_image']
                                         });
                                     }
                                     else{
                                         items.push({
                                             "id": jsonData['items'][i]['nid'],
-                                            "image": documents.getFile("images/info.png").path,
-                                            "title": title
+                                            "image": documents.getFile("images/no_image.png").path,
+                                            "title": title,
+                                            "other_image": ""
                                         });
                                     }
                                 }
@@ -141,24 +144,26 @@ function onNavigatingTo(args) {
         fileJson.readText().then(function (data) {
             let jsonData = JSON.parse(data);
             //console.log(jsonData);
-            for (let i = 0; i < data.length; i++) {
+            for (let i = 0; i < jsonData['items'].length; i++) {
                 let img_name = jsonData['items'][i]['field_image'];
                 let path_img = url_main.path + "/" +img_name;
                 //console.log(path_img);
-                let title = (jsonData['items'][i]['title']).split('>')[1].split('<')[0];
+                let title = jsonData['items'][i]['title'];
 
                 if(img_name != "") {
                     items.push({
                         "id": jsonData['items'][i]['nid'],
                         "image": path_img,
-                        "title": title
+                        "title": title,
+                        "other_image": jsonData['items'][i]['field_other_image']
                     });
                 }
                 else{
                     items.push({
                         "id": jsonData['items'][i]['nid'],
-                        "image": documents.getFile("images/info.png").path,
-                        "title": title
+                        "image": documents.getFile("images/no_image.png").path,
+                        "title": title,
+                        "other_image": ""
                     });
                 }
             }
@@ -169,18 +174,6 @@ function onNavigatingTo(args) {
         page.set("search_text", "");
 
     page.bindingContext = viewModel;
-}
-
-function set_items(data) {
-    for (let i = 1; i < data.length; i++) {
-        let img_path = data[i]['_path'];
-
-        items.push({
-            "id": i,
-            "title": "Item " + i,
-            "image": img_path
-        });
-    }
 }
 
 function onZipProgress(args) {
@@ -207,9 +200,7 @@ function onTap(args) {
 
     page.frame.navigate(nav);
 }
-exports.onTap = onTap;
 
-let myItems = new ObservableArray();
 function onTextViewLoaded(args) {
     const textView = args.object;
 
@@ -232,9 +223,9 @@ function onTextViewLoaded(args) {
     });
 }
 
-exports.toggleDrawer = function() {
+function toggleDrawer(){
     drawer.toggleDrawerState();
-};
+}
 
 function QRCode(){
     barcodescanner.hasCameraPermission().then(permitted => {
@@ -320,7 +311,14 @@ function scan(){
     );
 }
 
+function rooms(){
+    page.frame.navigate("rooms/rooms");
+}
+
+exports.toggleDrawer = toggleDrawer;
 exports.info = info;
+exports.rooms = rooms;
 exports.QRCode = QRCode;
+exports.onTap = onTap;
 exports.onTextViewLoaded = onTextViewLoaded;
 exports.onNavigatingTo = onNavigatingTo;

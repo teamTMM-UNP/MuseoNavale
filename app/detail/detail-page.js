@@ -17,9 +17,35 @@ function onNavigatingTo(args) {
     data = page.navigationContext.data;
     viewModel.set("titolo", data.title);
     viewModel.set("image", data.image);
+    console.log(data.image);
+
+    var images = new ObservableArray();
+    images.push({
+        "image": data.image
+    });
+    if(data.other_image != "")
+    {
+        let other_image = data.other_image.split(",");
+        for(let i=0; i<other_image.length; i++)
+        {
+            images.push({
+                "image" : fs.knownFolders.currentApp().getFolder("/assets/zip/MuseoNavale").path + "/" + other_image[i]
+            });
+        }
+    }
+    viewModel.set('images', images);
 
     page.bindingContext = viewModel;
 }
+
+exports.myChangeEvent = function(args) {
+    let changeEventText = 'Page changed to index: ' + args.index;
+    console.log(changeEventText);
+};
+
+exports.myScrollingEvent = function(args) {
+    console.log('Scrolling: ' + args.state.offset);
+};
 
 function play(){
     let folder = fs.knownFolders.currentApp();
@@ -63,7 +89,6 @@ function resume() {
 }
 
 application.android.on(application.AndroidApplication.activityBackPressedEvent, (args) => {
-    console.log("Tap");
     player.dispose();
 });
 
