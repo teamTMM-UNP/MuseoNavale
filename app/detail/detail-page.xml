@@ -1,0 +1,24 @@
+<Page
+        class="page"
+        navigatingTo="onNavigatingTo"
+        xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <ActionBar class="action-bar">
+        <Label class="action-bar-title" text="{{ titolo }}"></Label>
+    </ActionBar>
+
+    <StackLayout orientation="vertical" height="100%">
+        <StackLayout verticalAlignment="top" height="50%">
+            <Image src="{{ image }}" verticalAlignment="top"/>
+        </StackLayout>
+
+        <StackLayout orientation="vertical" verticalAlignment="bottom" height="50%">
+            <Label text="{{ message }}" class="message" textWrap="true"/>
+            <StackLayout orientation="horizontal" horizontalAlignment="center">
+                <Button text="Play" tap="play"/>
+                <Button text="Pause" tap="pause"/>
+                <Button text="Resume" tap="resume"/>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+</Page>
