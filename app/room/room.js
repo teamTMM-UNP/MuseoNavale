@@ -36,14 +36,16 @@ function onNavigatingTo(args) {
                 items.push({
                     "title": jsonData['rooms'][data.id]['items'][i]['title'],
                     "image": path_img,
-                    "other_image": jsonData['rooms'][data.id]['items'][i]['field_other_image']
+                    "other_image": jsonData['rooms'][data.id]['items'][i]['field_other_image'],
+                    "audio": jsonData['rooms'][data.id]['items'][i]['field_audio']
                 });
             }
             else{
                 items.push({
                     "title" : jsonData['rooms'][data.id]['items'][i]['title'],
                     "image": documents.getFile("images/no_image.png").path,
-                    "other_image": ""
+                    "other_image": "",
+                    "audio": jsonData['rooms'][data.id]['items'][i]['field_audio']
                 })
             }
         }

@@ -2,22 +2,27 @@ const observableModule = require("tns-core-modules/data/observable");
 let Observable = require("data/observable");
 let ObservableArray = require("data/observable-array").ObservableArray;
 const audio = require('nativescript-audio-player');
-const player = new audio.TNSPlayer();
+var TextToSpeech = require('nativescript-texttospeech');
 var application = require("tns-core-modules/application");
 let fs = require("tns-core-modules/file-system");
 
 let viewModel;
 let data = new ObservableArray();
+let TTS;
+let player;
 
 function onNavigatingTo(args) {
     const page = args.object;
 
     viewModel = observableModule.fromObject({});
 
+    TTS = new TextToSpeech.TNSTextToSpeech();
+    player = new audio.TNSPlayer();
+
     data = page.navigationContext.data;
     viewModel.set("titolo", data.title);
     viewModel.set("image", data.image);
-    console.log(data.image);
+    console.log(data.audio);
 
     var images = new ObservableArray();
     images.push({
@@ -48,48 +53,84 @@ exports.myScrollingEvent = function(args) {
 };
 
 function play(){
-    let folder = fs.knownFolders.currentApp();
-    let file = fs.path.join(folder.path, "/assets/zip/MuseoNavale/audio/filename.mp3");
-    console.log(file);
+    if(data.audio != "") {
+        let folder = fs.knownFolders.currentApp();
+        let file = fs.path.join(folder.path, "/assets/zip/MuseoNavale/") + "/" + data.audio;
+        console.log(file);
 
-    const playerOptions = {
-        audioFile: file,
-        loop: false,
-        completeCallback: function() {
-            console.log('finished playing');
-        },
-        errorCallback: function(errorObject) {
-            console.log(JSON.stringify(errorObject));
-        },
-        infoCallback: function(args) {
-            console.log(JSON.stringify(args));
-        }
-    };
+        const playerOptions = {
+            audioFile: file,
+            loop: false,
+            completeCallback: function() {
+                console.log('finished playing');
+            },
+            errorCallback: function(errorObject) {
+                console.log(JSON.stringify(errorObject));
+            },
+            infoCallback: function(args) {
+                console.log(JSON.stringify(args));
+            }
+        };
 
-    player.playFromFile(playerOptions)
-        .then(function(res) {
-            console.log("In riproduzione");
-            player.getAudioTrackDuration(playerOptions.audioFile).then(function (data) {
-                console.log(data + " millisecondi");
+        player.playFromFile(playerOptions)
+            .then(function(res) {
+                console.log("In riproduzione");
+                player.getAudioTrackDuration(playerOptions.audioFile).then(function (data) {
+                    console.log(data + " millisecondi");
+                });
+            })
+            .catch(function(err) {
+                console.log('something went wrong...', err);
             });
-        })
-        .catch(function(err) {
-            console.log('something went wrong...', err);
-        });
+    }
+    else {
+        let text = "La caracca (o nao, o \"nave\") era un grande veliero con tre o quattro alberi verticali e un albero di bompresso inclinato che venne sviluppato nel Mediterraneo durante il XV secolo. Molto probabilmente la caracca è stata ideata e progettata nei suoi tratti essenziali dai genovesi, che avevano sempre preferito usare, per i loro commerci, delle grosse navi a vela d'alto mare, a differenza dei veneziani che prediligevano le galee. Nei documenti genovesi la caracca è indicata col termine \"nave\" (\"navis\" in latino), mai col termine caracca.";
+
+        let speakOptions = {
+            text: text,
+            speakRate: 1.0,
+            pitch: 1.0,
+            volume: 1.0,
+            finishedCallback: function () {
+                console.log("Finito!!");
+            }
+        };
+
+        TTS.speak(speakOptions).then(
+            () => {
+                console.log("OK");
+            },
+            err => {
+                console.log(err);
+            }
+        );
+    }
 }
 
 function pause() {
     console.log("pause");
-    player.pause();
+    if (data.audio != "")
+        player.pause();
+    else{
+        TTS.pause();
+    }
 }
 
 function resume() {
     console.log("resume");
-    player.resume();
+    if (data.audio != "")
+        player.resume();
+    else{
+        TTS.resume();
+    }
 }
 
 application.android.on(application.AndroidApplication.activityBackPressedEvent, (args) => {
-    player.dispose();
+    if (data.audio != "")
+        player.dispose();
+    else{
+        TTS.destroy();
+    }
 });
 
 exports.play = play;
