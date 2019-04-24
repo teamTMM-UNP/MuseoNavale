@@ -11,7 +11,7 @@
     <ios>
         <ActionBar class="action-bar">
             <Label class="action-bar-title" text="{{ titolo }}"></Label>
-            <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" tap="backHome"/>
+            <NavigationButton text="Go Back" ios.systemIcon="9" ios.position="left" tap="backHome"/>
         </ActionBar>
     </ios>
 
