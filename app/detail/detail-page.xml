@@ -8,6 +8,13 @@
         <Label class="action-bar-title" text="{{ titolo }}"></Label>
     </ActionBar>
 
+    <ios>
+        <ActionBar class="action-bar">
+            <Label class="action-bar-title" text="{{ titolo }}"></Label>
+            <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" tap="backHome"/>
+        </ActionBar>
+    </ios>
+
     <StackLayout orientation="vertical" height="100%">
         <StackLayout verticalAlignment="top" height="50%">
             <ns:Carousel id="myCarousel" items="{{ images }}" height="100%" width="100%" color="white" indicatorColorUnselected="#50ffffff" pageChanged="myChangeEvent" pageTapped="mySelectedEvent" android:indicatorAnimation="slide"  indicatorColor="#fff" indicatorOffset="0,0" showIndicator="true">

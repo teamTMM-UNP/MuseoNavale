@@ -5,14 +5,16 @@ const audio = require('nativescript-audio-player');
 var TextToSpeech = require('nativescript-texttospeech');
 var application = require("tns-core-modules/application");
 let fs = require("tns-core-modules/file-system");
+let device = require("tns-core-modules/platform");
 
 let viewModel;
 let data = new ObservableArray();
 let TTS;
 let player;
+let page;
 
 function onNavigatingTo(args) {
-    const page = args.object;
+    page = args.object;
 
     viewModel = observableModule.fromObject({});
 
@@ -125,14 +127,26 @@ function resume() {
     }
 }
 
-application.android.on(application.AndroidApplication.activityBackPressedEvent, (args) => {
+if(device.isAndroid){
+    application.android.on(application.AndroidApplication.activityBackPressedEvent, (args) => {
+        if (data.audio != "")
+            player.dispose();
+        else{
+            TTS.destroy();
+        }
+    });
+}
+
+function backHome(){
+    page.frame.navigate("home/home-page");
     if (data.audio != "")
         player.dispose();
     else{
         TTS.destroy();
     }
-});
+};
 
+exports.backHome = backHome;
 exports.play = play;
 exports.pause = pause;
 exports.resume = resume;
