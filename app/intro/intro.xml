@@ -1,0 +1,33 @@
+<Page
+        class="page"
+        navigatingTo="onNavigatingTo"
+        xmlns="http://schemas.nativescript.org/tns.xsd"
+        xmlns:x="nativescript-statusbar"
+        actionBarHidden="true"
+        backgroundColor="#D9BB84">
+
+    <x:StatusBar ios:barStyle="light" barColor="rgba(217,187,132,1)" />
+
+    <StackLayout orientation="vertical" verticalAlignment="center" >
+        <StackLayout orientation="vertical" verticalAlignment="top" horizontalAlignment="center" >
+            <StackLayout orientation="horizontal">
+                <Image src="~/images/uniparthenope-logo.png" height="75" />
+                <Label class="optimusFont" text="MUSEO" fontSize="70" horizontalAlignment="left"/>
+            </StackLayout>
+            <StackLayout orientation="horizontal">
+                <Label class="optimusFont" text="NAVALE" fontSize="70" horizontalAlignment="left"/>
+                <Image src="~/images/uniparthenope-logo.png" height="75" marginLeft="5"/>
+            </StackLayout>
+            <Label class="optimusFont" text="Dell' Universita' Degli Studi ''Parthenope''" horizontalAlignment="center"/>
+        </StackLayout>
+
+        <StackLayout orientation="horizontal" verticalAlignment="bottom" marginTop="30dp">
+            <Image src="~/images/home2a.png" height="357dp"/>
+            <StackLayout class="coverImage"  backgroundImage="~/images/home2b.png" orientation="vertical" height="340dp" width="100%" verticalAlignment="center">
+                <Button backgroundImage="~/images/itButton.png" text="" tap="onTapIt" marginBottom="45dp" marginLeft="5dp" height="15.5%"/>
+                <Button backgroundImage="~/images/enusButton.png" text="" tap="onTapEn" marginBottom="45dp" marginLeft="5dp" height="15.5%"/>
+                <Button backgroundImage="~/images/frButton.png" text="" tap="onTapFr" marginLeft="5dp" height="15.5%"/>
+            </StackLayout >
+        </StackLayout>
+    </StackLayout>
+</Page>

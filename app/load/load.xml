@@ -1,0 +1,16 @@
+<Page
+        class="page"
+        navigatingTo="onNavigatingTo"
+        xmlns="http://schemas.nativescript.org/tns.xsd"
+        xmlns:x="nativescript-statusbar"
+        actionBarHidden="true"
+        backgroundColor="#D9BB84">
+
+    <x:StatusBar ios:barStyle="light" barColor="rgba(217,187,132,1)" />
+
+    <StackLayout height="100%">
+        <StackLayout horizontalAlignment="center">
+            <Label text="{{ loading }}"></Label>
+        </StackLayout>
+    </StackLayout>
+</Page>

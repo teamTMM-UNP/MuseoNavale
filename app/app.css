@@ -3,8 +3,16 @@
 .btn {
     font-size: 18;
 }
-
-.white_background{
-    background-color: rgba(255,255,255,0.8);
-    color:rgba(30,76,117,1);
+.actionBarHidden
+{
+    actionBarHidden: "true"
+}
+.coverImage {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.optimusFont
+{
+    font-family: "OptimusPrinceps";
 }

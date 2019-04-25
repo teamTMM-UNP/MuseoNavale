@@ -1,23 +1,19 @@
 const observableModule = require("tns-core-modules/data/observable");
-let native_zip = require("nativescript-zip").Zip;
 let fs = require("tns-core-modules/file-system");
 let Observable = require("data/observable");
 let ObservableArray = require("data/observable-array").ObservableArray;
 const appSetting = require("application-settings");
-const httpModule = require("http");
 let stringSimilarity = require('string-similarity');
 let view = require("ui/core/view");
-const Button = require("tns-core-modules/ui/button").Button;
-const Page = require("tns-core-modules/ui/page").Page;
 let BarcodeScanner = require("nativescript-barcodescanner").BarcodeScanner;
 let barcodescanner = new BarcodeScanner();
-var utilityModule = require("utils/utils");
 
 let items;
 let viewModel;
 let drawer;
 let page;
 let myItems = new ObservableArray();
+let language;
 
 function onNavigatingTo(args) {
     page = args.object;
@@ -33,155 +29,48 @@ function onNavigatingTo(args) {
 
     drawer = view.getViewById(page,"sideDrawer");
 
-    /*
-    let folder = fs.knownFolders.currentApp();
+    language = appSetting.getString("language", "it");
+    console.log(language);
 
+    let documents = fs.knownFolders.currentApp();
 
-    if(!fs.Folder.exists("/data/data/it.uniparthenope.museonavale/files/app/assets/zip")) {
-        console.log('Download Started');
-        let file = fs.path.join(folder.path, "/assets/zip/prova.zip");
-        let dest = fs.path.join(fs.knownFolders.currentApp().path, "/assets/zip");
-        let url = "https://www.zipshare.com/fileDownload/eyJhcmNoaXZlSWQiOiI1MDU1MGQ4My02MzIzLTQ0MjMtYTBmOS04ZDFiODFkZGM4YmEiLCJlbWFpbCI6ImNpcm9naXVzZXBwZS5kZXZpdGEwMDFAc3R1ZGVudGkudW5pcGFydGhlbm9wZS5pdCJ9";
-        httpModule.getFile(url, file).then(function (r) {
-            console.log(r.path);
+    console.log("exists");
+    viewModel.set("loading_height", "0");
+    viewModel.set("loading", "false");
+    let url_main = documents.getFolder("/assets/zip/MuseoNavale");
+    let fileJson = url_main.getFile(appSetting.getString("fileJson"));
+    fileJson.readText().then(function (data) {
+        let jsonData = JSON.parse(data);
+        for (let i = 0; i < jsonData['items'].length; i++) {
+            let img_name = jsonData['items'][i]['field_image'];
+            let path_img = url_main.path + "/" +img_name;
+            let title = jsonData['items'][i]['title'];
 
-            viewModel.set("loading_height", "0");
-            viewModel.set("loading", "false");
-
-            fs.knownFolders.currentApp().getFolder("/assets").getEntities().then(function (data) {
-                console.log(data);
-            });
-
-            native_zip.unzipWithProgress(file, dest, onZipProgress, true)
-                .then(() => {
-                    console.log('unzip succesfully completed');
-                    let url_main = folder.getFolder("/assets/zip");
-                    url_main.getEntities().then(function (data) {
-                        //console.log(data);
-                        set_items(data);
-                    });
-                }).catch(err => {
-                console.log('unzip error: ' + err);
-            });
-
-        }, function (e) {
-            //// Argument (e) is Error!
-        });
-    }
-    else {
-        console.log("exists");
-        viewModel.set("loading_height", "0");
-        viewModel.set("loading", "false");
-        let url_main = fs.knownFolders.currentApp().getFolder("/assets/zip");
-        url_main.getEntities().then(function (data) {
-            //console.log(data);
-            set_items(data);
-        });
-    }
-    */
-
-    var documents = fs.knownFolders.currentApp();
-
-    if(!fs.Folder.exists("/data/data/it.uniparthenope.museonavale/files/app/assets/zip")) {
-        let zipFile = fs.path.join(fs.knownFolders.currentApp().path, "boundle.zip");
-        let dest = fs.path.join(fs.knownFolders.currentApp().path, "/assets/zip");
-
-        native_zip.unzipWithProgress(zipFile, dest, onZipProgress, true)
-            .then(() => {
-                console.log('unzip succesfully completed');
-                viewModel.set("loading_height", "0");
-                viewModel.set("loading", "false");
-                let url_main = documents.getFolder("/assets/zip/MuseoNavale");
-                url_main.getEntities().then(function (data) {
-                    //console.log(data);
-                    for (let i = 1; i < data.length; i++) {
-                        let name = data[i]["_name"];
-
-                        if (url_main.getFile(name).extension == ".json") {
-                            appSetting.setString("fileJson", name);
-                            let fileJson = url_main.getFile(name);
-                            fileJson.readText().then(function (data) {
-                                let jsonData = JSON.parse(data);
-                                //console.log(jsonData);
-                                for (let i = 0; i < jsonData['items'].length; i++) {
-                                    let img_name = jsonData['items'][i]['field_image'];
-                                    let path_img = url_main.path + "/" +img_name;
-                                    console.log(path_img);
-                                    let title = jsonData['items'][i]['title'];
-
-                                    if(img_name != "") {
-                                        items.push({
-                                            "id": jsonData['items'][i]['nid'],
-                                            "image": path_img,
-                                            "title": title,
-                                            "other_image": jsonData['items'][i]['field_other_image'],
-                                            "audio": jsonData['items'][i]['field_audio']
-                                        });
-                                    }
-                                    else{
-                                        items.push({
-                                            "id": jsonData['items'][i]['nid'],
-                                            "image": documents.getFile("images/no_image.png").path,
-                                            "title": title,
-                                            "other_image": "",
-                                            "audio": jsonData['items'][i]['field_audio']
-                                        });
-                                    }
-                                }
-                            });
-                        }
-                    }
+            if(img_name != "") {
+                items.push({
+                    "id": jsonData['items'][i]['nid'],
+                    "image": path_img,
+                    "title": title,
+                    "other_image": jsonData['items'][i]['field_other_image'],
+                    "audio": jsonData['items'][i]['field_audio']
                 });
-            })
-            .catch(err => {
-                console.log('unzip error: ' + err);
-            });
-    }
-    else {
-        console.log("exists");
-        viewModel.set("loading_height", "0");
-        viewModel.set("loading", "false");
-        let url_main = documents.getFolder("/assets/zip/MuseoNavale");
-        let fileJson = url_main.getFile(appSetting.getString("fileJson"));
-        fileJson.readText().then(function (data) {
-            let jsonData = JSON.parse(data);
-            //console.log(jsonData);
-            for (let i = 0; i < jsonData['items'].length; i++) {
-                let img_name = jsonData['items'][i]['field_image'];
-                let path_img = url_main.path + "/" +img_name;
-                //console.log(path_img);
-                let title = jsonData['items'][i]['title'];
-
-                if(img_name != "") {
-                    items.push({
-                        "id": jsonData['items'][i]['nid'],
-                        "image": path_img,
-                        "title": title,
-                        "other_image": jsonData['items'][i]['field_other_image'],
-                        "audio": jsonData['items'][i]['field_audio']
-                    });
-                }
-                else{
-                    items.push({
-                        "id": jsonData['items'][i]['nid'],
-                        "image": documents.getFile("images/no_image.png").path,
-                        "title": title,
-                        "other_image": "",
-                        "audio": jsonData['items'][i]['field_audio']
-                    });
-                }
             }
-        });
-    }
+            else{
+                items.push({
+                    "id": jsonData['items'][i]['nid'],
+                    "image": documents.getFile("images/no_image.png").path,
+                    "title": title,
+                    "other_image": "",
+                    "audio": jsonData['items'][i]['field_audio']
+                });
+            }
+        }
+    });
 
     if (page.get("search_text") != "")
         page.set("search_text", "");
 
     page.bindingContext = viewModel;
-}
-
-function onZipProgress(args) {
-    console.log('unzipping:' + args + "%");
 }
 
 function onTap(args) {
