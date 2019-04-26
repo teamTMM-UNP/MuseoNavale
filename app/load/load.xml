@@ -8,11 +8,15 @@
 
     <x:StatusBar ios:barStyle="light" barColor="rgba(217,187,132,1)" />
 
-    <StackLayout horizontalAlignment="center" verticalAlignment="center">
-        <Label text="Caricamento Database" class="optimusFont" fontSize="60"></Label>
-        <StackLayout class="coverImage" orientation="vertical" verticalAlignment="center" backgroundImage="~/images/bussola-empty.png" >
+    <GridLayout>
+        <StackLayout verticalAlignment="top">
+            <Label text="Caricamento Database" textWrap="true" class="optimusFont" marginTop="20" fontSize="46" textAlignment="center" horizontalAlignment="center"></Label>
+        </StackLayout>
+        <StackLayout class="coverImage" orientation="vertical" marginBottom="50" verticalAlignment="center" backgroundImage="~/images/bussola-empty.png" >
             <Image id="toRotate" width="35%" src="~/images/lancetta.png"/>
         </StackLayout>
-        <Label text="{{ loading }}" color="white" class="optimusFont" fontSize="30"></Label>
-    </StackLayout>
+        <StackLayout verticalAlignment="center" marginBottom="50">
+            <Label text="{{ loading }}" color="white" textWrap="true" class="optimusFont" fontSize="36" textAlignment="center" horizontalAlignment="center"></Label>
+        </StackLayout>
+    </GridLayout>
 </Page>
