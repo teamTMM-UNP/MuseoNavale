@@ -2,11 +2,9 @@
         class="page"
         navigatingTo="onNavigatingTo"
         xmlns="http://schemas.nativescript.org/tns.xsd"
-        xmlns:sd="nativescript-ui-sidedrawer">
-
-    <ActionBar class="action-bar">
-        <Label class="action-bar-title" text="MuseoNavale"></Label>
-    </ActionBar>
+        xmlns:sd="nativescript-ui-sidedrawer"
+        actionBarHidden="true"
+        backgroundColor="#D9BB84">
 
     <sd:RadSideDrawer id="sideDrawer">
         <sd:RadSideDrawer.drawerContent>
@@ -44,6 +42,7 @@
 
                 <TextView
                         id = "search"
+                        class="tfstyle"
                         text = "{{ search_text }}"
                         width="50%"
                         horizontalAlignment="center"
@@ -58,7 +57,7 @@
                                     <StackLayout width="30%">
                                         <Image src="{{ image }}" width="65" height="65" marginRight="10"/>
                                     </StackLayout>
-                                    <Label text="{{ title }}" width="70%" textWrap="true" verticalAlignment="center" horizontalAlignment="center"/>
+                                    <Label text="{{ title }}" width="70%" color="white" textWrap="true" verticalAlignment="center" horizontalAlignment="center"/>
                                 </StackLayout>
                             </FlexboxLayout>
                         </ListView.itemTemplate>

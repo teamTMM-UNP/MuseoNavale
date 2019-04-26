@@ -2,11 +2,9 @@
         class="page"
         navigatingTo="onNavigatingTo"
         xmlns="http://schemas.nativescript.org/tns.xsd"
-        xmlns:ns="nativescript-carousel">
-
-    <ActionBar class="action-bar">
-        <Label class="action-bar-title" text="{{ titolo }}"></Label>
-    </ActionBar>
+        xmlns:ns="nativescript-carousel"
+        backgroundColor="#D9BB84"
+        actionBarHidden="true">
 
     <ios>
         <ActionBar class="action-bar">
@@ -17,9 +15,10 @@
 
     <StackLayout orientation="vertical" height="100%">
         <StackLayout verticalAlignment="top" height="50%">
+            <Label text="{{ titolo }}" color="white" horizontalAlignment="center" verticalAlignment="center" fontSize="20" textWrap="true" textAlignment="center"></Label>
             <ns:Carousel id="myCarousel" items="{{ images }}" height="100%" width="100%" color="white" indicatorColorUnselected="#50ffffff" pageChanged="myChangeEvent" pageTapped="mySelectedEvent" android:indicatorAnimation="slide"  indicatorColor="#fff" indicatorOffset="0,0" showIndicator="true">
                 <ns:Carousel.itemTemplate>
-                    <ns:CarouselItem backgroundColor="#ffffff">
+                    <ns:CarouselItem backgroundColor="#9FC8DA">
                         <GridLayout>
                             <Image src="{{ image }}"/>
                         </GridLayout>
@@ -28,12 +27,17 @@
             </ns:Carousel>
         </StackLayout>
 
-        <StackLayout orientation="vertical" verticalAlignment="bottom" height="50%">
+        <ScrollView height="37%" marginTop="3%">
+            <Label text="{{ text }}" color="white" textAlignment="center" textWrap="true"></Label>
+        </ScrollView>
+
+        <StackLayout orientation="vertical" height="10%">
             <Label text="{{ message }}" class="message" textWrap="true"/>
             <StackLayout orientation="horizontal" horizontalAlignment="center">
-                <Button text="Play" tap="play"/>
-                <Button text="Pause" tap="pause"/>
-                <Button text="Resume" tap="resume"/>
+                <Button text="Play" tap="play" backgroundColor="white" />
+                <Button text="Pause" tap="pause" backgroundColor="white"/>
+                <Button text="Resume" tap="resume" backgroundColor="white"/>
+                <Label text="{{ text_time }}" color="white" verticalAlignment="center"></Label>
             </StackLayout>
         </StackLayout>
     </StackLayout>
