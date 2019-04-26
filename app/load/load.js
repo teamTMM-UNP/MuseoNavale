@@ -3,6 +3,7 @@ let native_zip = require("nativescript-zip").Zip;
 let fs = require("tns-core-modules/file-system");
 const httpModule = require("http");
 let appSetting = require("tns-core-modules/application-settings");
+let view;
 
 let viewModel;
 let page;
@@ -11,6 +12,7 @@ function onNavigatingTo(args) {
     page = args.object;
 
     viewModel = observableModule.fromObject({});
+    view = page.getViewById("toRotate");
 
     if(!fs.Folder.exists("/data/data/it.uniparthenope.museonavale/files/app/assets/zip")) {
         let documents = fs.knownFolders.currentApp();
@@ -83,6 +85,11 @@ function onNavigatingTo(args) {
 function onZipProgress(args) {
     console.log('unzipping:' + args + "%");
     viewModel.set("loading", "Unzipping: " + args + " %");
+    view.animate({
+        rotate : 360,
+        duration : 2000,
+        iterations : Number.POSITIVE_INFINITY
+    });
 }
 
 exports.onNavigatingTo = onNavigatingTo;
