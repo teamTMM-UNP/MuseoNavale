@@ -11,23 +11,20 @@
     <StackLayout orientation="vertical" verticalAlignment="center" >
         <StackLayout orientation="vertical" verticalAlignment="top" horizontalAlignment="center" >
             <StackLayout orientation="horizontal">
-                <Image src="~/images/uniparthenope-logo.png" height="75" />
-                <Label class="optimusFont" text="MUSEO" fontSize="70" horizontalAlignment="left"/>
+                <Image src="~/images/logo_museo.png" height="75" />
+                <Label class="optimusFont" text="MUSEO" fontSize="67" horizontalAlignment="left"/>
             </StackLayout>
             <StackLayout orientation="horizontal">
-                <Label class="optimusFont" text="NAVALE" fontSize="70" horizontalAlignment="left"/>
+                <Label class="optimusFont" text="NAVALE" fontSize="67" horizontalAlignment="left"/>
                 <Image src="~/images/uniparthenope-logo.png" height="75" marginLeft="5"/>
             </StackLayout>
-            <Label class="optimusFont" text="Dell' Universita' Degli Studi ''Parthenope''" horizontalAlignment="center"/>
+            <Label class="optimusFont" text="Dell' Universita' Degli Studi ''Parthenope''" horizontalAlignment="center" marginTop="10"/>
         </StackLayout>
 
-        <StackLayout orientation="horizontal" verticalAlignment="bottom" marginTop="30dp">
-            <Image src="~/images/home2a.png" height="357dp"/>
-            <StackLayout class="coverImage"  backgroundImage="~/images/home2b.png" orientation="vertical" height="340dp" width="100%" verticalAlignment="center">
-                <Button backgroundImage="~/images/itButton.png" text="" tap="onTapIt" marginBottom="45dp" marginLeft="5dp" height="15.5%"/>
-                <Button backgroundImage="~/images/enusButton.png" text="" tap="onTapEn" marginBottom="45dp" marginLeft="5dp" height="15.5%"/>
-                <Button backgroundImage="~/images/frButton.png" text="" tap="onTapFr" marginLeft="5dp" height="15.5%"/>
-            </StackLayout >
+        <StackLayout class="coverImage" backgroundImage="~/images/home1.png" orientation="vertical" verticalAlignment="center" marginTop="30dp" width="300" height="300">
+                <Image src="~/images/itButton.png"  tap="onTapIt" marginBottom="45dp" marginLeft="5dp" width="60%" horizontalAlignment="right"/>
+                <Image src="~/images/enusButton.png"  tap="onTapEn" marginBottom="45dp" marginLeft="5dp" width="60%" horizontalAlignment="right"/>
+                <Image src="~/images/frButton.png"  tap="onTapFr" marginLeft="5dp" width="60%" horizontalAlignment="right"/>
         </StackLayout>
     </StackLayout>
 </Page>
