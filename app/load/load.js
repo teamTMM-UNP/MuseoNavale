@@ -12,61 +12,70 @@ function onNavigatingTo(args) {
 
     viewModel = observableModule.fromObject({});
 
-    let documents = fs.knownFolders.currentApp();
-    let zipFile = fs.path.join(fs.knownFolders.currentApp().path, "boundle.zip");
-    let dest = fs.path.join(fs.knownFolders.currentApp().path, "/assets/zip");
+    if(!fs.Folder.exists("/data/data/it.uniparthenope.museonavale/files/app/assets/zip")) {
+        let documents = fs.knownFolders.currentApp();
+        let zipFile = fs.path.join(fs.knownFolders.currentApp().path, "boundle.zip");
+        let dest = fs.path.join(fs.knownFolders.currentApp().path, "/assets/zip");
 
-    native_zip.unzipWithProgress(zipFile, dest, onZipProgress, true)
-        .then(() => {
-            console.log('unzip succesfully completed');
-            let url_main = documents.getFolder("/assets/zip/MuseoNavale");
-            url_main.getEntities().then(function (data) {
-                for (let i = 1; i < data.length; i++) {
-                    let name = data[i]["_name"];
-
-                    if (url_main.getFile(name).extension == ".json") {
-                        appSetting.setString("fileJson", name);
-                        page.frame.navigate("home/home-page");
-                    }
-                }
-            });
-        })
-        .catch(err => {
-            console.log('unzip error: ' + err);
-            fs.knownFolders.currentApp().getFolder("/assets/zip").remove();
-        });
-
-    /*console.log('Download Started');
-    viewModel.set("loading", "Downloading.....");
-    let folder = fs.knownFolders.currentApp();
-    let file = fs.path.join(folder.path, "/assets/zip/prova.zip");
-    let dest = fs.path.join(fs.knownFolders.currentApp().path, "/assets/zip");
-    let url = "http://www.mobilemind.com.br/makeyourself/coollife/images-2.1.zip";
-    httpModule.getFile(url, file).then(function (r) {
-        console.log(r.path);
-
-        viewModel.set("loading_height", "0");
-        viewModel.set("loading", "false");
-
-        fs.knownFolders.currentApp().getFolder("/assets").getEntities().then(function (data) {
-            console.log(data);
-        });
-
-        native_zip.unzipWithProgress(file, dest, onZipProgress, true)
+        native_zip.unzipWithProgress(zipFile, dest, onZipProgress, true)
             .then(() => {
                 console.log('unzip succesfully completed');
-                let url_main = folder.getFolder("/assets/zip");
+                let url_main = documents.getFolder("/assets/zip/MuseoNavale");
                 url_main.getEntities().then(function (data) {
+                    for (let i = 1; i < data.length; i++) {
+                        let name = data[i]["_name"];
 
+                        if (url_main.getFile(name).extension == ".json") {
+                            appSetting.setString("fileJson", name);
+                            page.frame.navigate("home/home-page");
+                        }
+                    }
                 });
-            }).catch(err => {
-            console.log('unzip error: ' + err);
-        });
+            })
+            .catch(err => {
+                console.log('unzip error: ' + err);
+                fs.knownFolders.currentApp().getFolder("/assets/zip").remove();
+            });
 
-    }, function (e) {
-        //// Argument (e) is Error!
-    });*/
+        /*console.log('Download Started');
+        viewModel.set("loading", "Downloading.....");
+        let folder = fs.knownFolders.currentApp();
+        let file = fs.path.join(folder.path, "/assets/zip/prova.zip");
+        let dest = fs.path.join(fs.knownFolders.currentApp().path, "/assets/zip");
+        let url = "http://www.mobilemind.com.br/makeyourself/coollife/images-2.1.zip";
+        httpModule.getFile(url, file).then(function (r) {
+            console.log(r.path);
 
+            viewModel.set("loading_height", "0");
+            viewModel.set("loading", "false");
+
+            fs.knownFolders.currentApp().getFolder("/assets").getEntities().then(function (data) {
+                console.log(data);
+            });
+
+            native_zip.unzipWithProgress(file, dest, onZipProgress, true)
+                .then(() => {
+                    console.log('unzip succesfully completed');
+                    let url_main = folder.getFolder("/assets/zip");
+                    url_main.getEntities().then(function (data) {
+
+                    });
+                }).catch(err => {
+                console.log('unzip error: ' + err);
+            });
+
+        }, function (e) {
+            //// Argument (e) is Error!
+        });*/
+    }
+
+    else{
+        const navigationEntry = {
+            moduleName: "intro/intro",
+            clearHistory: true
+        };
+        page.frame.navigate(navigationEntry);
+    }
 
     page.bindingContext = viewModel;
 }
