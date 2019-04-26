@@ -8,16 +8,15 @@
 
     <x:StatusBar ios:barStyle="light" barColor="rgba(217,187,132,1)" />
 
-    <StackLayout orientation="vertical" verticalAlignment="center" >
+    <StackLayout orientation="vertical" verticalAlignment="top" height="100%">
+        <Image src="~/images/logo_museo.png" height="15%" verticalAlignment="top" />
         <StackLayout orientation="vertical" verticalAlignment="top" horizontalAlignment="center" >
             <StackLayout orientation="horizontal">
-                <Image src="~/images/logo_museo.png" height="75" />
-                <Label class="optimusFont" text="MUSEO" fontSize="67" horizontalAlignment="left"/>
+
+                 <Label class="optimusFont" text="MUSEO" fontSize="67" horizontalAlignment="left" verticalAlignment="center"/>
+
             </StackLayout>
-            <StackLayout orientation="horizontal">
-                <Label class="optimusFont" text="NAVALE" fontSize="67" horizontalAlignment="left"/>
-                <Image src="~/images/uniparthenope-logo.png" height="75" marginLeft="5"/>
-            </StackLayout>
+                <Label class="optimusFont" text="NAVALE" fontSize="67" horizontalAlignment="right"/>
             <Label class="optimusFont" text="Dell' Universita' Degli Studi ''Parthenope''" horizontalAlignment="center" marginTop="10"/>
         </StackLayout>
 
