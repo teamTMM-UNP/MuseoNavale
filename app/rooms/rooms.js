@@ -22,28 +22,10 @@ function onNavigatingTo(args) {
     let fileJson = url_main.getFile(appSetting.getString("fileJson"));
     fileJson.readText().then(function (data) {
         let jsonData = JSON.parse(data);
-        if(jsonData['rooms']['Stanza1']['id'] != ""){
+        for(let i=0; i<jsonData['rooms'].length; i++){
             items.push({
-                "id": jsonData['rooms']['Stanza1']['id'],
-                "image": "~/images/rooms.png"
-            });
-        }
-        if(jsonData['rooms']['Stanza2']['id'] != ""){
-            items.push({
-                "id": jsonData['rooms']['Stanza1']['id'],
-                "image": "~/images/rooms.png"
-            });
-        }
-        if(jsonData['rooms']['Stanza3']['id'] != ""){
-            items.push({
-                "id": jsonData['rooms']['Stanza1']['id'],
-                "image": "~/images/rooms.png"
-            });
-        }
-        if(jsonData['rooms']['Stanza4']['id'] != ""){
-            items.push({
-                "id": jsonData['rooms']['Stanza1']['id'],
-                "image": "~/images/rooms.png"
+                "id" :  jsonData['rooms'][i]['hall'],
+                "image" : "~/images/rooms.png"
             });
         }
     });
@@ -55,14 +37,14 @@ function onTap(args) {
 
     let temp = new ObservableArray();
 
-    console.log(items.getItem(index));
     temp.push(items.getItem(index));
 
     const nav =
         {
             moduleName: "room/room",
             context: {
-                data: temp.getItem(0)
+                data: temp.getItem(0),
+                index: index
             }
         };
 

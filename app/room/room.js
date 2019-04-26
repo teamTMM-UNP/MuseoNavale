@@ -26,27 +26,30 @@ function onNavigatingTo(args) {
     let fileJson = url_main.getFile(appSetting.getString("fileJson"));
     fileJson.readText().then(function (data1) {
         let jsonData = JSON.parse(data1);
-        console.log(jsonData['rooms'][data.id]);
-        for(let i=0; i<jsonData['rooms'][data.id]['items'].length; i++)
-        {
-            let img_name = jsonData['rooms'][data.id]['items'][i]['field_image'];
-            let path_img = url_main.path + "/" +img_name;
+        for(let i=0; i<jsonData['rooms'].length; i++){
+            if(jsonData['rooms'][i]['hall'] == data.id){
+                for(let j=0; j<jsonData['rooms'][i]['items'].length; j++){
+                    let img_name = jsonData['rooms'][i]['items'][j]['field_image'];
+                    let path_img = url_main.path + "/" +img_name;
 
-            if(img_name != ""){
-                items.push({
-                    "title": jsonData['rooms'][data.id]['items'][i]['title'],
-                    "image": path_img,
-                    "other_image": jsonData['rooms'][data.id]['items'][i]['field_other_image'],
-                    "audio": jsonData['rooms'][data.id]['items'][i]['field_audio']
-                });
-            }
-            else{
-                items.push({
-                    "title" : jsonData['rooms'][data.id]['items'][i]['title'],
-                    "image": documents.getFile("images/no_image.png").path,
-                    "other_image": "",
-                    "audio": jsonData['rooms'][data.id]['items'][i]['field_audio']
-                })
+                    if(img_name != ""){
+                        items.push({
+                            "title": jsonData['rooms'][i]['items'][j]['title'],
+                            "image": path_img,
+                            "other_image": jsonData['rooms'][i]['items'][j]['field_other_image'],
+                            "audio": jsonData['rooms'][i]['items'][j]['field_audio']
+                        });
+                    }
+                    else{
+                        items.push({
+                            "title" : jsonData['rooms'][i]['items'][j]['title'],
+                            "image": documents.getFile("images/no_image.png").path,
+                            "other_image": "",
+                            "audio": jsonData['rooms'][i]['items'][j]['field_audio']
+                        })
+                    }
+                }
+                break;
             }
         }
     });
