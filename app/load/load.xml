@@ -9,6 +9,10 @@
     <x:StatusBar ios:barStyle="light" barColor="rgba(217,187,132,1)" />
 
     <StackLayout horizontalAlignment="center" verticalAlignment="center">
-        <Label text="{{ loading }}" color="white" fontSize="30"></Label>
+        <Label text="Caricamento Database" class="optimusFont" fontSize="60"></Label>
+        <StackLayout class="coverImage" orientation="vertical" verticalAlignment="center" backgroundImage="~/images/bussola-empty.png" >
+            <Image id="toRotate" width="35%" src="~/images/lancetta.png"/>
+        </StackLayout>
+        <Label text="{{ loading }}" color="white" class="optimusFont" fontSize="30"></Label>
     </StackLayout>
 </Page>
