@@ -17,8 +17,13 @@
     font-family: "OptimusPrinceps";
 }
 
+.optimusFont_Bold
+{
+    font-family: "OptimusPrincepsSemiBold";
+}
+
 .drawer{
-    background-color: rgb(100,86,60);
+    background-color: rgba(64,43,18,0.8);
     color: white;
 }
 
