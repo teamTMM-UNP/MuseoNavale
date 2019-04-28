@@ -137,7 +137,7 @@ function QRCode(){
     });
 }
 
-function info() {
+function about() {
     page.frame.navigate("info/info");
 }
 
@@ -209,7 +209,8 @@ function rooms(){
 }
 
 exports.toggleDrawer = toggleDrawer;
-exports.info = info;
+
+exports.about = about;
 exports.rooms = rooms;
 exports.QRCode = QRCode;
 exports.onTap = onTap;

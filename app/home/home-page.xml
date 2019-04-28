@@ -10,25 +10,30 @@
         <sd:RadSideDrawer.drawerContent>
             <ScrollView>
                 <StackLayout class="drawer">
-                <GridLayout tap="QRCode" marginBottom="20" marginTop="10">
-                    <Image row="0" src="~/images/drawer_buttons/qrcode_button.png"/>
-                    <Label color="#402B12" row="1" fontSize="30" class="optimusFont_Bold" text="Scan QR" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
+                <GridLayout tap="QRCode" marginBottom="20" marginTop="10" marginRight="5">
+                    <Image row="0" src="~/images/drawer_buttons/qrcode_button.png" class="roundEdge"/>
+                    <Label color="#ffffff" row="1" fontSize="30" class="optimusFont_Bold" text="Scan QR" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
                 </GridLayout>
-                    <GridLayout tap="info" marginBottom="20">
-                        <Image row="0" src="~/images/drawer_buttons/qrcode_button.png"/>
-                        <Label row="1" fontSize="30" class="optimusFont" text="Info" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
+                    <GridLayout tap="info" marginBottom="20" marginRight="5">
+                        <Image row="0" src="~/images/drawer_buttons/museum_button.png" class="roundEdge"/>
+                        <Label color="#ffffff" row="1" fontSize="30" class="optimusFont_Bold" text="Museo" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
                     </GridLayout>
-                    <GridLayout tap="rooms" marginBottom="20">
-                        <Image row="0" src="~/images/drawer_buttons/qrcode_button.png"/>
-                        <Label row="1" fontSize="30" class="optimusFont" text="Sale" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
+
+                    <GridLayout tap="rooms" marginBottom="20" marginRight="5" >
+                        <Image row="0" src="~/images/drawer_buttons/rooms_button.png" class="roundEdge"/>
+                        <Label color="#ffffff" row="1" fontSize="30" class="optimusFont_Bold" text="Sale" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
                     </GridLayout>
-                    <GridLayout tap="tour" marginBottom="20">
-                        <Image row="0" src="~/images/drawer_buttons/qrcode_button.png"/>
-                        <Label row="1" fontSize="30" class="optimusFont" text="Tour" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
+                    <GridLayout tap="tour" marginBottom="20" marginRight="5">
+                        <Image row="0" src="~/images/drawer_buttons/tour_button.png" class="roundEdge"/>
+                        <Label color="#ffffff" row="1" fontSize="30" class="optimusFont_Bold" text="Tour" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
                     </GridLayout>
-                    <GridLayout tap="explore">
-                        <Image row="0" src="~/images/drawer_buttons/qrcode_button.png"/>
-                        <Label row="1" fontSize="30" class="optimusFont" text="Esplora" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
+                    <GridLayout tap="explore" marginBottom="20" marginRight="5">
+                        <Image row="0" src="~/images/drawer_buttons/explore_button.png" class="roundEdge"/>
+                        <Label color="#ffffff" row="1" fontSize="30" class="optimusFont_Bold" text="Esplora" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
+                    </GridLayout>
+                    <GridLayout tap="about"  marginRight="5" marginBottom="10">
+                        <Image row="0" src="~/images/drawer_buttons/info_button.png" class="roundEdge"/>
+                        <Label color="#ffffff" row="1" fontSize="30" class="optimusFont_Bold" text="About" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
                     </GridLayout>
             </StackLayout>
             </ScrollView>
