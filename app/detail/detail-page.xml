@@ -16,28 +16,29 @@
     <StackLayout orientation="vertical" height="100%">
         <GridLayout verticalAlignment="top" height="50%">
             <Label text="{{ titolo }}" color="white" horizontalAlignment="center" verticalAlignment="center" fontSize="20" textWrap="true" textAlignment="center"></Label>
-            <ns:Carousel id="myCarousel" items="{{ images }}" height="100%" width="100%" color="white" indicatorColorUnselected="#50ffffff" pageChanged="myChangeEvent" pageTapped="mySelectedEvent" android:indicatorAnimation="slide"  indicatorColor="#fff" indicatorOffset="0,0" showIndicator="true">
+            <ns:Carousel id="myCarousel" items="{{ images }}" color="white" indicatorColorUnselected="#50ffffff" pageChanged="myChangeEvent" pageTapped="mySelectedEvent" android:indicatorAnimation="slide"  indicatorColor="#ffffff" indicatorOffset="0,0" showIndicator="true">
                 <ns:Carousel.itemTemplate>
                     <ns:CarouselItem backgroundColor="#9FC8DA">
                         <GridLayout>
-                            <Image src="{{ image }}"/>
+                            <Image src="{{ image }}" stretch="aspectFill" />
                         </GridLayout>
                     </ns:CarouselItem>
                 </ns:Carousel.itemTemplate>
             </ns:Carousel>
         </GridLayout>
 
-        <ScrollView height="37%" marginTop="3%">
+        <ScrollView height="40%" marginTop="5">
             <Label text="{{ text }}" color="white" textAlignment="center" textWrap="true"></Label>
         </ScrollView>
 
-        <StackLayout orientation="vertical" height="10%">
-            <Label text="{{ message }}" class="message" textWrap="true"/>
+        <StackLayout orientation="vertical" height="10%" marginTop="5">
             <StackLayout orientation="horizontal" horizontalAlignment="center">
-                <Button text="Play" tap="play" backgroundColor="white" />
-                <Button text="Pause" tap="pause" backgroundColor="white"/>
-                <Button text="Resume" tap="resume" backgroundColor="white"/>
-                <Label text="{{ text_time }}" color="white" verticalAlignment="center"></Label>
+                <Button text="{{ text_button }}" backgroundColor="white" tap="play_audio" width="30%" marginRight="5"/>
+                <StackLayout orientation="horizontal" width="70%">
+                    <Label text="{{ text_time }}" color="white" verticalAlignment="center"/>
+                    <Slider value="{{ value }}"  minValue="{{ min }}" maxValue="{{ max }}" loaded="onSliderLoaded" width="70%"/>
+                    <Label text="{{ duration }}" color="white" verticalAlignment="center"/>
+                </StackLayout>
             </StackLayout>
         </StackLayout>
     </StackLayout>
