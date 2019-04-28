@@ -8,7 +8,8 @@
 
     <sd:RadSideDrawer id="sideDrawer">
         <sd:RadSideDrawer.drawerContent>
-            <StackLayout class="drawer">
+            <ScrollView>
+                <StackLayout class="drawer">
                 <StackLayout orientation="horizontal" tap="QRCode">
                     <StackLayout width="30%">
                         <Image src="~/images/qr-code.png" width="35" marginRight="10" verticalAlignment="center"></Image>
@@ -34,6 +35,7 @@
                     <Label text="Tour" width="70%" verticalAlignment="center"/>
                 </StackLayout>
             </StackLayout>
+            </ScrollView>
         </sd:RadSideDrawer.drawerContent>
 
         <sd:RadSideDrawer.mainContent>
