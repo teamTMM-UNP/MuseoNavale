@@ -14,7 +14,7 @@
     </ios>
 
     <StackLayout orientation="vertical" height="100%">
-        <StackLayout verticalAlignment="top" height="50%">
+        <GridLayout verticalAlignment="top" height="50%">
             <Label text="{{ titolo }}" color="white" horizontalAlignment="center" verticalAlignment="center" fontSize="20" textWrap="true" textAlignment="center"></Label>
             <ns:Carousel id="myCarousel" items="{{ images }}" height="100%" width="100%" color="white" indicatorColorUnselected="#50ffffff" pageChanged="myChangeEvent" pageTapped="mySelectedEvent" android:indicatorAnimation="slide"  indicatorColor="#fff" indicatorOffset="0,0" showIndicator="true">
                 <ns:Carousel.itemTemplate>
@@ -25,7 +25,7 @@
                     </ns:CarouselItem>
                 </ns:Carousel.itemTemplate>
             </ns:Carousel>
-        </StackLayout>
+        </GridLayout>
 
         <ScrollView height="37%" marginTop="3%">
             <Label text="{{ text }}" color="white" textAlignment="center" textWrap="true"></Label>
