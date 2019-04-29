@@ -1,7 +1,37 @@
 <Page
-        class="page"
+        class="coverIm"
         navigatingTo="onNavigatingTo"
         xmlns="http://schemas.nativescript.org/tns.xsd"
         actionBarHidden="true"
-        backgroundColor="#D9BB84">
+        backgroundImage="~/images/background.jpg">
+
+
+    <ScrollView>
+        <StackLayout>
+            <StackLayout margin="10 20 5 20" height="4px" backgroundColor="rgba(64,43,18,0.8)" marginBottom="5" marginTop="10"/>
+            <StackLayout orientation="vertical" verticalAlignment="top" horizontalAlignment="center">
+                <Image tap="settings" src="~/images/logo_museo.png" width="75"/>
+                <Label class="optimusFont" text="Museo Navale" fontSize="47" horizontalAlignment="center" textWrap="true"/>
+                <Label class="optimusFont" text="Dell' Universita' Degli Studi ''Parthenope''" horizontalAlignment="center" marginTop="10"/>
+            </StackLayout>
+            <Label class="optimusFont_Bold" text="- Aperto -" fontSize="27" horizontalAlignment="center" textWrap="true"/>
+        <StackLayout margin="5 20 0 20" height="4px" backgroundColor="rgba(64,43,18,0.8)" marginBottom="20" />
+
+
+
+            <StackLayout orientation="vertical" verticalAlignment="top" horizontalAlignment="center">
+                <Image tap="settings" src="~/images/drawer_buttons/qr_bar.png"/>
+                <Label class="optimusFont" text="Via petrarca" fontSize="27" horizontalAlignment="center" textWrap="true"/>
+                <Label class="optimusFont" text="Dell' Universita' Degli Studi ''Parthenope''" horizontalAlignment="center" marginTop="10"/>
+            </StackLayout>
+
+            <StackLayout margin="10 20 5 20" height="4px" backgroundColor="rgba(64,43,18,0.8)" marginBottom="5" marginTop="10"/>
+
+            <StackLayout orientation="vertical" verticalAlignment="top" horizontalAlignment="center">
+                <Label class="optimusFont" text="Orari" fontSize="27" horizontalAlignment="center" textWrap="true"/>
+                <Label class="optimusFont" text="Dell' Universita' Degli Studi ''Parthenope''" horizontalAlignment="center" marginTop="10"/>
+            </StackLayout>
+            <StackLayout margin="5 20 0 20" height="4px" backgroundColor="rgba(64,43,18,0.8)" marginBottom="20" />
+        </StackLayout>
+    </ScrollView>
 </Page>
