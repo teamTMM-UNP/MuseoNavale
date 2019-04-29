@@ -3,6 +3,12 @@
 .btn {
     font-size: 18;
 }
+
+.view {
+    animation-name: rotate;
+    animation-duration: 3;
+}
+
 .actionBarHidden
 {
     actionBarHidden: "true"
