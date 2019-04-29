@@ -7,16 +7,14 @@
 
     <ScrollView>
         <StackLayout>
-            <StackLayout margin="10 20 5 20" height="4px" backgroundColor="rgba(64,43,18,0.8)" marginBottom="5" />
+            <StackLayout margin="10 20 5 20" height="4px" backgroundColor="rgba(64,43,18,0.8)" marginBottom="5" marginTop="10"/>
             <StackLayout orientation="vertical" verticalAlignment="top" horizontalAlignment="center">
-                <GridLayout orientation="horizontal">
-                    <Label class="optimusFont" text="MUSEO" fontSize="37" horizontalAlignment="left" verticalAlignment="center" marginLeft="20"/>
-                    <Image tap="settings" src="~/images/settings.png" width="25" horizontalAlignment="right" verticalAlignment="center" marginRight="20"/>
-                </GridLayout>
-                <Label class="optimusFont" text="NAVALE" fontSize="37" horizontalAlignment="center"/>
+                <Image tap="settings" src="~/images/logo_museo.png" width="75"/>
+                <Label class="optimusFont" text="Museo Navale" fontSize="47" horizontalAlignment="center" textWrap="true"/>
                 <Label class="optimusFont" text="Dell' Universita' Degli Studi ''Parthenope''" horizontalAlignment="center" marginTop="10"/>
             </StackLayout>
             <StackLayout margin="5 20 0 20" height="4px" backgroundColor="rgba(64,43,18,0.8)" marginBottom="20" />
+
             <GridLayout tap="QRCode" marginBottom="20" marginTop="10">
                 <Image row="0" src="~/images/drawer_buttons/qr_bar.png" class="roundEdge"/>
                 <Label color="#ffffff" row="1" fontSize="30" class="optimusFont_Bold" text="{{ _L('home_scan') }}" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>

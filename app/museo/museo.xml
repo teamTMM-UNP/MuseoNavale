@@ -13,8 +13,8 @@
                 <Label class="optimusFont" text="Dell' Universita' Degli Studi ''Parthenope''" horizontalAlignment="center" marginTop="10"/>
             </StackLayout>
             <Label class="optimusFont_Bold" text="{{ apertura }}" fontSize="27" horizontalAlignment="center" textWrap="true"/>
-
             <StackLayout margin="5 20 0 20" height="4px" backgroundColor="rgba(64,43,18,0.8)" marginBottom="20" />
+
                 <StackLayout orientation="vertical" verticalAlignment="top" horizontalAlignment="center">
                     <Image tap="settings" src="~/images/museo_main.png"/>
                     <Label class="optimusFont" text="Via Francesco Petrarca n. 80 – 80123" fontSize="18" horizontalAlignment="center" textWrap="true" marginRight="10" marginLeft="10"/>

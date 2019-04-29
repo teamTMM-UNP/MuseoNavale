@@ -25,16 +25,18 @@
 }
 
 .coverImageButtonIt {
+    font-family: "Timeless";
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     background-image: url("~/images/itButton.png");
-    color: #ffffff;
+    color: rgba(64,43,18,1);
     font-size: 25;
     font-weight: bold;
 }
 
 .coverImageButtonEn {
+    font-family: "Timeless";
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -45,6 +47,7 @@
 }
 
 .coverImageButtonFr {
+    font-family: "Timeless";
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;

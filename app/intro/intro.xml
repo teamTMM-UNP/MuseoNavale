@@ -1,12 +1,12 @@
 <Page
-        class="coverImage"
+        class="coverIm"
         navigatingTo="onNavigatingTo"
         xmlns="http://schemas.nativescript.org/tns.xsd"
         xmlns:x="nativescript-statusbar"
         actionBarHidden="true"
-        backgroundColor="#D9BB84">
+        backgroundImage="~/images/background.jpg">
 
-    <x:StatusBar ios:barStyle="light" barColor="rgba(217,187,132,1)" />
+    <x:StatusBar ios:barStyle="light" barColor="rgba(64,43,18,0.8)" />
 
     <StackLayout orientation="vertical" verticalAlignment="top" height="100%">
         <Image src="~/images/logo_museo.png" height="15%" verticalAlignment="top" />
@@ -24,7 +24,7 @@
                <Image src="~/images/enusButton.png"  tap="onTapEn" marginBottom="45dp" marginLeft="5dp" width="60%" horizontalAlignment="right"/>
                 <Image src="~/images/frButton.png"  tap="onTapFr" marginLeft="5dp" width="60%" horizontalAlignment="right"/>
             -->
-            <Button class="{{ class_button }}" width="60%" text="{{ _L('intro') }}" tap="benvenuto" horizontalAlignment="right"/>
+            <Button class="{{ class_button }}" width="100%" text="{{ _L('intro') }}" tap="benvenuto" horizontalAlignment="center"/>
         </StackLayout>
     </StackLayout>
 </Page>
