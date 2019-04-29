@@ -1,40 +1,47 @@
 <Page
-        class="page"
+        class="coverIm"
         navigatingTo="onNavigatingTo"
         xmlns="http://schemas.nativescript.org/tns.xsd"
         actionBarHidden="true"
-        backgroundColor="#D9BB84">
+        backgroundImage="~/images/background.jpg">
 
     <ScrollView>
         <StackLayout>
-            <GridLayout tap="QRCode" marginBottom="20" marginTop="10" marginRight="5">
-                <Image row="0" src="~/images/drawer_buttons/qrcode_button.png" class="roundEdge"/>
+            <StackLayout margin="10 20 5 20" height="4px" backgroundColor="rgba(64,43,18,0.8)" marginBottom="5" />
+            <StackLayout orientation="vertical" verticalAlignment="top" horizontalAlignment="center">
+                <GridLayout orientation="horizontal">
+                    <Label class="optimusFont" text="MUSEO" fontSize="37" horizontalAlignment="left" verticalAlignment="center" marginLeft="20"/>
+                    <Image tap="settings" src="~/images/settings.png" width="25" horizontalAlignment="right" verticalAlignment="center" marginRight="20"/>
+                </GridLayout>
+                <Label class="optimusFont" text="NAVALE" fontSize="37" horizontalAlignment="center"/>
+                <Label class="optimusFont" text="Dell' Universita' Degli Studi ''Parthenope''" horizontalAlignment="center" marginTop="10"/>
+            </StackLayout>
+            <StackLayout margin="5 20 0 20" height="4px" backgroundColor="rgba(64,43,18,0.8)" marginBottom="20" />
+            <GridLayout tap="QRCode" marginBottom="20" marginTop="10">
+                <Image row="0" src="~/images/drawer_buttons/qr_bar.png" class="roundEdge"/>
                 <Label color="#ffffff" row="1" fontSize="30" class="optimusFont_Bold" text="{{ _L('home_scan') }}" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
             </GridLayout>
-            <GridLayout tap="info" marginBottom="20" marginRight="5">
-                <Image row="0" src="~/images/drawer_buttons/museum_button.png" class="roundEdge"/>
+            <GridLayout tap="info" marginBottom="20">
+                <Image row="0" src="~/images/drawer_buttons/museum_bar.png" class="roundEdge"/>
                 <Label color="#ffffff" row="1" fontSize="30" class="optimusFont_Bold" text="{{ _L('home_museo') }}" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
             </GridLayout>
 
-            <GridLayout tap="rooms" marginBottom="20" marginRight="5" >
-                <Image row="0" src="~/images/drawer_buttons/rooms_button.png" class="roundEdge"/>
+            <GridLayout tap="rooms" marginBottom="20">
+                <Image row="0" src="~/images/drawer_buttons/room_bar.png" class="roundEdge"/>
                 <Label color="#ffffff" row="1" fontSize="30" class="optimusFont_Bold" text="{{ _L('home_sale') }}" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
             </GridLayout>
-            <GridLayout tap="tour" marginBottom="20" marginRight="5">
-                <Image row="0" src="~/images/drawer_buttons/tour_button.png" class="roundEdge"/>
+
+            <GridLayout tap="tour" marginBottom="20">
+                <Image row="0" src="~/images/drawer_buttons/tour_bar.png" class="roundEdge"/>
                 <Label color="#ffffff" row="1" fontSize="30" class="optimusFont_Bold" text="{{ _L('home_tour') }}" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
             </GridLayout>
-            <GridLayout tap="explore" marginBottom="20" marginRight="5">
-                <Image row="0" src="~/images/drawer_buttons/explore_button.png" class="roundEdge"/>
+            <GridLayout tap="explore" marginBottom="20">
+                <Image row="0" src="~/images/drawer_buttons/search_bar.png" />
                 <Label color="#ffffff" row="1" fontSize="30" class="optimusFont_Bold" text="{{ _L('home_ricerca') }}" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
             </GridLayout>
-            <GridLayout tap="about"  marginRight="5" marginBottom="10">
-                <Image row="0" src="~/images/drawer_buttons/info_button.png" class="roundEdge"/>
+            <GridLayout tap="about" marginBottom="10">
+                <Image row="0" src="~/images/drawer_buttons/info_bar.png" class="roundEdge"/>
                 <Label color="#ffffff" row="1" fontSize="30" class="optimusFont_Bold" text="{{ _L('home_info') }}" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
-            </GridLayout>
-            <GridLayout tap="settings"  marginRight="5" marginBottom="10">
-                <Image row="0" src="~/images/drawer_buttons/info_button.png" class="roundEdge"/>
-                <Label color="#ffffff" row="1" fontSize="30" class="optimusFont_Bold" text="{{ _L('home_impostazioni') }}" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
             </GridLayout>
         </StackLayout>
     </ScrollView>

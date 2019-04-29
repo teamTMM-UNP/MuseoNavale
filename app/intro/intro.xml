@@ -1,5 +1,5 @@
 <Page
-        class="page"
+        class="coverImage"
         navigatingTo="onNavigatingTo"
         xmlns="http://schemas.nativescript.org/tns.xsd"
         xmlns:x="nativescript-statusbar"
@@ -12,9 +12,7 @@
         <Image src="~/images/logo_museo.png" height="15%" verticalAlignment="top" />
         <StackLayout orientation="vertical" verticalAlignment="top" horizontalAlignment="center" >
             <StackLayout orientation="horizontal">
-
                  <Label class="optimusFont" text="MUSEO" fontSize="67" horizontalAlignment="left" verticalAlignment="center"/>
-
             </StackLayout>
                 <Label class="optimusFont" text="NAVALE" fontSize="67" horizontalAlignment="right"/>
             <Label class="optimusFont" text="Dell' Universita' Degli Studi ''Parthenope''" horizontalAlignment="center" marginTop="10"/>
