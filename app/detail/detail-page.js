@@ -97,14 +97,16 @@ function onNavigatingTo(args) {
 
     var images = new ObservableArray();
     images.push({
-        "image": data.image
+        "image": data.image,
+        "title": data.title
     });
     if(data.other_image != ""){
         let other_image = data.other_image.split(",");
         for(let i=0; i<other_image.length; i++)
         {
             images.push({
-                "image" : fs.knownFolders.currentApp().getFolder("/assets/zip/MuseoNavale").path + "/" + other_image[i]
+                "image" : fs.knownFolders.currentApp().getFolder("/assets/zip/MuseoNavale").path + "/" + other_image[i],
+                "title": data.title
             });
         }
     }

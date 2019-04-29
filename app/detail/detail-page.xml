@@ -6,13 +6,6 @@
         backgroundImage="~/images/background.jpg"
         actionBarHidden="true">
 
-    <ios>
-        <ActionBar class="action-bar">
-            <Label class="action-bar-title" text="{{ titolo }}"></Label>
-            <NavigationButton text="Go Back" ios.systemIcon="9" ios.position="left" tap="backHome"/>
-        </ActionBar>
-    </ios>
-
     <GridLayout>
         <GridLayout verticalAlignment="top" height="50%">
             <ns:Carousel id="myCarousel" items="{{ images }}" color="white" indicatorColorUnselected="#50ffffff" pageChanged="myChangeEvent" pageTapped="mySelectedEvent" android:indicatorAnimation="slide"  indicatorColor="#ffffff" indicatorOffset="0,0" showIndicator="true">
@@ -20,7 +13,7 @@
                     <ns:CarouselItem backgroundColor="#9FC8DA">
                         <GridLayout>
                             <Image src="{{ image }}" stretch="aspectFill" />
-                            <Label backgroundColor="rgba(0,0,0,0.3)" text="{{ titolo }}" fontSize="24" textAlignment="center" verticalAlignment="top" textWrap="true" class="optimusFont"></Label>
+                            <Label backgroundColor="rgba(0,0,0,0.3)" color="#bbbbbb" text="{{ title }}" fontSize="24" textAlignment="center" verticalAlignment="top" textWrap="true" class="optimusFont"></Label>
                         </GridLayout>
                     </ns:CarouselItem>
                 </ns:Carousel.itemTemplate>
