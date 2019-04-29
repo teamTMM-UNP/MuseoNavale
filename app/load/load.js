@@ -44,6 +44,7 @@ function onNavigatingTo(args) {
 
                             if (url_main.getFile(name).extension == ".json") {
                                 appSetting.setString("fileJson", name);
+                                fs.knownFolders.currentApp().getFile("/assets/zip/prova.zip").remove();
                                 page.frame.navigate("home/home-page");
                             }
                         }
