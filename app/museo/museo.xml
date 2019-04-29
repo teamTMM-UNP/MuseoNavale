@@ -1,0 +1,7 @@
+<Page
+        class="page"
+        navigatingTo="onNavigatingTo"
+        xmlns="http://schemas.nativescript.org/tns.xsd"
+        actionBarHidden="true"
+        backgroundColor="#D9BB84">
+</Page>

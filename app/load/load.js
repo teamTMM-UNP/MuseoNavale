@@ -53,9 +53,11 @@ function onNavigatingTo(args) {
                 .catch(err => {
                     console.log('unzip error: ' + err);
                     fs.knownFolders.currentApp().getFolder("/assets/zip").remove();
+                    page.frame.navigate("intro/intro");
                 });
             },function (e) {
-                console.log("Errore: " + e);
+                console.log(e);
+                page.frame.navigate("intro/intro");
         });
 
     }

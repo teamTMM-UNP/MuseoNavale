@@ -145,6 +145,11 @@ function tour(){
     page.frame.navigate("tours/tours");
 }
 
+function info(){
+    page.frame.navigate("museo/museo");
+}
+
+exports.info = info;
 exports.tour = tour;
 exports.explore = explore;
 exports.about = about;
