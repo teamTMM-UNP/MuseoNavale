@@ -15,7 +15,6 @@
 
     <StackLayout orientation="vertical" height="100%">
         <GridLayout verticalAlignment="top" height="50%">
-            <Label text="{{ titolo }}" color="white" horizontalAlignment="center" verticalAlignment="center" fontSize="20" textWrap="true" textAlignment="center"></Label>
             <ns:Carousel id="myCarousel" items="{{ images }}" color="white" indicatorColorUnselected="#50ffffff" pageChanged="myChangeEvent" pageTapped="mySelectedEvent" android:indicatorAnimation="slide"  indicatorColor="#ffffff" indicatorOffset="0,0" showIndicator="true">
                 <ns:Carousel.itemTemplate>
                     <ns:CarouselItem backgroundColor="#9FC8DA">

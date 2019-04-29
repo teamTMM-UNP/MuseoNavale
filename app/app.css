@@ -12,6 +12,37 @@
     background-position: center;
     background-size: contain;
 }
+
+.coverImageButtonIt {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-image: url("~/images/itButton.png");
+    color: #ffffff;
+    font-size: 25;
+    font-weight: bold;
+}
+
+.coverImageButtonEn {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-image: url("~/images/enusButton.png");
+    color: #ffffff;
+    font-size: 25;
+    font-weight: bold;
+}
+
+.coverImageButtonFr {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-image: url("~/images/frButton.png");
+    color: #ffffff;
+    font-size: 25;
+    font-weight: bold;
+}
+
 .roundEdge
 {
     border-radius: 0 5 5 0;
@@ -36,4 +67,9 @@
     placeholder-color: white;
     border-color:white;
     color : white
+}
+
+Slider {
+    color: red;
+    background-color: red;
 }

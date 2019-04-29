@@ -25,7 +25,8 @@
     "nativescript-ui-sidedrawer": "^6.0.0",
     "nativescript-zip": "^3.0.2",
     "string-similarity": "^3.0.0",
-    "tns-core-modules": "~5.3.0"
+    "tns-core-modules": "~5.3.0",
+    "tns-i18n": "0.0.10"
   },
   "devDependencies": {
     "nativescript-dev-webpack": "~0.21.0"

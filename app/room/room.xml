@@ -1,11 +1,9 @@
 <Page
         class="page"
         navigatingTo="onNavigatingTo"
-        xmlns="http://schemas.nativescript.org/tns.xsd">
-
-    <ActionBar class="action-bar">
-        <Label class="action-bar-title" text="{{ room }}"></Label>
-    </ActionBar>
+        xmlns="http://schemas.nativescript.org/tns.xsd"
+        actionBarHidden="true"
+        backgroundColor="#D9BB84">
 
     <StackLayout>
         <ScrollView height="100%">

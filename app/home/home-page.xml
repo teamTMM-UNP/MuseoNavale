@@ -2,71 +2,40 @@
         class="page"
         navigatingTo="onNavigatingTo"
         xmlns="http://schemas.nativescript.org/tns.xsd"
-        xmlns:sd="nativescript-ui-sidedrawer"
         actionBarHidden="true"
         backgroundColor="#D9BB84">
 
-    <sd:RadSideDrawer id="sideDrawer">
-        <sd:RadSideDrawer.drawerContent>
-            <ScrollView>
-                <StackLayout class="drawer">
-                <GridLayout tap="QRCode" marginBottom="20" marginTop="10" marginRight="5">
-                    <Image row="0" src="~/images/drawer_buttons/qrcode_button.png" class="roundEdge"/>
-                    <Label color="#ffffff" row="1" fontSize="30" class="optimusFont_Bold" text="Scan QR" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
-                </GridLayout>
-                    <GridLayout tap="info" marginBottom="20" marginRight="5">
-                        <Image row="0" src="~/images/drawer_buttons/museum_button.png" class="roundEdge"/>
-                        <Label color="#ffffff" row="1" fontSize="30" class="optimusFont_Bold" text="Museo" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
-                    </GridLayout>
+    <ScrollView>
+        <StackLayout>
+            <GridLayout tap="QRCode" marginBottom="20" marginTop="10" marginRight="5">
+                <Image row="0" src="~/images/drawer_buttons/qrcode_button.png" class="roundEdge"/>
+                <Label color="#ffffff" row="1" fontSize="30" class="optimusFont_Bold" text="{{ _L('home_scan') }}" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
+            </GridLayout>
+            <GridLayout tap="info" marginBottom="20" marginRight="5">
+                <Image row="0" src="~/images/drawer_buttons/museum_button.png" class="roundEdge"/>
+                <Label color="#ffffff" row="1" fontSize="30" class="optimusFont_Bold" text="{{ _L('home_museo') }}" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
+            </GridLayout>
 
-                    <GridLayout tap="rooms" marginBottom="20" marginRight="5" >
-                        <Image row="0" src="~/images/drawer_buttons/rooms_button.png" class="roundEdge"/>
-                        <Label color="#ffffff" row="1" fontSize="30" class="optimusFont_Bold" text="Sale" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
-                    </GridLayout>
-                    <GridLayout tap="tour" marginBottom="20" marginRight="5">
-                        <Image row="0" src="~/images/drawer_buttons/tour_button.png" class="roundEdge"/>
-                        <Label color="#ffffff" row="1" fontSize="30" class="optimusFont_Bold" text="Tour" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
-                    </GridLayout>
-                    <GridLayout tap="explore" marginBottom="20" marginRight="5">
-                        <Image row="0" src="~/images/drawer_buttons/explore_button.png" class="roundEdge"/>
-                        <Label color="#ffffff" row="1" fontSize="30" class="optimusFont_Bold" text="Esplora" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
-                    </GridLayout>
-                    <GridLayout tap="about"  marginRight="5" marginBottom="10">
-                        <Image row="0" src="~/images/drawer_buttons/info_button.png" class="roundEdge"/>
-                        <Label color="#ffffff" row="1" fontSize="30" class="optimusFont_Bold" text="About" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
-                    </GridLayout>
-            </StackLayout>
-            </ScrollView>
-        </sd:RadSideDrawer.drawerContent>
-
-        <sd:RadSideDrawer.mainContent>
-            <StackLayout>
-                <ActivityIndicator class="activity-indicator" busy="{{ loading }}" height="{{ loading_height }}" verticalAlignment="center"/>
-
-                <TextView
-                        id = "search"
-                        class="tfstyle"
-                        text = "{{ search_text }}"
-                        width="50%"
-                        horizontalAlignment="center"
-                        loaded="onTextViewLoaded"
-                        hint="Ricerca...."/>
-
-                <ScrollView height="100%">
-                    <ListView class="list-group" items="{{ items }}" itemTap="onTap" orientation="vertical">
-                        <ListView.itemTemplate>
-                            <FlexboxLayout flexDirection="row" class="list-group-item;">
-                                <StackLayout flexGrow="1" orientation="horizontal">
-                                    <StackLayout width="30%">
-                                        <Image src="{{ image }}" width="65" height="65" marginRight="10"/>
-                                    </StackLayout>
-                                    <Label text="{{ title }}" width="70%" color="white" textWrap="true" verticalAlignment="center" horizontalAlignment="center"/>
-                                </StackLayout>
-                            </FlexboxLayout>
-                        </ListView.itemTemplate>
-                    </ListView>
-                </ScrollView>
-            </StackLayout>
-        </sd:RadSideDrawer.mainContent>
-    </sd:RadSideDrawer>
+            <GridLayout tap="rooms" marginBottom="20" marginRight="5" >
+                <Image row="0" src="~/images/drawer_buttons/rooms_button.png" class="roundEdge"/>
+                <Label color="#ffffff" row="1" fontSize="30" class="optimusFont_Bold" text="{{ _L('home_sale') }}" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
+            </GridLayout>
+            <GridLayout tap="tour" marginBottom="20" marginRight="5">
+                <Image row="0" src="~/images/drawer_buttons/tour_button.png" class="roundEdge"/>
+                <Label color="#ffffff" row="1" fontSize="30" class="optimusFont_Bold" text="{{ _L('home_tour') }}" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
+            </GridLayout>
+            <GridLayout tap="explore" marginBottom="20" marginRight="5">
+                <Image row="0" src="~/images/drawer_buttons/explore_button.png" class="roundEdge"/>
+                <Label color="#ffffff" row="1" fontSize="30" class="optimusFont_Bold" text="{{ _L('home_ricerca') }}" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
+            </GridLayout>
+            <GridLayout tap="about"  marginRight="5" marginBottom="10">
+                <Image row="0" src="~/images/drawer_buttons/info_button.png" class="roundEdge"/>
+                <Label color="#ffffff" row="1" fontSize="30" class="optimusFont_Bold" text="{{ _L('home_info') }}" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
+            </GridLayout>
+            <GridLayout tap="settings"  marginRight="5" marginBottom="10">
+                <Image row="0" src="~/images/drawer_buttons/info_button.png" class="roundEdge"/>
+                <Label color="#ffffff" row="1" fontSize="30" class="optimusFont_Bold" text="{{ _L('home_impostazioni') }}" textWrap="true" verticalAlignment="center" horizontalAlignment="right" marginRight="30"/>
+            </GridLayout>
+        </StackLayout>
+    </ScrollView>
 </Page>

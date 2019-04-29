@@ -21,9 +21,12 @@
         </StackLayout>
 
         <StackLayout class="coverImage" backgroundImage="~/images/home1.png" orientation="vertical" verticalAlignment="center" marginTop="30dp" width="300" height="300">
-                <Image src="~/images/itButton.png"  tap="onTapIt" marginBottom="45dp" marginLeft="5dp" width="60%" horizontalAlignment="right"/>
-                <Image src="~/images/enusButton.png"  tap="onTapEn" marginBottom="45dp" marginLeft="5dp" width="60%" horizontalAlignment="right"/>
+            <!--
+            <Image src="~/images/itButton.png"  tap="onTapIt" marginBottom="45dp" marginLeft="5dp" width="60%" horizontalAlignment="right"/>
+               <Image src="~/images/enusButton.png"  tap="onTapEn" marginBottom="45dp" marginLeft="5dp" width="60%" horizontalAlignment="right"/>
                 <Image src="~/images/frButton.png"  tap="onTapFr" marginLeft="5dp" width="60%" horizontalAlignment="right"/>
+            -->
+            <Button class="{{ class_button }}" width="60%" text="{{ _L('intro') }}" tap="benvenuto" horizontalAlignment="right"/>
         </StackLayout>
     </StackLayout>
 </Page>

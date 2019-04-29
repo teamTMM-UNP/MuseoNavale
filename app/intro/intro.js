@@ -1,6 +1,7 @@
 const observableModule = require("tns-core-modules/data/observable");
 const appSetting = require("application-settings");
 let fs = require("tns-core-modules/file-system");
+let device = require("tns-core-modules/platform");
 
 let viewModel;
 let page;
@@ -10,12 +11,19 @@ function onNavigatingTo(args) {
 
     viewModel = observableModule.fromObject({});
 
+    if(device.device.language == "it")
+        viewModel.set("class_button", "coverImageButtonIt");
+    else if(device.device.language == "en")
+        viewModel.set("class_button", "coverImageButtonEn");
+    else if(device.device.language == "fr")
+        viewModel.set("class_button", "coverImageButtonFr");
+    else
+        viewModel.set("class_button", "coverImageButtonEn");
+
     page.bindingContext = viewModel;
 }
 
-function onTapIt(){
-    appSetting.setString("language", "it");
-
+function benvenuto(){
     if(!fs.Folder.exists("/data/data/it.uniparthenope.museonavale/files/app/assets/zip")) {
         page.frame.navigate("load/load");
     }
@@ -24,29 +32,5 @@ function onTapIt(){
     }
 }
 
-function onTapEn(){
-    appSetting.setString("language", "en");
-
-    if(!fs.Folder.exists("/data/data/it.uniparthenope.museonavale/files/app/assets/zip")) {
-        page.frame.navigate("load/load");
-    }
-    else{
-        page.frame.navigate("home/home-page");
-    }
-}
-
-function onTapFr(){
-    appSetting.setString("language", "fr");
-
-    if(!fs.Folder.exists("/data/data/it.uniparthenope.museonavale/files/app/assets/zip")) {
-        page.frame.navigate("load/load");
-    }
-    else{
-        page.frame.navigate("home/home-page");
-    }
-}
-
-exports.onTapIt = onTapIt;
-exports.onTapEn = onTapEn;
-exports.onTapFr = onTapFr;
+exports.benvenuto = benvenuto;
 exports.onNavigatingTo = onNavigatingTo;

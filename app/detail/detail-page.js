@@ -2,8 +2,8 @@ const observableModule = require("tns-core-modules/data/observable");
 let Observable = require("data/observable");
 let ObservableArray = require("data/observable-array").ObservableArray;
 const audio = require('nativescript-audio-player');
-var TextToSpeech = require('nativescript-texttospeech');
-var application = require("tns-core-modules/application");
+let TextToSpeech = require('nativescript-texttospeech');
+let application = require("tns-core-modules/application");
 let fs = require("tns-core-modules/file-system");
 let device = require("tns-core-modules/platform");
 let timer = require("tns-core-modules/timer");
@@ -35,7 +35,6 @@ function onNavigatingTo(args) {
     player = new audio.TNSPlayer();
 
     data = page.navigationContext.data;
-    viewModel.set("titolo", data.title);
     viewModel.set("image", data.image);
     viewModel.set("text_button", "Play");
     viewModel.set("text", testo);
