@@ -18,9 +18,17 @@
 
 
             <StackLayout orientation="vertical" verticalAlignment="top" horizontalAlignment="center">
-                <Image tap="settings" src="~/images/drawer_buttons/qr_bar.png"/>
-                <Label class="optimusFont" text="Via petrarca" fontSize="27" horizontalAlignment="center" textWrap="true"/>
-                <Label class="optimusFont" text="Dell' Universita' Degli Studi ''Parthenope''" horizontalAlignment="center" marginTop="10"/>
+                <Image tap="settings" src="~/images/museo_main.png"/>
+                <Label class="optimusFont" text="Via Francesco Petrarca n. 80 – 80123" fontSize="18" horizontalAlignment="center" textWrap="true" marginRight="10" marginLeft="10"/>
+                <GridLayout marginLeft="10" marginRight="10">
+                    <Label class="optimusFont" text="Telefono:" horizontalAlignment="left" marginTop="10"/>
+                    <Label class="optimusFont" text="081 547 5417" color="#0000cd" horizontalAlignment="right" marginTop="10"/>
+                </GridLayout>
+                <GridLayout marginLeft="10" marginRight="10">
+                    <Label class="optimusFont" text="Email:" horizontalAlignment="left" marginTop="10"/>
+                    <Label class="optimusFont" text="nonlaso@hotmail.com" color="#0000cd" horizontalAlignment="right" marginTop="10"/>
+                </GridLayout>
+                <Label class="optimusFont" text="https://museonavale.uniparthenope.it/" color="#0000cd" horizontalAlignment="center" marginTop="10"/>
             </StackLayout>
 
             <StackLayout margin="10 20 5 20" height="4px" backgroundColor="rgba(64,43,18,0.8)" marginBottom="5" marginTop="10"/>
