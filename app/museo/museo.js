@@ -4,6 +4,8 @@ let ObservableArray = require("data/observable-array").ObservableArray;
 let fs = require("tns-core-modules/file-system");
 const appSetting = require("application-settings");
 let platformModule = require("tns-core-modules/platform");
+var phone = require( "nativescript-phone" );
+var utilityModule = require("utils/utils");
 
 let viewModel;
 let page;
@@ -17,6 +19,8 @@ function onNavigatingTo(args) {
     viewModel = observableModule.fromObject({
         items:items
     });
+
+    viewModel.set("telephon_number", "0815475417");
 
     let data = new Date();
 
@@ -62,4 +66,15 @@ function onNavigatingTo(args) {
     page.bindingContext = viewModel;
 }
 
+function openPhone(){
+    let number = viewModel.get("telephon_number");
+    phone.dial(number, true);
+}
+
+function web() {
+    utilityModule.openUrl("https://museonavale.uniparthenope.it");
+}
+
+exports.web = web;
+exports.openPhone = openPhone;
 exports.onNavigatingTo = onNavigatingTo;
