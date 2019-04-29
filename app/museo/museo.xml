@@ -4,8 +4,6 @@
         xmlns="http://schemas.nativescript.org/tns.xsd"
         actionBarHidden="true"
         backgroundImage="~/images/background.jpg">
-
-
     <ScrollView>
         <StackLayout>
             <StackLayout margin="10 20 5 20" height="4px" backgroundColor="rgba(64,43,18,0.8)" marginBottom="5" marginTop="10"/>
@@ -14,7 +12,7 @@
                 <Label class="optimusFont" text="Museo Navale" fontSize="47" horizontalAlignment="center" textWrap="true"/>
                 <Label class="optimusFont" text="Dell' Universita' Degli Studi ''Parthenope''" horizontalAlignment="center" marginTop="10"/>
             </StackLayout>
-            <Label class="optimusFont_Bold" text="- Aperto -" fontSize="27" horizontalAlignment="center" textWrap="true"/>
+            <Label class="optimusFont_Bold" text="{{ apertura }}" fontSize="27" horizontalAlignment="center" textWrap="true"/>
         <StackLayout margin="5 20 0 20" height="4px" backgroundColor="rgba(64,43,18,0.8)" marginBottom="20" />
 
 
@@ -29,7 +27,19 @@
 
             <StackLayout orientation="vertical" verticalAlignment="top" horizontalAlignment="center">
                 <Label class="optimusFont" text="Orari" fontSize="27" horizontalAlignment="center" textWrap="true"/>
-                <Label class="optimusFont" text="Dell' Universita' Degli Studi ''Parthenope''" horizontalAlignment="center" marginTop="10"/>
+                <ListView class="list-group" height="{{ altezza }}" items="{{ items }}" itemTap="onTap" orientation="vertical" margin="0 20 0 20">
+                    <ListView.itemTemplate>
+                        <FlexboxLayout flexDirection="row" class="list-group-item;">
+                            <StackLayout orientation="horizontal">
+                                <Label text="{{ giorno }}" width="70%"/>
+                                <StackLayout width="30%" orientation="horizontal">
+                                    <Label text="{{ min }}"/>
+                                    <Label text="{{ max }}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </FlexboxLayout>
+                    </ListView.itemTemplate>
+                </ListView>
             </StackLayout>
             <StackLayout margin="5 20 0 20" height="4px" backgroundColor="rgba(64,43,18,0.8)" marginBottom="20" />
         </StackLayout>
