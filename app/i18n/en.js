@@ -7,7 +7,7 @@ module.exports = {
     home_ricerca : "Search",
     home_info : "About",
     home_impostazioni : "Settings",
-    search_bar : "Ricerca....",
+    search_bar : "Search....",
     info_version: 'Version',
     info_dipartimento: 'Department of Science and Technology, Parthenope University of Naples',
     info_sviluppatori: 'Development: Ciro Giuseppe De Vita, Alberto Greco, Gennaro Mellone',
