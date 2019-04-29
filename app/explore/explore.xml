@@ -1,9 +1,9 @@
 <Page
-        class="page"
+        class="coverIm"
         navigatingTo="onNavigatingTo"
         xmlns="http://schemas.nativescript.org/tns.xsd"
         actionBarHidden="true"
-        backgroundColor="#D9BB84">
+        backgroundImage="~/images/background.jpg">
 
     <StackLayout>
         <TextView
