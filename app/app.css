@@ -68,6 +68,11 @@
     font-family: "OptimusPrincepsSemiBold";
 }
 
+.TimelessFont
+{
+    font-family: "Timeless";
+}
+
 .drawer{
     background-color: rgba(64,43,18,0.8);
     color: white;
