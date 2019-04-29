@@ -73,6 +73,11 @@
     font-family: "Timeless";
 }
 
+.TimelessFont_Bold
+{
+    font-family: "Timeless-Bold";
+}
+
 .drawer{
     background-color: rgba(64,43,18,0.8);
     color: white;

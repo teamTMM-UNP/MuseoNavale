@@ -1,9 +1,9 @@
 <Page
-        class="page"
+        class="coverIm"
         navigatingTo="onNavigatingTo"
         xmlns="http://schemas.nativescript.org/tns.xsd"
         xmlns:ns="nativescript-carousel"
-        backgroundColor="#D9BB84"
+        backgroundImage="~/images/background.jpg"
         actionBarHidden="true">
 
     <ios>
@@ -13,24 +13,26 @@
         </ActionBar>
     </ios>
 
-    <StackLayout orientation="vertical" height="100%">
+    <GridLayout>
         <GridLayout verticalAlignment="top" height="50%">
             <ns:Carousel id="myCarousel" items="{{ images }}" color="white" indicatorColorUnselected="#50ffffff" pageChanged="myChangeEvent" pageTapped="mySelectedEvent" android:indicatorAnimation="slide"  indicatorColor="#ffffff" indicatorOffset="0,0" showIndicator="true">
                 <ns:Carousel.itemTemplate>
                     <ns:CarouselItem backgroundColor="#9FC8DA">
                         <GridLayout>
                             <Image src="{{ image }}" stretch="aspectFill" />
+                            <Label backgroundColor="rgba(0,0,0,0.3)" text="{{ titolo }}" fontSize="24" textAlignment="center" verticalAlignment="top" textWrap="true" class="optimusFont"></Label>
                         </GridLayout>
                     </ns:CarouselItem>
                 </ns:Carousel.itemTemplate>
             </ns:Carousel>
         </GridLayout>
 
+    <StackLayout orientation="vertical" verticalAlignment="bottom">
         <ScrollView height="40%" marginTop="5">
             <Label text="{{ text }}" color="white" textAlignment="center" textWrap="true"></Label>
         </ScrollView>
 
-        <StackLayout orientation="vertical" height="10%" marginTop="5">
+        <StackLayout verticalAlignment="bottom" orientation="vertical" marginTop="5" backgroundColor="rgba(0,0,0,0.3)">
             <StackLayout orientation="horizontal" horizontalAlignment="center">
                 <Button text="{{ text_button }}" backgroundColor="white" tap="play_audio" width="30%" marginRight="5"/>
                 <StackLayout orientation="horizontal" width="70%">
@@ -41,4 +43,5 @@
             </StackLayout>
         </StackLayout>
     </StackLayout>
+    </GridLayout>
 </Page>
