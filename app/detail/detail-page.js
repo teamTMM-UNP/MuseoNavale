@@ -36,14 +36,12 @@ function onNavigatingTo(args) {
 
     if(page.navigationContext.page == "tour" || page.navigationContext.page == "room"){
         viewModel.set("tour_visibility", "visible");
-        viewModel.set("no_tour_visibility", "collapsed");
 
         data = page.navigationContext.all_items.getItem(page.navigationContext.index);
         index = page.navigationContext.index;
     }
     else{
         viewModel.set("tour_visibility", "collapsed");
-        viewModel.set("no_tour_visibility", "visible");
         data = page.navigationContext.data;
     }
 
@@ -54,7 +52,7 @@ function onNavigatingTo(args) {
 
 function set_items(data){
     viewModel.set("image", data.image);
-    //viewModel.set("text_button", "Play");
+    viewModel.set("play_image", "~/images/play.png");
     viewModel.set("text", testo);
     viewModel.set("text_time", "--:--");
     viewModel.set("value", "0");
@@ -147,17 +145,17 @@ exports.myScrollingEvent = function(args) {
 };
 
 function play_audio() {
-    if(viewModel.get("text_button") === "Play"){
+    if(viewModel.get("play_image") === "~/images/play.png"){
         play();
-        viewModel.set("text_button", "Stop");
+        viewModel.set("play_image", "~/images/pause.png");
     }
-    else if(viewModel.get("text_button") === "Stop"){
+    else if(viewModel.get("play_image") === "~/images/pause.png"){
         pause();
-        viewModel.set("text_button", "Resume");
+        viewModel.set("play_image", "~/images/resume.png");
     }
-    else if(viewModel.get("text_button") === "Resume"){
+    else if(viewModel.get("play_image") === "~/images/resume.png"){
         resume();
-        viewModel.set("text_button", "Stop");
+        viewModel.set("play_image", "~/images/pause.png");
     }
 }
 

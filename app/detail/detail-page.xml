@@ -27,13 +27,14 @@
 
         <StackLayout verticalAlignment="bottom" orientation="vertical" marginTop="5" backgroundColor="rgba(0,0,0,0.3)">
             <StackLayout orientation="horizontal" horizontalAlignment="center">
+                <!--
                 <StackLayout width="40%" orientation="horizontal" visibility="{{ tour_visibility }}">
                     <Button text="<" backgroundColor="white" tap="back" width="20%"/>
-                    <Image src="~/images/play.png" tap="play_audio" width="35" marginTop="5" marginBottom="5"/>
                     <Button text=">" backgroundColor="white" tap="next" width="20%"/>
                 </StackLayout>
-                <Image src="~/images/play.png"  tap="play_audio" width="35" visibility="{{ no_tour_visibility }}" marginTop="5" marginBottom="5"/>
-                <StackLayout orientation="horizontal" width="60%" marginLeft="20" >
+                -->
+                <Image src="{{ play_image }}"  tap="play_audio" width="35" marginTop="5" marginBottom="5"/>
+                <StackLayout orientation="horizontal" marginLeft="20" >
                     <Label text="{{ text_time }}" color="white" verticalAlignment="center"/>
                     <Slider value="{{ value }}"  minValue="{{ min }}" maxValue="{{ max }}" loaded="onSliderLoaded" width="70%"/>
                     <Label text="{{ duration }}" color="white" verticalAlignment="center"/>
