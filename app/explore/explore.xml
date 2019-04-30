@@ -7,10 +7,13 @@
 
     <StackLayout>
         <TextView
+                backgroundColor="rgba(0,0,0,0.3)"
                 id = "search"
                 class="tfstyle"
                 text = "{{ search_text }}"
-                width="50%"
+                width="90%"
+                marginTop="5"
+                marginBottom="10"
                 horizontalAlignment="center"
                 loaded="onTextViewLoaded"
                 hint="{{ _L('search_bar') }}"/>

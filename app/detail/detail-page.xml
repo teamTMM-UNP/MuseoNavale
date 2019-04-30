@@ -6,12 +6,18 @@
         backgroundImage="~/images/background.jpg"
         actionBarHidden="true">
 
+    <StackLayout>
+        <GridLayout verticalAlignment="top"  visibility="{{ tour_visibility }}" marginTop="5">
+            <Button horizontalAlignment="left" text="Precedente" color="#aaaaaa" backgroundColor="rgba(64,43,18,0.8)" tap="back" />
+            <Label class="roomNumber" text="{{ codice }}" width="20%" horizontalAlignment="center" color="#aaaaaa" verticalAlignment="bottom"/>
+            <Button horizontalAlignment="right" text="Successivo" color="#aaaaaa" backgroundColor="rgba(64,43,18,0.8)" tap="next"/>
+        </GridLayout>
     <GridLayout>
         <GridLayout verticalAlignment="top" height="50%" marginTop="10">
             <ns:Carousel id="myCarousel" items="{{ images }}" color="white" indicatorColorUnselected="#5064563c" pageChanged="myChangeEvent" pageTapped="mySelectedEvent" android:indicatorAnimation="slide"  indicatorColor="#64563c" indicatorOffset="0,0" showIndicator="true">
                 <ns:Carousel.itemTemplate>
                     <ns:CarouselItem backgroundColor="#9FC8DA">
-                        <GridLayout>
+                        <GridLayout >
                             <Image src="{{ image }}" stretch="aspectFill" />
                             <Label backgroundColor="rgba(0,0,0,0.3)" color="#bbbbbb" text="{{ title }}" fontSize="24" textAlignment="center" verticalAlignment="top" textWrap="true" class="optimusFont"></Label>
                         </GridLayout>
@@ -43,4 +49,5 @@
         </StackLayout>
     </StackLayout>
     </GridLayout>
+    </StackLayout>
 </Page>

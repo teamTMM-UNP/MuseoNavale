@@ -1,15 +1,15 @@
 <Page
-        class="page"
+        class="coverIm"
         navigatingTo="onNavigatingTo"
         xmlns="http://schemas.nativescript.org/tns.xsd"
         actionBarHidden="true"
-        backgroundColor="#D9BB84">
+        backgroundImage="~/images/background.jpg">
 
     <StackLayout>
         <StackLayout>
-            <Label text="{{ titolo }}" horizontalAlignment="center"/>
+            <Label backgroundColor="rgba(0,0,0,0.3)" width="100%" textAlignment="center" text="{{ titolo }}" class="optimusFont_Bold" fontSize="42" horizontalAlignment="center" marginBottom="10"/>
 
-            <ListView class="list-group" items="{{ items }}" itemTap="onTap" orientation="vertical" height="100%">
+            <ListView class="list-group" items="{{ items }}" itemTap="onTap" height="100%">
                 <ListView.itemTemplate>
                     <FlexboxLayout flexDirection="row" class="list-group-item;">
                         <StackLayout flexGrow="1" orientation="vertical" marginBottom="20" marginRight="5" marginLeft="5" backgroundColor="rgba(0,0,0,0.3)">

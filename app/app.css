@@ -102,10 +102,11 @@
 }
 
 .tfstyle{
-    border-bottom-width: 0.5;
-    placeholder-color: white;
-    border-color:white;
-    color : white
+    border-bottom-width: 0.3;
+    color : white;
+    placeholder-color: #aaaaaa;
+    font-family: Timeless;
+    border-radius: 10 10 10 10;
 }
 
 Slider {

@@ -75,7 +75,7 @@ function scan(){
     barcodescanner.scan({
         formats: "QR_CODE",
         cancelLabelBackgroundColor: "#333333", // iOS only, default '#000000' (black)
-        //message: "Use the volume buttons for extra light", // Android only, default is 'Place a barcode inside the viewfinder rectangle to scan it.'
+        message: "Scansiona un QR-Code per i dettagli sull'oggetto.", // Android only, default is 'Place a barcode inside the viewfinder rectangle to scan it.'
         preferFrontCamera: false,     // Android only, default false
         showFlipCameraButton: false,   // default false
         showTorchButton: false,       // iOS only, default false
