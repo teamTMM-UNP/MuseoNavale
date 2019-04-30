@@ -7,7 +7,7 @@
 
     <ScrollView>
         <StackLayout orientation="vertical">
-            <Image src="~/images/logo.png" horizontalAlignment="center" margin="20 20 20 20"></Image>
+            <Image src="~/images/logo.png" width="70%" horizontalAlignment="center" margin="20 20 20 20"></Image>
             <StackLayout orientation="horizontal" horizontalAlignment="center" marginTop="5">
                 <Label text="{{ _L('info_version') }}" marginRight="10" color="white"></Label>
                 <Label text="{{version}}" color="white"></Label>
