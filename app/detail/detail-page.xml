@@ -12,6 +12,9 @@
             <Label class="roomNumber" text="{{ codice }}" width="20%" horizontalAlignment="center" color="#aaaaaa" verticalAlignment="bottom"/>
             <Button horizontalAlignment="right" text="Successivo" color="#aaaaaa" backgroundColor="rgba(64,43,18,0.8)" tap="next"/>
         </GridLayout>
+        <GridLayout verticalAlignment="top"  visibility="{{ no_tour_visibility }}" marginTop="5">
+            <Label class="roomNumber" text="{{ codice }}" width="20%" horizontalAlignment="center" color="#aaaaaa" verticalAlignment="bottom"/>
+        </GridLayout>
     <GridLayout>
         <GridLayout verticalAlignment="top" height="50%" marginTop="10">
             <ns:Carousel id="myCarousel" items="{{ images }}" color="white" indicatorColorUnselected="#5064563c" pageChanged="myChangeEvent" pageTapped="mySelectedEvent" android:indicatorAnimation="slide"  indicatorColor="#64563c" indicatorOffset="0,0" showIndicator="true">
@@ -33,12 +36,6 @@
 
         <StackLayout verticalAlignment="bottom" orientation="vertical" marginTop="5" backgroundColor="rgba(0,0,0,0.3)">
             <StackLayout orientation="horizontal" horizontalAlignment="center">
-                <!--
-                <StackLayout width="40%" orientation="horizontal" visibility="{{ tour_visibility }}">
-                    <Button text="<" backgroundColor="white" tap="back" width="20%"/>
-                    <Button text=">" backgroundColor="white" tap="next" width="20%"/>
-                </StackLayout>
-                -->
                 <Image src="{{ play_image }}"  tap="play_audio" width="35" marginTop="5" marginBottom="5"/>
                 <StackLayout orientation="horizontal" marginLeft="20" >
                     <Label text="{{ text_time }}" color="white" verticalAlignment="center"/>

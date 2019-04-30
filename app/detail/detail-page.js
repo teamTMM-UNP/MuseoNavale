@@ -36,12 +36,15 @@ function onNavigatingTo(args) {
 
     if(page.navigationContext.page == "tour" || page.navigationContext.page == "room"){
         viewModel.set("tour_visibility", "visible");
+        viewModel.set("no_tour_visibility", "collapsed");
 
         data = page.navigationContext.all_items.getItem(page.navigationContext.index);
         index = page.navigationContext.index;
     }
     else{
         viewModel.set("tour_visibility", "collapsed");
+        viewModel.set("no_tour_visibility", "visible");
+
         data = page.navigationContext.data;
     }
 
