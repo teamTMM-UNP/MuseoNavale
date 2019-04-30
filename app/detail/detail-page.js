@@ -54,7 +54,7 @@ function onNavigatingTo(args) {
 
 function set_items(data){
     viewModel.set("image", data.image);
-    viewModel.set("text_button", "Play");
+    //viewModel.set("text_button", "Play");
     viewModel.set("text", testo);
     viewModel.set("text_time", "--:--");
     viewModel.set("value", "0");
