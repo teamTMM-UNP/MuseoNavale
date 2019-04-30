@@ -34,7 +34,7 @@ function onNavigatingTo(args) {
 
                     if(img_name != ""){
                         items.push({
-                            "id" : jsonData['rooms'][i]['items'][j]['nid'],
+                            "id" : jsonData['tours'][i]['items'][j]['nid'],
                             "title": jsonData['tours'][i]['items'][j]['title'],
                             "image": path_img,
                             "other_image": jsonData['tours'][i]['items'][j]['field_other_image'],
@@ -44,7 +44,7 @@ function onNavigatingTo(args) {
                     }
                     else{
                         items.push({
-                            "id" : jsonData['rooms'][i]['items'][j]['nid'],
+                            "id" : jsonData['tours'][i]['items'][j]['nid'],
                             "title" : jsonData['tours'][i]['items'][j]['title'],
                             "image": documents.getFile("images/no_image.png").path,
                             "other_image": "",
