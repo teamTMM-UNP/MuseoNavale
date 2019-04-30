@@ -62,7 +62,16 @@
     font-size: 25;
     font-weight: bold;
 }
-
+.roomNumber
+{
+    border-radius: 20 20 20 20;
+    font-family: "OptimusPrincepsSemiBold";
+    color: white;
+    background-color: rgba(64,43,18,0.8);
+    text-align: center;
+    font-size: 30;
+    vertical-align: center;
+}
 .roundEdge
 {
     border-radius: 0 5 5 0;
