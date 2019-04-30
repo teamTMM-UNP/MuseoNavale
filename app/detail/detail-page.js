@@ -57,6 +57,7 @@ function set_items(data){
     viewModel.set("text_time", "--:--");
     viewModel.set("value", "0");
     viewModel.set("min", "0");
+    viewModel.set("codice", data.id);
 
     let folder = fs.knownFolders.currentApp();
     let file = fs.path.join(folder.path, "/assets/zip/MuseoNavale/") + "/" + data.audio;
@@ -120,8 +121,7 @@ function set_items(data){
     var images = new ObservableArray();
     images.push({
         "image": data.image,
-        "title": data.title,
-        "codice": data.id
+        "title": data.title
     });
     if(data.other_image != ""){
         let other_image = data.other_image.split(",");
@@ -129,8 +129,7 @@ function set_items(data){
         {
             images.push({
                 "image" : fs.knownFolders.currentApp().getFolder("/assets/zip/MuseoNavale").path + "/" + other_image[i],
-                "title": data.title,
-                "codice": data.id
+                "title": data.title
             });
         }
     }
