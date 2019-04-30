@@ -24,7 +24,7 @@ let testo = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu
     "Sit amet porttitor eget dolor morbi. Nisl vel pretium lectus quam id leo in. Eu ultrices vitae auctor eu augue ut. Quam id leo in vitae turpis massa sed elementum. Auctor elit sed vulputate mi sit amet mauris. Fermentum dui faucibus in ornare quam viverra orci sagittis eu. Enim nulla aliquet porttitor lacus luctus. Commodo ullamcorper a lacus vestibulum sed arcu non odio euismod. Eu facilisis sed odio morbi quis commodo. Imperdiet massa tincidunt nunc pulvinar sapien. Ut ornare lectus sit amet est placerat in egestas.\n" +
     "\n" +
     "Egestas maecenas pharetra convallis posuere morbi leo urna molestie. Risus quis varius quam quisque id diam. Sollicitudin nibh sit amet commodo nulla. Accumsan lacus vel facilisis volutpat est. Nam aliquam sem et tortor. Volutpat consequat mauris nunc congue nisi vitae suscipit tellus mauris. Etiam sit amet nisl purus in mollis. At volutpat diam ut venenatis tellus in metus vulputate eu. Bibendum neque egestas congue quisque egestas diam in arcu cursus. Dignissim convallis aenean et tortor at risus viverra. Enim nulla aliquet porttitor lacus luctus accumsan tortor. Turpis massa sed elementum tempus egestas sed sed risus. Urna nec tincidunt praesent semper feugiat nibh. Dui accumsan sit amet nulla facilisi morbi tempus iaculis. Maecenas volutpat blandit aliquam etiam erat velit scelerisque in. Eget nunc lobortis mattis aliquam faucibus purus in massa tempor. Pharetra magna ac placerat vestibulum.";
-
+let index;
 
 function onNavigatingTo(args) {
     page = args.object;
@@ -34,7 +34,25 @@ function onNavigatingTo(args) {
     TTS = new TextToSpeech.TNSTextToSpeech();
     player = new audio.TNSPlayer();
 
-    data = page.navigationContext.data;
+    if(page.navigationContext.page == "tour" || page.navigationContext.page == "room"){
+        viewModel.set("tour_visibility", "visible");
+        viewModel.set("no_tour_visibility", "collapsed");
+
+        data = page.navigationContext.all_items.getItem(page.navigationContext.index);
+        index = page.navigationContext.index;
+    }
+    else{
+        viewModel.set("tour_visibility", "collapsed");
+        viewModel.set("no_tour_visibility", "visible");
+        data = page.navigationContext.data;
+    }
+
+    set_items(data);
+
+    page.bindingContext = viewModel;
+}
+
+function set_items(data){
     viewModel.set("image", data.image);
     viewModel.set("text_button", "Play");
     viewModel.set("text", testo);
@@ -56,6 +74,9 @@ function onNavigatingTo(args) {
                 viewModel.set("text_button", "Play");
                 viewModel.set("value", "0");
                 timer.clearInterval(time);
+                if(page.navigationContext.page == "tour" || page.navigationContext.page == "room") {
+                    next();
+                }
             },
             errorCallback: function (errorObject) {
                 console.log(JSON.stringify(errorObject));
@@ -91,6 +112,9 @@ function onNavigatingTo(args) {
             volume: 1.0,
             finishedCallback: function () {
                 console.log("Finito!!");
+                if(page.navigationContext.page == "tour" || page.navigationContext.page == "room") {
+                    next();
+                }
             }
         };
     }
@@ -111,8 +135,6 @@ function onNavigatingTo(args) {
         }
     }
     viewModel.set('images', images);
-
-    page.bindingContext = viewModel;
 }
 
 exports.myChangeEvent = function(args) {
@@ -227,6 +249,44 @@ exports.onSliderLoaded = function (args) {
     });
 };
 
+function next(){
+    if(index == page.navigationContext.all_items.length - 1){
+        return;
+    }
+    else {
+        index = index + 1;
+        data = page.navigationContext.all_items.getItem(index);
+        if (data.audio != "") {
+            player.pause();
+            timer.clearInterval(time);
+        }
+        else{
+            TTS.pause();
+        }
+        set_items(data);
+    }
+}
+
+function back(){
+    if(index == 0){
+        return;
+    }
+    else {
+        index = index - 1;
+        data = page.navigationContext.all_items.getItem(index);
+        if (data.audio != "") {
+            player.pause();
+            timer.clearInterval(time);
+        }
+        else{
+            TTS.pause();
+        }
+        set_items(data);
+    }
+}
+
+exports.back = back;
+exports.next = next;
 exports.play_audio = play_audio;
 exports.backHome = backHome;
 exports.play = play;

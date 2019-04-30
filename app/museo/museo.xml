@@ -27,7 +27,7 @@
                         <Label class="optimusFont" text="Email:" horizontalAlignment="left" marginTop="10"/>
                         <Label class="optimusFont" text="nonlaso@hotmail.com" color="#0000cd" horizontalAlignment="right" marginTop="10"/>
                     </GridLayout>
-                    <Label class="optimusFont" text="https://museonavale.uniparthenope.it" tap="web" color="#0000cd" horizontalAlignment="center" marginTop="10"/>
+                    <Label class="optimusFont" text="museonavale.uniparthenope.it" tap="web" color="#0000cd" horizontalAlignment="center" marginTop="10"/>
 
                     <StackLayout orientation="horizontal" horizontalAlignment="center">
                         <Image tap="settings" src="~/images/fb.png" width="25" horizontalAlignment="center" verticalAlignment="center" marginRight="20"/>

@@ -10,11 +10,11 @@
             <ListView class="list-group" items="{{ items }}" itemTap="onTap" orientation="vertical">
                 <ListView.itemTemplate>
                     <FlexboxLayout flexDirection="row" class="list-group-item;">
-                        <StackLayout flexGrow="1" orientation="horizontal">
-                            <StackLayout width="30%">
-                                <Image src="{{ image }}" width="65" height="65" marginRight="10"/>
+                        <StackLayout flexGrow="1" orientation="vertical" marginBottom="20" marginRight="5" marginLeft="5" backgroundColor="rgba(0,0,0,0.3)">
+                            <StackLayout height="128">
+                                <Image src="{{ image }}" stretch="aspectFill"/>
                             </StackLayout>
-                            <Label text="{{ title }}" width="70%" textWrap="true" verticalAlignment="center" horizontalAlignment="center"/>
+                            <Label class="TimelessFont" text="{{ title }}" width="70%" color="white" textWrap="true" verticalAlignment="center" horizontalAlignment="center"/>
                         </StackLayout>
                     </FlexboxLayout>
                 </ListView.itemTemplate>

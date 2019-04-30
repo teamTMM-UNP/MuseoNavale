@@ -37,7 +37,8 @@ function onNavigatingTo(args) {
                             "title": jsonData['rooms'][i]['items'][j]['title'],
                             "image": path_img,
                             "other_image": jsonData['rooms'][i]['items'][j]['field_other_image'],
-                            "audio": jsonData['rooms'][i]['items'][j]['field_audio']
+                            "audio": jsonData['rooms'][i]['items'][j]['field_audio'],
+                            "number_tour" : jsonData['tours'][i]['items'][j]['field_number_tour']
                         });
                     }
                     else{
@@ -45,9 +46,17 @@ function onNavigatingTo(args) {
                             "title" : jsonData['rooms'][i]['items'][j]['title'],
                             "image": documents.getFile("images/no_image.png").path,
                             "other_image": "",
-                            "audio": jsonData['rooms'][i]['items'][j]['field_audio']
+                            "audio": jsonData['rooms'][i]['items'][j]['field_audio'],
+                            "number_tour" : jsonData['tours'][i]['items'][j]['field_number_tour']
                         })
                     }
+
+                    items.sort(function (orderA, orderB) {
+                        let dataA = (parseInt(orderA.number_tour));
+                        let dataB = (parseInt(orderB.number_tour));
+
+                        return (dataA < dataB) ? -1 : (dataA > dataB) ? 1 : 0;
+                    });
                 }
                 break;
             }
@@ -56,19 +65,21 @@ function onNavigatingTo(args) {
 
     page.bindingContext = viewModel;
 }
+
 function onTap(args) {
     const index = args.index;
 
-    let temp = new ObservableArray();
-
-    console.log(items.getItem(index));
-    temp.push(items.getItem(index));
+    let all_items = new ObservableArray();
+    for(let i=0; i<items.length; i++)
+        all_items.push(items.getItem(i));
 
     const nav =
         {
             moduleName: "detail/detail-page",
             context: {
-                data: temp.getItem(0)
+                all_items: all_items,
+                index: index,
+                page: "room"
             }
         };
 
