@@ -17,6 +17,12 @@ function onNavigatingTo(args) {
         items:items
     });
 
+    for(let i=1; i<=9; i++){
+        let room = "room" + i;
+        viewModel.set(room, i);
+    }
+    viewModel.set("roomD", "D");
+
     let documents = fs.knownFolders.currentApp();
     let url_main = documents.getFolder("/assets/zip/MuseoNavale");
     let fileJson = url_main.getFile(appSetting.getString("fileJson"));
@@ -32,24 +38,29 @@ function onNavigatingTo(args) {
 
     page.bindingContext = viewModel;
 }
-function onTap(args) {
-    const index = args.index;
+
+function room(args){
+    let R = args.view._observers.textChange[0].thisArg.options.sourceProperty;
 
     let temp = new ObservableArray();
+    let room = R.substring(4,5);
+    temp.push(items.getItem(parseInt(room)-1));
 
-    temp.push(items.getItem(index));
+    if(room <= items.length){
+        const nav =
+            {
+                moduleName: "room/room",
+                context: {
+                    data: temp.getItem(0),
+                    index: room
+                }
+            };
 
-    const nav =
-        {
-            moduleName: "room/room",
-            context: {
-                data: temp.getItem(0),
-                index: index
-            }
-        };
-
-    page.frame.navigate(nav);
+        page.frame.navigate(nav);
+    }
+    else
+        return;
 }
 
-exports.onTap = onTap;
+exports.room = room;
 exports.onNavigatingTo = onNavigatingTo;

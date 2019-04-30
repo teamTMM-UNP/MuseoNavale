@@ -6,8 +6,10 @@
         backgroundColor="#D9BB84">
 
     <StackLayout>
-        <ScrollView height="100%">
-            <ListView class="list-group" items="{{ items }}" itemTap="onTap" orientation="vertical">
+        <StackLayout>
+            <Label text="{{ titolo }}" horizontalAlignment="center"/>
+
+            <ListView class="list-group" items="{{ items }}" itemTap="onTap" orientation="vertical" height="100%">
                 <ListView.itemTemplate>
                     <FlexboxLayout flexDirection="row" class="list-group-item;">
                         <StackLayout flexGrow="1" orientation="vertical" marginBottom="20" marginRight="5" marginLeft="5" backgroundColor="rgba(0,0,0,0.3)">
@@ -19,6 +21,6 @@
                     </FlexboxLayout>
                 </ListView.itemTemplate>
             </ListView>
-        </ScrollView>
+        </StackLayout>
     </StackLayout>
 </Page>

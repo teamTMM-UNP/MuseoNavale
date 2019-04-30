@@ -19,7 +19,7 @@ function onNavigatingTo(args) {
     });
 
     data = page.navigationContext.data;
-    viewModel.set("room", data.id);
+    viewModel.set("titolo", data.id);
 
     let documents = fs.knownFolders.currentApp();
     let url_main = documents.getFolder("/assets/zip/MuseoNavale");

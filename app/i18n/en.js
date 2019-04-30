@@ -12,5 +12,7 @@ module.exports = {
     info_dipartimento: 'Department of Science and Technology, Parthenope University of Naples',
     info_sviluppatori: 'Development: Ciro Giuseppe De Vita, Alberto Greco, Gennaro Mellone',
     info_logo: 'Logo: Francesco Peluso',
-    info_manager : 'Principal Investigator: Prof. Antonio Scamardella'
+    info_manager : 'Principal Investigator: Prof. Antonio Scamardella',
+    sale_titolo : 'Halls',
+    sale_sottotitolo : "Tap on a hall"
 };

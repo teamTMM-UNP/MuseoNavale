@@ -12,5 +12,7 @@ module.exports = {
     info_dipartimento: 'Département des sciences et de la technologie, université Parthénope de Naples',
     info_sviluppatori: 'Développement: Ciro Giuseppe De Vita, Alberto Greco, Gennaro Mellone',
     info_logo: 'Logo: Francesco Peluso',
-    info_manager : 'Responsable Scientifique: Prof. Antonio Scamardella'
+    info_manager : 'Responsable Scientifique: Prof. Antonio Scamardella',
+    sale_titolo : 'Hallls',
+    sale_sottotitolo : ""
 };

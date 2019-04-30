@@ -12,5 +12,7 @@ module.exports = {
     info_dipartimento: 'Dipartimento di Scienze e Tecnologie, Università degli Studi di Napoli Parthenope',
     info_sviluppatori: 'Sviluppo: Ciro Giuseppe De Vita, Alberto Greco, Gennaro Mellone',
     info_logo: 'Logo: Francesco Peluso',
-    info_manager : 'Responsabile Scientifico: Prof. Antonio Scamardella'
+    info_manager : 'Responsabile Scientifico: Prof. Antonio Scamardella',
+    sale_titolo : 'Sale',
+    sale_sottotitolo : "Clicca su una sala"
 };
