@@ -1,8 +1,8 @@
 <Page
-        class="page"
+        class="coverIm"
         navigatingTo="onNavigatingTo"
         xmlns="http://schemas.nativescript.org/tns.xsd"
-        backgroundColor="#D9BB84"
+        backgroundImage="~/images/background.jpg"
         actionBarHidden="true">
 
     <StackLayout>
@@ -10,11 +10,12 @@
             <ListView class="list-group" items="{{ items }}" itemTap="onTap" orientation="vertical">
                 <ListView.itemTemplate>
                     <FlexboxLayout flexDirection="row" class="list-group-item;">
-                        <StackLayout flexGrow="1" orientation="horizontal">
-                            <StackLayout width="30%">
-                                <Image src="{{ image }}" width="65" height="65" marginRight="10"/>
-                            </StackLayout>
-                            <Label text="{{ id }}" width="70%" textWrap="true" verticalAlignment="center" horizontalAlignment="center"/>
+                        <StackLayout flexGrow="1" orientation="vertical" marginBottom="20" marginRight="5" marginLeft="5"  marginTop="10" backgroundColor="rgba(0,0,0,0.3)">
+                            <GridLayout height="128">
+                                <Image row="0" src="{{ image }}" stretch="aspectFill"/>
+                                <Label backgroundColor="rgba(0,0,0,0.3)" textAlignment="center" row="1" class="optimusFont_Bold"  fontSize="37" text="{{ id }}" width="100%" color="white" textWrap="true" verticalAlignment="bottom" horizontalAlignment="center"/>
+                            </GridLayout>
+                            <Label textAlignment="center" row="1" class="optimusFont" fontSize="20" text="50 min" width="70%" color="white" textWrap="true" verticalAlignment="bottom" horizontalAlignment="center"/>
                         </StackLayout>
                     </FlexboxLayout>
                 </ListView.itemTemplate>

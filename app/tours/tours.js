@@ -25,7 +25,7 @@ function onNavigatingTo(args) {
         for(let i=0; i<jsonData['tours'].length; i++){
             items.push({
                 "id": jsonData['tours'][i]['tour'],
-                "image": "~/images/rooms.png",
+                "image": "~/images/tour_complete.png",
             });
         }
     });
