@@ -6,6 +6,11 @@
         backgroundImage="~/images/background.jpg"
         actionBarHidden="true">
 
+    <ActionBar title="MuseoNavale" visibility="{{ ios_bar }}">
+        <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" tap="backHome"/>
+    </ActionBar>
+
+
     <StackLayout>
         <GridLayout verticalAlignment="top"  visibility="{{ tour_visibility }}" marginTop="5">
             <Button horizontalAlignment="left" text="Precedente" color="#aaaaaa" backgroundColor="rgba(64,43,18,0.8)" tap="back" />

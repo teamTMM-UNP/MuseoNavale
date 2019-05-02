@@ -34,6 +34,12 @@ function onNavigatingTo(args) {
     TTS = new TextToSpeech.TNSTextToSpeech();
     player = new audio.TNSPlayer();
 
+    if(device.isIOS){
+        viewModel.set("ios_bar", "visible");
+    }
+    else
+        viewModel.set("ios_bar", "collapsed");
+
     if(page.navigationContext.page == "tour" || page.navigationContext.page == "room"){
         viewModel.set("tour_visibility", "visible");
         viewModel.set("no_tour_visibility", "collapsed");
@@ -230,7 +236,7 @@ if(device.isAndroid){
 }
 
 function backHome(){
-    page.frame.navigate("home/home-page");
+    page.frame.goBack();
     if (data.audio != "") {
         player.dispose();
         timer.clearInterval(time);
