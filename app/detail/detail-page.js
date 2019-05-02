@@ -36,7 +36,8 @@ function onNavigatingTo(args) {
 
     if(device.isIOS){
         viewModel.set("ios_bar", "visible");
-        page.ios.navigationController.interactivePopGestureRecognizer.enabled = false;
+        //page.ios.navigationController.interactivePopGestureRecognizer.enabled = false;
+        page.enableSwipeBackNavigation = false;
     }
     else
         viewModel.set("ios_bar", "collapsed");

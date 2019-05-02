@@ -4,10 +4,11 @@
         xmlns="http://schemas.nativescript.org/tns.xsd"
         xmlns:ns="nativescript-carousel"
         backgroundImage="~/images/background.jpg"
-        actionBarHidden="true">
+        >
 
-    <ActionBar title="MuseoNavale" visibility="{{ ios_bar }}">
-        <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" tap="backHome"/>
+    <ActionBar title="MuseoNavale" visibility="{{ ios_bar }}"
+    >
+        <NavigationButton text="Go Back" ios.systemIcon="9" tap="backHome"/>
     </ActionBar>
 
 
