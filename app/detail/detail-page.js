@@ -256,8 +256,6 @@ function next(){
         return;
     }
     else {
-        index = index + 1;
-        data = page.navigationContext.all_items.getItem(index);
         if (data.audio != "") {
             player.pause();
             timer.clearInterval(time);
@@ -265,6 +263,9 @@ function next(){
         else{
             TTS.pause();
         }
+
+        index = index + 1;
+        data = page.navigationContext.all_items.getItem(index);
         set_items(data);
     }
 }
@@ -274,8 +275,6 @@ function back(){
         return;
     }
     else {
-        index = index - 1;
-        data = page.navigationContext.all_items.getItem(index);
         if (data.audio != "") {
             player.pause();
             timer.clearInterval(time);
@@ -283,6 +282,9 @@ function back(){
         else{
             TTS.pause();
         }
+
+        index = index - 1;
+        data = page.navigationContext.all_items.getItem(index);
         set_items(data);
     }
 }
