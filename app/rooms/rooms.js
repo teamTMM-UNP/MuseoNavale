@@ -24,14 +24,13 @@ function onNavigatingTo(args) {
     viewModel.set("roomD", "D");
 
     let documents = fs.knownFolders.currentApp();
-    let url_main = documents.getFolder("/assets/zip/MuseoNavale");
+    let url_main = documents.getFolder("/assets/zip/file/MuseoNavale");
     let fileJson = url_main.getFile(appSetting.getString("fileJson"));
     fileJson.readText().then(function (data) {
         let jsonData = JSON.parse(data);
         for(let i=0; i<jsonData['rooms'].length; i++){
             items.push({
-                "id" :  jsonData['rooms'][i]['hall'],
-                "image" : "~/images/rooms.png"
+                "id" :  jsonData['rooms'][i]['hall']
             });
         }
     });
@@ -44,6 +43,7 @@ function room(args){
 
     let temp = new ObservableArray();
     let room = R.substring(4,5);
+    console.log(room);
     temp.push(items.getItem(parseInt(room)-1));
 
     if(room <= items.length){
@@ -52,7 +52,7 @@ function room(args){
                 moduleName: "room/room",
                 context: {
                     data: temp.getItem(0),
-                    index: room
+                    index: room - 1
                 }
             };
 

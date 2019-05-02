@@ -22,7 +22,7 @@ function onNavigatingTo(args) {
     viewModel.set("titolo", data.id);
 
     let documents = fs.knownFolders.currentApp();
-    let url_main = documents.getFolder("/assets/zip/MuseoNavale");
+    let url_main = documents.getFolder("/assets/zip/file/MuseoNavale");
     let fileJson = url_main.getFile(appSetting.getString("fileJson"));
     fileJson.readText().then(function (data1) {
         let jsonData = JSON.parse(data1);
@@ -67,6 +67,7 @@ function onNavigatingTo(args) {
 
     page.bindingContext = viewModel;
 }
+
 function onTap(args) {
     const index = args.index;
 

@@ -25,7 +25,7 @@ function onNavigatingTo(args) {
     let data = new Date();
 
     let documents = fs.knownFolders.currentApp();
-    let url_main = documents.getFolder("/assets/zip/MuseoNavale");
+    let url_main = documents.getFolder("/assets/zip/file/MuseoNavale");
     let fileJson = url_main.getFile(appSetting.getString("fileJson"));
     fileJson.readText().then(function (data1) {
         let jsonData = JSON.parse(data1);
