@@ -31,12 +31,8 @@ function onNavigatingTo(args) {
 
     viewModel = observableModule.fromObject({});
 
-    TTS = new TextToSpeech.TNSTextToSpeech();
-    player = new audio.TNSPlayer();
-
     if(device.isIOS){
         viewModel.set("ios_bar", "visible");
-        //page.ios.navigationController.interactivePopGestureRecognizer.enabled = false;
         page.enableSwipeBackNavigation = false;
     }
     else
@@ -75,6 +71,7 @@ function set_items(data){
     //console.log(file);
 
     if(data.audio != "") {
+        player = new audio.TNSPlayer();
         playerOptions = {
             audioFile: file,
             loop: false,
@@ -113,6 +110,7 @@ function set_items(data){
         });
     }
     else {
+        TTS = new TextToSpeech.TNSTextToSpeech();
         viewModel.set("duration", "--:--");
 
         speakOptions = {

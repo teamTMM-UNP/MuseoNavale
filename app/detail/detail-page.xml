@@ -6,8 +6,7 @@
         backgroundImage="~/images/background.jpg"
         >
 
-    <ActionBar title="MuseoNavale" visibility="{{ ios_bar }}"
-    >
+    <ActionBar title="MuseoNavale" visibility="{{ ios_bar }}">
         <NavigationButton text="Go Back" ios.systemIcon="9" tap="backHome"/>
     </ActionBar>
 
