@@ -64,7 +64,7 @@ function set_items(data){
 
     let folder = fs.knownFolders.currentApp();
     let file = fs.path.join(folder.path, "/assets/zip/file/MuseoNavale/") + "/" + data.audio;
-    console.log(file);
+    //console.log(file);
 
     if(data.audio != "") {
         playerOptions = {
@@ -138,7 +138,7 @@ function set_items(data){
     }
     viewModel.set('images', images);
 }
-
+/*
 exports.myChangeEvent = function(args) {
     let changeEventText = 'Page changed to index: ' + args.index;
     console.log(changeEventText);
@@ -146,7 +146,7 @@ exports.myChangeEvent = function(args) {
 
 exports.myScrollingEvent = function(args) {
     console.log('Scrolling: ' + args.state.offset);
-};
+};*/
 
 function play_audio() {
     if(viewModel.get("play_image") === "~/images/play.png"){

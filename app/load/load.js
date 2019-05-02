@@ -14,11 +14,11 @@ function onNavigatingTo(args) {
     viewModel = observableModule.fromObject({});
 
     view = page.getViewById("toRotate");
-    view.animate({
+    /*view.animate({
         rotate : 360,
         duration : 2000,
         iterations : Number.POSITIVE_INFINITY
-    });
+    });*/
 
     if(appSetting.getString("update", "NO") == "YES"){
         appSetting.setString("update", "NO");
@@ -55,7 +55,7 @@ function dowload_and_zip() {
             console.log(data);
         });
 
-        native_zip.unzipWithProgress(file, dest, onZipProgress, true)
+        native_zip.unzip(file, dest)
             .then(() => {
                 console.log('unzip succesfully completed');
                 let url_main = folder.getFolder("/assets/zip/file/MuseoNavale");
