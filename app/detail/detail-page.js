@@ -31,12 +31,15 @@ function onNavigatingTo(args) {
 
     viewModel = observableModule.fromObject({});
 
+    player = new audio.TNSPlayer();
+    TTS = new TextToSpeech.TNSTextToSpeech();
+
     if(device.isIOS){
-        viewModel.set("ios_bar", "visible");
+        viewModel.set("ios_bar", "false");
         page.enableSwipeBackNavigation = false;
     }
     else
-        viewModel.set("ios_bar", "collapsed");
+        viewModel.set("ios_bar", "true");
 
     if(page.navigationContext.page == "tour" || page.navigationContext.page == "room"){
         viewModel.set("tour_visibility", "visible");
@@ -71,7 +74,6 @@ function set_items(data){
     //console.log(file);
 
     if(data.audio != "") {
-        player = new audio.TNSPlayer();
         playerOptions = {
             audioFile: file,
             loop: false,
@@ -110,14 +112,11 @@ function set_items(data){
         });
     }
     else {
-        TTS = new TextToSpeech.TNSTextToSpeech();
         viewModel.set("duration", "--:--");
 
         speakOptions = {
             text: viewModel.get("text"),
-            speakRate: 1.0,
-            pitch: 1.0,
-            volume: 1.0,
+
             finishedCallback: function () {
                 console.log("Finito!!");
                 if(page.navigationContext.page == "tour" || page.navigationContext.page == "room") {
