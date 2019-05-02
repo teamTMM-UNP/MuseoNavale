@@ -116,6 +116,8 @@ function set_items(data){
 
         speakOptions = {
             text: viewModel.get("text"),
+            speakRate: 1.0, // optional - default is 1.0
+            pitch: 1.0, // optional - default is 1.0
 
             finishedCallback: function () {
                 console.log("Finito!!");
