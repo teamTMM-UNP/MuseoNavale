@@ -226,25 +226,18 @@ function resume() {
 
 if(device.isAndroid){
     application.android.on(application.AndroidApplication.activityBackPressedEvent, (args) => {
-        if (data.audio != "") {
-            player.dispose();
-            timer.clearInterval(time);
-        }
-        else{
-            TTS.destroy();
-        }
+        player.dispose();
+        timer.clearInterval(time);
+        TTS.destroy();
     });
 }
 
 function backHome(){
+    player.dispose();
+    timer.clearInterval(time);
+    TTS.destroy();
+
     page.frame.goBack();
-    if (data.audio != "") {
-        player.dispose();
-        timer.clearInterval(time);
-    }
-    else{
-        TTS.destroy();
-    }
 };
 
 exports.onSliderLoaded = function (args) {
