@@ -5,16 +5,13 @@
         xmlns:ns="nativescript-carousel"
         xmlns:x="nativescript-statusbar"
         backgroundImage="~/images/background.jpg"
-        actionBarHidden="{{ ios_bar }}"
-        >
+        actionBarHidden="true">
 
-    <ActionBar title="MuseoNavale">
-        <NavigationButton text="" ios.systemIcon="9" tap="backHome"/>
-    </ActionBar>
-    <x:StatusBar ios:barStyle="light" barColor="rgba(64,43,18,0.8)" />
+      <x:StatusBar ios:barStyle="light" barColor="rgba(64,43,18,0.8)" />
 
 
     <StackLayout>
+        <Image src="~/images/no_image.png" tap="backHome"/>
         <GridLayout verticalAlignment="top"  visibility="{{ tour_visibility }}" marginTop="5" ios:marginLeft="5" ios:marginRight="5">
             <Button horizontalAlignment="left" text="Precedente" color="#aaaaaa" backgroundColor="rgba(64,43,18,0.8)" tap="back" />
             <Label class="roomNumber" text="{{ codice }}" width="20%" horizontalAlignment="center" color="#aaaaaa" verticalAlignment="bottom"/>
@@ -41,7 +38,7 @@
 
     <StackLayout orientation="vertical" verticalAlignment="bottom">
         <ScrollView height="40%" marginTop="5">
-            <Label text="{{ text }}" color="white" textAlignment="center" textWrap="true"></Label>
+            <Label text="{{ text }}" color="white" autocorrect="false" textAlignment="center" textWrap="true"></Label>
         </ScrollView>
 
         <StackLayout verticalAlignment="bottom" orientation="vertical" marginTop="5" backgroundColor="rgba(0,0,0,0.3)">

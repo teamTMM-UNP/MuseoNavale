@@ -33,6 +33,7 @@ function onNavigatingTo(args) {
 
     player = new audio.TNSPlayer();
     TTS = new TextToSpeech.TNSTextToSpeech();
+    TTS.speak({text:''});
 
     if(device.isIOS){
         viewModel.set("ios_bar", "false");
@@ -233,11 +234,12 @@ if(device.isAndroid){
 }
 
 function backHome(){
+    //TTS.pause();
+    TTS.destroy();
     player.dispose();
     timer.clearInterval(time);
-    TTS.destroy();
 
-    page.frame.goBack();
+    //page.frame.goBack();
 };
 
 exports.onSliderLoaded = function (args) {
