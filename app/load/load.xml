@@ -1,12 +1,10 @@
 <Page
-        class="page"
+        class="coverIm"
         navigatingTo="onNavigatingTo"
         xmlns="http://schemas.nativescript.org/tns.xsd"
-        xmlns:x="nativescript-statusbar"
         actionBarHidden="true"
-        backgroundColor="#D9BB84">
+        backgroundImage="~/images/background.jpg">
 
-    <x:StatusBar ios:barStyle="light" barColor="rgba(217,187,132,1)" />
 
     <GridLayout>
         <StackLayout verticalAlignment="top">

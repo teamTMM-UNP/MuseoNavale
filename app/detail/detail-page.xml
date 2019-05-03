@@ -3,17 +3,19 @@
         navigatingTo="onNavigatingTo"
         xmlns="http://schemas.nativescript.org/tns.xsd"
         xmlns:ns="nativescript-carousel"
+        xmlns:x="nativescript-statusbar"
         backgroundImage="~/images/background.jpg"
         actionBarHidden="{{ ios_bar }}"
         >
 
     <ActionBar title="MuseoNavale">
-        <NavigationButton text="Go Back" ios.systemIcon="9" tap="backHome"/>
+        <NavigationButton text="" ios.systemIcon="9" tap="backHome"/>
     </ActionBar>
+    <x:StatusBar ios:barStyle="light" barColor="rgba(64,43,18,0.8)" />
 
 
     <StackLayout>
-        <GridLayout verticalAlignment="top"  visibility="{{ tour_visibility }}" marginTop="5">
+        <GridLayout verticalAlignment="top"  visibility="{{ tour_visibility }}" marginTop="5" ios:marginLeft="5" ios:marginRight="5">
             <Button horizontalAlignment="left" text="Precedente" color="#aaaaaa" backgroundColor="rgba(64,43,18,0.8)" tap="back" />
             <Label class="roomNumber" text="{{ codice }}" width="20%" horizontalAlignment="center" color="#aaaaaa" verticalAlignment="bottom"/>
             <Button horizontalAlignment="right" text="Successivo" color="#aaaaaa" backgroundColor="rgba(64,43,18,0.8)" tap="next"/>
@@ -24,7 +26,7 @@
     <GridLayout>
         <GridLayout verticalAlignment="top" height="50%" marginTop="10">
             <ns:Carousel id="myCarousel" items="{{ images }}" color="white" indicatorColorUnselected="#5064563c"
-                         pageChanged="myChangeEvent" pageTapped="mySelectedEvent" ios:autoPagingInterval="3" android:indicatorAnimation="THIN_WORM"
+                         pageChanged="myChangeEvent" pageTapped="mySelectedEvent" ios:autoPagingInterval="10" android:indicatorAnimation="THIN_WORM"
                          indicatorColor="#64563c" indicatorOffset="0,0" showIndicator="true">
                 <ns:Carousel.itemTemplate>
                     <ns:CarouselItem backgroundColor="#9FC8DA">

@@ -3,7 +3,9 @@
         navigatingTo="onNavigatingTo"
         xmlns="http://schemas.nativescript.org/tns.xsd"
         actionBarHidden="true"
+        xmlns:x="nativescript-statusbar"
         backgroundImage="~/images/background.jpg">
+    <x:StatusBar ios:barStyle="light" barColor="rgba(64,43,18,0.8)" />
 
     <StackLayout>
         <StackLayout margin="10 20 5 20" height="4px" backgroundColor="rgba(64,43,18,0.8)" marginBottom="5" marginTop="10"/>

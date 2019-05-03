@@ -113,3 +113,9 @@ Slider {
     color: #d9bb84;
     background-color: #bf5a1f;
 }
+
+ListView
+{
+    background-color: transparent;
+    opacity: 0.7;
+}
