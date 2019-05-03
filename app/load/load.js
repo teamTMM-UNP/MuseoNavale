@@ -26,7 +26,7 @@ function onNavigatingTo(args) {
     }
 
     else{
-        if(!fs.Folder.exists("/data/data/it.uniparthenope.museonavale/files/app/assets/zip")) {
+        if(!fs.Folder.exists(fs.knownFolders.currentApp().path + "/assets/zip")) {
             dowload_and_zip();
         }
         else{
