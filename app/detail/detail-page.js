@@ -80,7 +80,7 @@ function set_items(data){
             completeCallback: function () {
                 console.log('finished playing');
                 viewModel.set("text_time", "00:00");
-                viewModel.set("text_button", "Play");
+                viewModel.set("play_image", "~/images/play.png");
                 viewModel.set("value", "0");
                 timer.clearInterval(time);
                 if(page.navigationContext.page == "tour" || page.navigationContext.page == "room") {
