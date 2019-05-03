@@ -10,7 +10,9 @@
       <x:StatusBar ios:barStyle="light" barColor="rgba(64,43,18,0.8)" />
 
     <StackLayout>
-        <Image src="~/images/no_image.png" tap="backHome" visibility="{{ ios_bar }}"/>
+        <StackLayout width="100%" visibility="{{ ios_bar }}" backgroundColor="rgba(0,0,0,0.3)">
+            <Image src="~/images/no_image.png" marginBottom="5" marginLeft="5" marginTop="5" horizontalAlignment="left" width="30" tap="backHome" />
+        </StackLayout>
         <GridLayout verticalAlignment="top"  visibility="{{ tour_visibility }}" marginTop="5" ios:marginLeft="5" ios:marginRight="5">
             <Button horizontalAlignment="left" text="Precedente" color="#aaaaaa" backgroundColor="rgba(64,43,18,0.8)" tap="back" />
             <Label class="roomNumber" text="{{ codice }}" width="20%" horizontalAlignment="center" color="#aaaaaa" verticalAlignment="bottom"/>

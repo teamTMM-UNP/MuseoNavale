@@ -13,11 +13,11 @@ function onNavigatingTo(args) {
 
     viewModel = observableModule.fromObject({});
 
-    if(device.device.language == "it")
+    if((device.device.language).includes("it"))
         viewModel.set("class_button", "coverImageButtonIt");
-    else if(device.device.language == "en")
+    else if((device.device.language).includes("en"))
         viewModel.set("class_button", "coverImageButtonEn");
-    else if(device.device.language == "fr")
+    else if((device.device.language).includes("fr"))
         viewModel.set("class_button", "coverImageButtonFr");
     else
         viewModel.set("class_button", "coverImageButtonEn");

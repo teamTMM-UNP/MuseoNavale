@@ -17,6 +17,7 @@ let playerOptions;
 let speakOptions;
 let duration;
 let time;
+let testo_ita ="Oggi è proprio una bella giornata per non fare nulla!";
 let testo = "Loremipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Accumsan sit amet nulla facilisi morbi tempus. Interdum consectetur libero id faucibus nisl tincidunt eget. Nisl suscipit adipiscing bibendum est ultricies integer quis auctor. Tortor at auctor urna nunc. Felis donec et odio pellentesque diam volutpat commodo." +
     " Sapien nec sagittis aliquam malesuada bibendum. Tempus iaculis urna id volutpat lacus laoreet non. Luctus accumsan tortor posuere ac ut. Elementum curabitur vitae nunc sed." +
     " Vestibulum morbi blandit cursus risus at ultrices mi tempus imperdiet." +
@@ -61,7 +62,7 @@ function onNavigatingTo(args) {
 function set_items(data){
     viewModel.set("image", data.image);
     viewModel.set("play_image", "~/images/play.png");
-    viewModel.set("text", testo);
+    viewModel.set("text", testo_ita);
     viewModel.set("text_time", "--:--");
     viewModel.set("value", "0");
     viewModel.set("min", "0");
@@ -105,7 +106,7 @@ function set_items(data){
             console.log("Durata: " + data);
             duration = data;
             viewModel.set("max", duration);
-            viewModel.set("duration", msToTime(duration));
+            viewModel.set("duration", msToTimeIOS(duration));
             console.log(duration);
         });
     }
@@ -115,7 +116,7 @@ function set_items(data){
         if(device.isIOS){
             speakOptions = {
                 text: viewModel.get("text"),
-                speakRate: 0.5, // optional - default is 1.0
+                speakRate: 0.4, // optional - default is 1.0
                 pitch: 1.0, // optional - default is 1.0
 
                 finishedCallback: function () {
@@ -231,11 +232,13 @@ function msToTime(msDurata) {
 }
 
 function msToTimeIOS(sec) {
-    let minuti = parseInt((sec%60));
+    let seco = parseInt((sec%60));
+    let minuti = parseInt(seco/60);
 
     minuti = (minuti < 10) ? "0" + minuti : minuti;
+    seco = (seco < 10) ? "0" + seco : seco;
 
-    return minuti + ":" + sec;
+    return minuti + ":" + seco;
 }
 
 function pause() {

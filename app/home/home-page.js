@@ -1,6 +1,7 @@
 const observableModule = require("tns-core-modules/data/observable");
 let fs = require("tns-core-modules/file-system");
 let Observable = require("data/observable");
+let device = require("tns-core-modules/platform");
 let ObservableArray = require("data/observable-array").ObservableArray;
 const appSetting = require("application-settings");let BarcodeScanner = require("nativescript-barcodescanner").BarcodeScanner;
 let barcodescanner = new BarcodeScanner();
@@ -8,6 +9,7 @@ let barcodescanner = new BarcodeScanner();
 let viewModel;
 let page;
 let items;
+
 
 function onNavigatingTo(args) {
     page = args.object;
@@ -17,6 +19,8 @@ function onNavigatingTo(args) {
     viewModel = observableModule.fromObject({
         items:items
     });
+    if(device.isIOS)
+        page.enableSwipeBackNavigation = false;
 
     let documents = fs.knownFolders.currentApp();
 

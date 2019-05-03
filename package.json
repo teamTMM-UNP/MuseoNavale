@@ -1,6 +1,9 @@
 {
   "nativescript": {
-    "id": "it.uniparthenope.museonavale",
+    "id": {
+      "ios": "it.uniparthenope.museonavale",
+      "android" : "it.uniparthenope.museonavale"
+    },
     "tns-android": {
       "version": "5.3.1"
     },
