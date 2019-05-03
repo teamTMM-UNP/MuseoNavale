@@ -33,11 +33,11 @@ function onNavigatingTo(args) {
     TTS.speak({text:''});
 
     if(device.isIOS){
-        viewModel.set("ios_bar", "false");
+        viewModel.set("ios_bar", "visible");
         page.enableSwipeBackNavigation = false;
     }
     else
-        viewModel.set("ios_bar", "true");
+        viewModel.set("ios_bar", "collapsed");
 
     if(page.navigationContext.page == "tour" || page.navigationContext.page == "room"){
         viewModel.set("tour_visibility", "visible");
@@ -112,18 +112,34 @@ function set_items(data){
     else {
         viewModel.set("duration", "--:--");
 
-        speakOptions = {
-            text: viewModel.get("text"),
-            speakRate: 0.9, // optional - default is 1.0
-            pitch: 1.0, // optional - default is 1.0
+        if(device.isIOS){
+            speakOptions = {
+                text: viewModel.get("text"),
+                speakRate: 0.5, // optional - default is 1.0
+                pitch: 1.0, // optional - default is 1.0
 
-            finishedCallback: function () {
-                console.log("Finito!!");
-                if(page.navigationContext.page == "tour" || page.navigationContext.page == "room") {
-                    next();
+                finishedCallback: function () {
+                    console.log("Finito!!");
+                    if(page.navigationContext.page == "tour" || page.navigationContext.page == "room") {
+                        next();
+                    }
                 }
-            }
-        };
+            };
+        }
+        else{
+            speakOptions = {
+                text: viewModel.get("text"),
+                speakRate: 0.9, // optional - default is 1.0
+                pitch: 1.0, // optional - default is 1.0
+
+                finishedCallback: function () {
+                    console.log("Finito!!");
+                    if(page.navigationContext.page == "tour" || page.navigationContext.page == "room") {
+                        next();
+                    }
+                }
+            };
+        }
     }
 
     var images = new ObservableArray();
@@ -172,12 +188,22 @@ function play(){
     if(data.audio != "") {
         player.play();
 
-        viewModel.set("text_time", msToTime(player.currentTime));
+        if(device.isIOS){
+            viewModel.set("text_time", msToTimeIOS(player.currentTime));
+        }
+        else{
+            viewModel.set("text_time", msToTime(player.currentTime));
+        }
 
         time = timer.setInterval(() => {
             if(player.isAudioPlaying()){
                 //let remaining = duration - player.currentTime;
-                viewModel.set("text_time", msToTime(player.currentTime));
+                if(device.isIOS){
+                    viewModel.set("text_time", msToTimeIOS(player.currentTime));
+                }
+                else{
+                    viewModel.set("text_time", msToTime(player.currentTime));
+                }
                 viewModel.set("value", player.currentTime);
             }
         }, 1000);
@@ -204,6 +230,14 @@ function msToTime(msDurata) {
     return minuti + ":" + secondi;
 }
 
+function msToTimeIOS(sec) {
+    let minuti = parseInt((sec%60));
+
+    minuti = (minuti < 10) ? "0" + minuti : minuti;
+
+    return minuti + ":" + sec;
+}
+
 function pause() {
     console.log("pause");
     if (data.audio != "")
@@ -224,9 +258,10 @@ function resume() {
 
 if(device.isAndroid){
     application.android.on(application.AndroidApplication.activityBackPressedEvent, (args) => {
+        TTS.speak({text:''});
+        TTS.destroy();
         player.dispose();
         timer.clearInterval(time);
-        TTS.destroy();
     });
 }
 
