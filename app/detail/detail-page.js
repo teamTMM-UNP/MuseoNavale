@@ -106,7 +106,11 @@ function set_items(data){
             console.log("Durata: " + data);
             duration = data;
             viewModel.set("max", duration);
-            viewModel.set("duration", msToTimeIOS(duration));
+            if(device.isIOS)
+                viewModel.set("duration", msToTimeIOS(duration));
+            else
+                viewModel.set("duration", msToTime(duration));
+
             console.log(duration);
         });
     }
@@ -135,6 +139,8 @@ function set_items(data){
 
                 finishedCallback: function () {
                     console.log("Finito!!");
+                    viewModel.set("play_image", "~/images/play.png");
+
                     if(page.navigationContext.page == "tour" || page.navigationContext.page == "room") {
                         next();
                     }
