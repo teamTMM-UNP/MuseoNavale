@@ -29,7 +29,6 @@ function onNavigatingTo(args) {
     let fileJson = url_main.getFile(appSetting.getString("fileJson"));
     fileJson.readText().then(function (data) {
         let jsonData = JSON.parse(data);
-        console.log(jsonData);
         for (let i = 0; i < jsonData['items'].length; i++) {
             let img_name = jsonData['items'][i]['field_image'];
             let path_img = url_main.path + "/" +img_name;
