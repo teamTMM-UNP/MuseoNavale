@@ -62,11 +62,12 @@ function onNavigatingTo(args) {
 function set_items(data){
     viewModel.set("image", data.image);
     viewModel.set("play_image", "~/images/play.png");
-    viewModel.set("text", testo_ita);
+    viewModel.set("text", testo);
     viewModel.set("text_time", "--:--");
     viewModel.set("value", "0");
     viewModel.set("min", "0");
     viewModel.set("codice", data.id);
+    viewModel.set("titolo",data.title);
 
     let folder = fs.knownFolders.currentApp();
     let file = fs.path.join(folder.path, "/assets/zip/file/MuseoNavale/") + "/" + data.audio;
@@ -151,16 +152,14 @@ function set_items(data){
 
     var images = new ObservableArray();
     images.push({
-        "image": data.image,
-        "title": data.title
+        "image": data.image
     });
     if(data.other_image != ""){
         let other_image = data.other_image.split(",");
         for(let i=0; i<other_image.length; i++)
         {
             images.push({
-                "image" : fs.knownFolders.currentApp().getFolder("/assets/zip/file/MuseoNavale").path + "/" + other_image[i],
-                "title": data.title
+                "image" : fs.knownFolders.currentApp().getFolder("/assets/zip/file/MuseoNavale").path + "/" + other_image[i]
             });
         }
     }
