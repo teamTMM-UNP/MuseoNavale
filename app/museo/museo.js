@@ -30,10 +30,12 @@ function onNavigatingTo(args) {
     fileJson.readText().then(function (data1) {
         let jsonData = JSON.parse(data1);
         viewModel.set("altezza", jsonData['orari'].length * 20);
+        console.log(jsonData['orari']);
+        console.log(data.getDay());
 
-        if(jsonData['orari'][data.getDay()-1]["orari"][0]["apertura"] != "N/A")
+        if(jsonData['orari'][data.getDay()]["orari"][0]["apertura"] != "N/A")
         {
-            if(data.getHours() < jsonData['orari'][data.getDay()-1]["orari"][0]["apertura"] || data.getHours() > jsonData['orari'][data.getDay()-1]["orari"][0]["chiusura"]){
+            if(data.getHours() < jsonData['orari'][data.getDay()]["orari"][0]["apertura"] || data.getHours() > jsonData['orari'][data.getDay()]["orari"][0]["chiusura"]){
                 viewModel.set("apertura", "- Chiuso -");
             }
             else{
