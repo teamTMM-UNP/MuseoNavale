@@ -117,6 +117,8 @@ function set_items(data){
     }
     else {
         viewModel.set("duration", "--:--");
+        player.dispose();
+        player = new audio.TNSPlayer();
 
         if(device.isIOS){
             speakOptions = {
