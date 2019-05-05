@@ -51,10 +51,6 @@ function dowload_and_zip() {
     httpModule.getFile(url, file).then(function (r) {
         console.log(r.path);
 
-        fs.knownFolders.currentApp().getFolder("/assets").getEntities().then(function (data) {
-            console.log(data);
-        });
-
         native_zip.unzipWithProgress(file, dest, onZipProgress, true)
             .then(() => {
                 console.log('unzip succesfully completed');

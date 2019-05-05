@@ -10,6 +10,9 @@ var utilityModule = require("tns-core-modules/utils/utils");
 let viewModel;
 let page;
 let items;
+let giorni_it = ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"];
+let giorni_en = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+let giorni_fr = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
 
 function onNavigatingTo(args) {
     page = args.object;
@@ -36,31 +39,91 @@ function onNavigatingTo(args) {
         if(jsonData['orari'][data.getDay()]["orari"][0]["apertura"] != "N/A")
         {
             if(data.getHours() < jsonData['orari'][data.getDay()]["orari"][0]["apertura"] || data.getHours() > jsonData['orari'][data.getDay()]["orari"][0]["chiusura"]){
-                viewModel.set("apertura", "- Chiuso -");
+                if((platformModule.device.language).includes("it"))
+                    viewModel.set("apertura", "- Chiuso -");
+                else if((platformModule.device.language).includes("en"))
+                    viewModel.set("apertura", "- Closed -");
+                else if((platformModule.device.language).includes("fr"))
+                    viewModel.set("apertura", "- Fermé -");
             }
             else{
-                viewModel.set("apertura", "- Aperto -");
+                if((platformModule.device.language).includes("it"))
+                    viewModel.set("apertura", "- Aperto -");
+                else if((platformModule.device.language).includes("en"))
+                    viewModel.set("apertura", "- Open -");
+                else if((platformModule.device.language).includes("fr"))
+                    viewModel.set("apertura", "- Ouvert -");
             }
         }
         else{
-            viewModel.set("apertura", "- Chiuso -");
+            if((platformModule.device.language).includes("it"))
+                viewModel.set("apertura", "- Chiuso -");
+            else if((platformModule.device.language).includes("en"))
+                viewModel.set("apertura", "- Closed -");
+            else if((platformModule.device.language).includes("fr"))
+                viewModel.set("apertura", "- Fermé -");
         }
 
         for(let i=0; i<jsonData['orari'].length; i++){
-
-            if(jsonData['orari'][i]["orari"][0]["apertura"] != "N/A"){
-                items.push({
-                    "giorno": jsonData["orari"][i]["giorno"],
-                    "min" : jsonData["orari"][i]["orari"][0]["apertura"] + ":00 - ",
-                    "max" : jsonData["orari"][i]["orari"][0]["chiusura"] + ":00"
-                });
+            if((platformModule.device.language).includes("it")) {
+                if (jsonData['orari'][i]["orari"][0]["apertura"] != "N/A") {
+                    items.push({
+                        "giorno": giorni_it[i],
+                        "min": jsonData["orari"][i]["orari"][0]["apertura"] + ":00 - ",
+                        "max": jsonData["orari"][i]["orari"][0]["chiusura"] + ":00"
+                    });
+                } else {
+                    items.push({
+                        "giorno": giorni_it[i],
+                        "min": "Chiuso",
+                        "max": ""
+                    });
+                }
+            }
+            else if((platformModule.device.language).includes("en")) {
+                if (jsonData['orari'][i]["orari"][0]["apertura"] != "N/A") {
+                    items.push({
+                        "giorno": giorni_en[i],
+                        "min": jsonData["orari"][i]["orari"][0]["apertura"] + ":00 - ",
+                        "max": jsonData["orari"][i]["orari"][0]["chiusura"] + ":00"
+                    });
+                } else {
+                    items.push({
+                        "giorno": giorni_en[i],
+                        "min": "Closed",
+                        "max": ""
+                    });
+                }
+            }
+            else if((platformModule.device.language).includes("fr")) {
+                if (jsonData['orari'][i]["orari"][0]["apertura"] != "N/A") {
+                    items.push({
+                        "giorno": giorni_fr[i],
+                        "min": jsonData["orari"][i]["orari"][0]["apertura"] + ":00 - ",
+                        "max": jsonData["orari"][i]["orari"][0]["chiusura"] + ":00"
+                    });
+                } else {
+                    items.push({
+                        "giorno": giorni_fr[i],
+                        "min": "Fermé",
+                        "max": ""
+                    });
+                }
             }
             else{
-                items.push({
-                    "giorno": jsonData["orari"][i]["giorno"],
-                    "min" : "Chiuso",
-                    "max": ""
-                });
+                if (jsonData['orari'][i]["orari"][0]["apertura"] != "N/A") {
+                    items.push({
+                        "giorno": giorni_en[i],
+                        "min": jsonData["orari"][i]["orari"][0]["apertura"] + ":00 - ",
+                        "max": jsonData["orari"][i]["orari"][0]["chiusura"] + ":00"
+                    });
+                } else {
+                    items.push({
+                        "giorno": giorni_en[i],
+                        "min": "Closed",
+                        "max": ""
+                    });
+                }
             }
         }
     });

@@ -22,12 +22,12 @@
                     <Label class="optimusFont" text="Via Francesco Petrarca n. 80 – 80123" fontSize="18" horizontalAlignment="center" textWrap="true" marginRight="10" marginLeft="10"/>
 
                     <GridLayout marginLeft="10" marginRight="10">
-                        <Label class="optimusFont" text="Telefono:" horizontalAlignment="left" marginTop="10"/>
+                        <Label class="optimusFont" text="{{ _L('museo_telefono') }}" horizontalAlignment="left" marginTop="10"/>
                         <Label class="optimusFont" text="{{ telephon_number }}" tap="openPhone" color="#0000cd" horizontalAlignment="right" marginTop="10"/>
                     </GridLayout>
                     <GridLayout marginLeft="10" marginRight="10">
                         <Label class="optimusFont" text="Email:" horizontalAlignment="left" marginTop="10"/>
-                        <Label class="optimusFont" text="nonlaso@hotmail.com" color="#0000cd" horizontalAlignment="right" marginTop="10"/>
+                        <Label class="optimusFont" text="museonavale@uniparthenope.it" color="#0000cd" horizontalAlignment="right" marginTop="10"/>
                     </GridLayout>
                     <Label class="optimusFont" text="museonavale.uniparthenope.it" tap="web" color="#0000cd" horizontalAlignment="center" marginTop="10"/>
 

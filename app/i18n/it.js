@@ -14,5 +14,6 @@ module.exports = {
     info_logo: 'Logo: Francesco Peluso',
     info_manager : 'Responsabile Scientifico: Prof. Antonio Scamardella',
     sale_titolo : 'Sale',
-    sale_sottotitolo : "Clicca su una sala"
+    sale_sottotitolo : "Clicca su una sala",
+    museo_telefono : "Telefono:"
 };

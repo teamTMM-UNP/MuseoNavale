@@ -14,5 +14,6 @@ module.exports = {
     info_logo: 'Logo: Francesco Peluso',
     info_manager : 'Principal Investigator: Prof. Antonio Scamardella',
     sale_titolo : 'Halls',
-    sale_sottotitolo : "Tap on a hall"
+    sale_sottotitolo : "Tap on a hall",
+    museo_telefono : "Phone:"
 };

@@ -14,5 +14,6 @@ module.exports = {
     info_logo: 'Logo: Francesco Peluso',
     info_manager : 'Responsable Scientifique: Prof. Antonio Scamardella',
     sale_titolo : 'Hallls',
-    sale_sottotitolo : ""
+    sale_sottotitolo : "",
+    museo_telefono : "Phone:"
 };
