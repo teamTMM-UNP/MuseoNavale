@@ -41,12 +41,12 @@
                 </GridLayout>
             </StackLayout>
 
-            <StackLayout orientation="vertical" verticalAlignment="bottom">
-                <ScrollView height="40%" marginTop="5">
-            <Label text="{{ text }}" color="white" autocorrect="false" textAlignment="center" textWrap="true"></Label>
-        </ScrollView>
+            <StackLayout orientation="vertical" verticalAlignment="bottom" marginTop="30">
+                <ScrollView height="40%">
+                    <Label text="{{ text }}" color="white" autocorrect="false" textAlignment="center" textWrap="true"></Label>
+                </ScrollView>
 
-                <StackLayout verticalAlignment="bottom" orientation="vertical" marginTop="5" backgroundColor="rgba(0,0,0,0.3)">
+                <StackLayout verticalAlignment="bottom" orientation="vertical" marginTop="10" backgroundColor="rgba(0,0,0,0.3)">
                     <StackLayout orientation="horizontal" horizontalAlignment="center">
                         <Image src="{{ play_image }}"  tap="play_audio" width="35" marginTop="5" marginBottom="5"/>
 
