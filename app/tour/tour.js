@@ -1,8 +1,8 @@
 const observableModule = require("tns-core-modules/data/observable");
 let fs = require("tns-core-modules/file-system");
-let Observable = require("data/observable");
-let ObservableArray = require("data/observable-array").ObservableArray;
-const appSetting = require("application-settings");
+let Observable = require("tns-core-modules/data/observable");
+let ObservableArray = require("tns-core-modules/data/observable-array").ObservableArray;
+const appSetting = require("tns-core-modules/application-settings");
 
 let viewModel;
 let page;

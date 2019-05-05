@@ -1,11 +1,11 @@
 const observableModule = require("tns-core-modules/data/observable");
-let Observable = require("data/observable");
-let ObservableArray = require("data/observable-array").ObservableArray;
+let Observable = require("tns-core-modules/data/observable");
+let ObservableArray = require("tns-core-modules/data/observable-array").ObservableArray;
 let fs = require("tns-core-modules/file-system");
-const appSetting = require("application-settings");
+const appSetting = require("tns-core-modules/application-settings");
 let platformModule = require("tns-core-modules/platform");
 var phone = require( "nativescript-phone" );
-var utilityModule = require("utils/utils");
+var utilityModule = require("tns-core-modules/utils/utils");
 
 let viewModel;
 let page;

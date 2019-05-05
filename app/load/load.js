@@ -1,7 +1,7 @@
 const observableModule = require("tns-core-modules/data/observable");
 let native_zip = require("nativescript-zip").Zip;
 let fs = require("tns-core-modules/file-system");
-const httpModule = require("http");
+const httpModule = require("tns-core-modules/http");
 let appSetting = require("tns-core-modules/application-settings");
 
 let view;

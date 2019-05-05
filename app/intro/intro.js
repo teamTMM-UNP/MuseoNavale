@@ -1,5 +1,5 @@
 const observableModule = require("tns-core-modules/data/observable");
-const appSetting = require("application-settings");
+const appSetting = require("tns-core-modules/application-settings");
 let fs = require("tns-core-modules/file-system");
 let device = require("tns-core-modules/platform");
 const connectivityModule = require("tns-core-modules/connectivity");

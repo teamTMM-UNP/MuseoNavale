@@ -1,6 +1,6 @@
-const ObservableArray = require("data/observable-array").ObservableArray;
-const Observable = require("data/observable");
-var utilityModule = require("utils/utils");
+const ObservableArray = require("tns-core-modules/data/observable-array").ObservableArray;
+const Observable = require("tns-core-modules/data/observable");
+var utilityModule = require("tns-core-modules/utils/utils");
 var frameModule = require("tns-core-modules/ui/frame");
 var appversion = require("nativescript-appversion");
 
