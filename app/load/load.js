@@ -55,7 +55,7 @@ function dowload_and_zip() {
             console.log(data);
         });
 
-        native_zip.unzip(file, dest)
+        native_zip.unzipWithProgress(file, dest, onZipProgress, true)
             .then(() => {
                 console.log('unzip succesfully completed');
                 let url_main = folder.getFolder("/assets/zip/file/MuseoNavale");
