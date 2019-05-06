@@ -43,7 +43,7 @@ function onNavigatingTo(args) {
     page.bindingContext = viewModel;
 }
 
-function dowload_and_zip() {
+async function dowload_and_zip() {
     console.log('Download Started');
     viewModel.set("loading", "Downloading.....");
     let folder = fs.knownFolders.currentApp();
@@ -56,9 +56,12 @@ function dowload_and_zip() {
             let path_file = uri.substring(8,uri.length);
             console.log(path_file);
 
+            native_zip.unzip(path_file,dest);
+
             native_zip.unzipWithProgress(path_file, dest, onZipProgress, true)
                 .then(() => {
                     console.log('unzip succesfully completed');
+
                     let url_main = folder.getFolder("/assets/zip/file/MuseoNavale");
                     url_main.getEntities().then(function (data) {
                         for (let i = 1; i < data.length; i++) {
