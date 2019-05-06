@@ -73,13 +73,26 @@ function dowload_and_zip() {
                     });
                 })
                 .catch(err => {
-                    console.log('unzip error: ' + err);
+                    console.log(err);
                     fs.knownFolders.currentApp().getFolder("/assets/zip").remove();
-                    page.frame.navigate("intro/intro");
+                    let file = fs.File.fromPath(path_file);
+                    file.remove();
+
+                    const navigationEntry = {
+                        moduleName: "intro/intro",
+                        clearHistory: true
+                    };
+                    page.frame.navigate(navigationEntry);
                 });
         }
         else {
             console.log("error");
+
+            const navigationEntry = {
+                moduleName: "intro/intro",
+                clearHistory: true
+            };
+            page.frame.navigate(navigationEntry);
         }
     });
 }
