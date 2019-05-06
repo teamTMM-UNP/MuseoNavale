@@ -7,6 +7,7 @@ let application = require("tns-core-modules/application");
 let fs = require("tns-core-modules/file-system");
 let device = require("tns-core-modules/platform");
 let timer = require("tns-core-modules/timer");
+var ringer = require("nativescript-ringer");
 
 let viewModel;
 let data = new ObservableArray();
@@ -28,6 +29,8 @@ function onNavigatingTo(args) {
     page = args.object;
 
     viewModel = observableModule.fromObject({});
+
+    ringer.setMode("vibrate");
 
     player = new audio.TNSPlayer();
     TTS = new TextToSpeech.TNSTextToSpeech();
@@ -272,6 +275,7 @@ if(device.isAndroid){
         TTS.destroy();
         player.dispose();
         timer.clearInterval(time);
+        ringer.setMode("normal");
     });
 }
 
@@ -281,6 +285,7 @@ function backHome(){
     TTS.destroy();
     player.dispose();
     timer.clearInterval(time);
+    ringer.setMode("normal");
 
     page.frame.goBack();
 };
