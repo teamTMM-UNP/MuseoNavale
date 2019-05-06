@@ -15,5 +15,6 @@ module.exports = {
     info_manager : 'Principal Investigator: Prof. Antonio Scamardella',
     sale_titolo : 'Halls',
     sale_sottotitolo : "Tap on a hall",
-    museo_telefono : "Phone:"
+    museo_telefono : "Phone:",
+    caricamento : "Loading Database"
 };

@@ -8,7 +8,7 @@
 
     <GridLayout>
         <StackLayout verticalAlignment="top">
-            <Label text="Caricamento Database" textWrap="true" class="optimusFont" marginTop="20" fontSize="46" textAlignment="center" horizontalAlignment="center"></Label>
+            <Label text="{{ _L('caricamento') }}" textWrap="true" class="optimusFont" marginTop="20" fontSize="46" textAlignment="center" horizontalAlignment="center"></Label>
         </StackLayout>
         <StackLayout class="coverImage" orientation="vertical" marginBottom="50" verticalAlignment="center" backgroundImage="~/images/bussola-empty.png" >
             <Image id="toRotate" width="35%" src="~/images/lancetta.png"/>

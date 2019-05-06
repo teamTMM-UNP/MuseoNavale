@@ -15,5 +15,6 @@ module.exports = {
     info_manager : 'Responsable Scientifique: Prof. Antonio Scamardella',
     sale_titolo : 'Hallls',
     sale_sottotitolo : "",
-    museo_telefono : "Phone:"
+    museo_telefono : "Phone:",
+    caricamento : "Chargement Database"
 };
