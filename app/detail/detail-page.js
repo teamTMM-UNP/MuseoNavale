@@ -7,7 +7,9 @@ let application = require("tns-core-modules/application");
 let fs = require("tns-core-modules/file-system");
 let device = require("tns-core-modules/platform");
 let timer = require("tns-core-modules/timer");
-var ringer = require("nativescript-ringer");
+if(device.isAndroid){
+    var ringer = require("nativescript-ringer");
+}
 
 let viewModel;
 let data = new ObservableArray();
@@ -30,7 +32,7 @@ function onNavigatingTo(args) {
 
     viewModel = observableModule.fromObject({});
 
-    ringer.setMode("vibrate");
+
 
     player = new audio.TNSPlayer();
     TTS = new TextToSpeech.TNSTextToSpeech();
@@ -41,7 +43,10 @@ function onNavigatingTo(args) {
         page.enableSwipeBackNavigation = false;
     }
     else
+    {
         viewModel.set("ios_bar", "collapsed");
+        ringer.setMode("vibrate");
+    }
 
     if(page.navigationContext.page == "tour" || page.navigationContext.page == "room"){
         viewModel.set("tour_visibility", "visible");
@@ -285,7 +290,8 @@ function backHome(){
     TTS.destroy();
     player.dispose();
     timer.clearInterval(time);
-    ringer.setMode("normal");
+    if(device.isAndroid)
+        ringer.setMode("normal");
 
     page.frame.goBack();
 };

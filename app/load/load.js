@@ -5,6 +5,7 @@ const httpModule = require("tns-core-modules/http");
 let appSetting = require("tns-core-modules/application-settings");
 let DownloaderManager = require("nativescript-downloadmanager").DownloadManager;
 let options = require("nativescript-downloadmanager");
+let device = require("tns-core-modules/platform")
 
 let view;
 let viewModel;
@@ -24,12 +25,17 @@ function onNavigatingTo(args) {
 
     if(appSetting.getString("update", "NO") == "YES"){
         appSetting.setString("update", "NO");
-        dowload_and_zip();
-    }
+        if(device.isAndroid)
+            download_and_zip_android();
+        else
+            download_and_zip_ios();    }
 
     else{
         if(!fs.Folder.exists(fs.knownFolders.currentApp().path + "/assets/zip")) {
-            dowload_and_zip();
+            if(device.isAndroid)
+                download_and_zip_android();
+            else
+                download_and_zip_ios();
         }
         else{
             const navigationEntry = {
@@ -43,7 +49,7 @@ function onNavigatingTo(args) {
     page.bindingContext = viewModel;
 }
 
-async function dowload_and_zip() {
+async function download_and_zip_android() {
     console.log('Download Started');
     viewModel.set("loading", "Downloading.....");
     let folder = fs.knownFolders.currentApp();
@@ -100,6 +106,56 @@ async function dowload_and_zip() {
         }
     });
 }
+
+function download_and_zip_ios() {
+    console.log('Download Started');
+    viewModel.set("loading", "Downloading.....");
+    let folder = fs.knownFolders.currentApp();
+    let file = fs.path.join(folder.path, "/assets/zip/prova.zip");
+    let dest = fs.path.join(fs.knownFolders.currentApp().path, "/assets/zip");
+    let url = "http://museonavale.uniparthenope.it:5000/boundle";
+    httpModule.getFile(url, file).then(function (r) {
+
+            //native_zip.unzip(path_file,dest);
+
+            native_zip.unzipWithProgress(file, dest, onZipProgress, true)
+                .then(() => {
+                    console.log('unzip succesfully completed');
+
+                    let url_main = folder.getFolder("/assets/zip/file/MuseoNavale");
+                    url_main.getEntities().then(function (data) {
+                        for (let i = 1; i < data.length; i++) {
+                            let name = data[i]["_name"];
+
+                            if (url_main.getFile(name).extension == ".json") {
+                                appSetting.setString("fileJson", name);
+                                fs.knownFolders.currentApp().getFile("/assets/zip/prova.zip").remove();
+                                page.frame.navigate("home/home-page");
+                            }
+                        }
+                    });
+                })
+                .catch(err => {
+                    console.log('unzip error: ' + err);
+                    fs.knownFolders.currentApp().getFolder("/assets/zip").remove();
+                    page.frame.navigate("intro/intro");
+
+                    const navigationEntry = {
+                        moduleName: "intro/intro",
+                        clearHistory: true
+                    };
+                    page.frame.navigate(navigationEntry);
+                });
+
+    },function (e) {
+        console.log(e);
+        const navigationEntry = {
+            moduleName: "intro/intro",
+            clearHistory: true
+        };
+        page.frame.navigate(navigationEntry);    });
+}
+
 
 function onZipProgress(args) {
     console.log('unzipping:' + args + "%");

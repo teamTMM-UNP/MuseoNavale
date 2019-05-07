@@ -119,3 +119,7 @@ ListView
     background-color: transparent;
     opacity: 0.7;
 }
+Label
+{
+    color: rgba(64,43,18,0.8);
+}
