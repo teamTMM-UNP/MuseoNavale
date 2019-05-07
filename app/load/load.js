@@ -69,7 +69,8 @@ async function dowload_and_zip() {
 
                             if (url_main.getFile(name).extension == ".json") {
                                 appSetting.setString("fileJson", name);
-                                fs.knownFolders.currentApp().getFile(path_file).remove();
+                                let file = fs.File.fromPath(path_file);
+                                file.remove();
                                 page.frame.navigate("home/home-page");
                             }
                         }
