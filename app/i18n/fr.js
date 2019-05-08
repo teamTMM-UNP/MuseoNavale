@@ -17,5 +17,7 @@ module.exports = {
     sale_titolo : 'Hallls',
     sale_sottotitolo : "",
     museo_telefono : "Phone:",
-    caricamento : "Chargement Database"
+    caricamento : "Chargement Database",
+    detail_back : "PRECEDENT",
+    detail_next : "SUIVANT"
 };

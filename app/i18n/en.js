@@ -17,5 +17,7 @@ module.exports = {
     sale_titolo : 'Halls',
     sale_sottotitolo : "Tap on a hall",
     museo_telefono : "Phone:",
-    caricamento : "Loading Database"
+    caricamento : "Loading Database",
+    detail_back : "BACK",
+    detail_next : "NEXT"
 };

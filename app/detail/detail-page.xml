@@ -14,9 +14,9 @@
             <Image src="~/images/no_image.png" marginBottom="5" marginLeft="5" marginTop="5" horizontalAlignment="left" width="30" tap="backHome" />
         </StackLayout>
         <GridLayout verticalAlignment="top"  visibility="{{ tour_visibility }}" marginTop="5" ios:marginLeft="5" ios:marginRight="5">
-            <Button horizontalAlignment="left" text="Precedente" color="#aaaaaa" backgroundColor="rgba(64,43,18,0.8)" tap="back" />
+            <Button horizontalAlignment="left" text="{{_L('detail_back')}}" color="#aaaaaa" backgroundColor="rgba(64,43,18,0.8)" tap="back" />
             <Label class="roomNumber" text="{{ codice }}" width="20%" visibility="{{ codice_visibility }}" horizontalAlignment="center" color="#aaaaaa" verticalAlignment="bottom"/>
-            <Button horizontalAlignment="right" text="Successivo" color="#aaaaaa" backgroundColor="rgba(64,43,18,0.8)" tap="next"/>
+            <Button horizontalAlignment="right" text="{{_L('detail_next')}}" color="#aaaaaa" backgroundColor="rgba(64,43,18,0.8)" tap="next"/>
         </GridLayout>
         <GridLayout verticalAlignment="top"  visibility="{{ no_tour_visibility }}" marginTop="5">
             <Label class="roomNumber" text="{{ codice }}" width="20%" horizontalAlignment="center" color="#aaaaaa" verticalAlignment="bottom"/>

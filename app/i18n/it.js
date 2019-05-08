@@ -17,5 +17,7 @@ module.exports = {
     sale_titolo : 'Sale',
     sale_sottotitolo : "Clicca su una sala",
     museo_telefono : "Telefono:",
-    caricamento : "Caricamento Database"
+    caricamento : "Caricamento Database",
+    detail_back : "PRECEDENTE",
+    detail_next : "SUCCESSIVO"
 };
