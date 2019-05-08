@@ -26,10 +26,13 @@ function onNavigatingTo(args) {
     if(device.device.language.includes("it")){
         desc = "Benvenuti nel tour " + data.id + ". Per iniziare, recarsi nella Sala 1.";
     }
-    else if(device.device.language.includes("en")){
+    else if(device.device.language.includes("fr")){
         desc = "Bienvenue dans la visite " + data.id + ". Allez dans le Hall 1 pour commencer la visite.";
     }
-    else if(device.device.language.includes("fr")){
+    else if(device.device.language.includes("en")){
+        desc = "Welcome to the tour " + data.id + ".Go to the Hall 1 to begin the tour.";
+    }
+    else{
         desc = "Welcome to the tour " + data.id + ".Go to the Hall 1 to begin the tour.";
     }
 
@@ -51,6 +54,9 @@ function onNavigatingTo(args) {
     }
     else if(device.device.language.includes("fr")){
         desc1 = "Pour continuer la visite, allez à la Hall 1."
+    }
+    else{
+        desc1 = "To continue the tour, go to Hall1."
     }
 
     items.push({
