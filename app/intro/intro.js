@@ -22,10 +22,14 @@ function onNavigatingTo(args) {
     else
         viewModel.set("class_button", "coverImageButtonEn");
 
+    viewModel.set("button_enabled", true);
+
     page.bindingContext = viewModel;
 }
 
 function benvenuto(){
+    viewModel.set("button_enabled", false);
+
     let doc = fs.knownFolders.currentApp().path;
     if(!fs.Folder.exists(doc + "/assets/zip/file/MuseoNavale")) {
         page.frame.navigate("load/load");

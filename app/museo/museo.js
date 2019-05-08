@@ -4,8 +4,10 @@ let ObservableArray = require("tns-core-modules/data/observable-array").Observab
 let fs = require("tns-core-modules/file-system");
 const appSetting = require("tns-core-modules/application-settings");
 let platformModule = require("tns-core-modules/platform");
-var phone = require( "nativescript-phone" );
-var utilityModule = require("tns-core-modules/utils/utils");
+let phone = require( "nativescript-phone" );
+let utilityModule = require("tns-core-modules/utils/utils");
+let email = require("nativescript-email");
+let Directions = require("nativescript-directions").Directions;
 
 let viewModel;
 let page;
@@ -140,6 +142,45 @@ function web() {
     utilityModule.openUrl("https://museonavale.uniparthenope.it");
 }
 
+function openFb() {
+    utilityModule.openUrl("https://www.facebook.com/alviani.antonio/");
+}
+
+function openEmail(){
+    email.compose({
+        subject: '',
+        body: '',
+        to: ['museonavale@uniparthenope.it']
+    }).then(
+        function() {
+            console.log("Email composer closed");
+        }, function(err) {
+            console.log("Error: " + err);
+        });
+}
+
+function openMap(){
+    let directions = new Directions();
+
+    directions.navigate({
+        to: [{
+            address: "Via Francesco Petrarca n. 80",
+        }],
+        type: "driving", // optional, can be: driving, transit, bicycling or walking
+        ios: {
+            preferGoogleMaps: true, // If the Google Maps app is installed, use that one instead of Apple Maps, because it supports waypoints. Default true.
+            allowGoogleMapsWeb: true // If waypoints are passed in and Google Maps is not installed, you can either open Apple Maps and the first waypoint is used as the to-address (the rest is ignored), or you can open Google Maps on web so all waypoints are shown (set this property to true). Default false.
+        }
+    }).then(() => {
+        console.log("Maps app launched.");
+    }, error => {
+        console.log(error);
+    });
+}
+
+exports.openFb = openFb;
+exports.openMap = openMap;
+exports.openEmail = openEmail;
 exports.web = web;
 exports.openPhone = openPhone;
 exports.onNavigatingTo = onNavigatingTo;

@@ -10,6 +10,7 @@ let timer = require("tns-core-modules/timer");
 if(device.isAndroid){
     var ringer = require("nativescript-ringer");
 }
+var dialogs = require("tns-core-modules/ui/dialogs");
 
 let viewModel;
 let data = new ObservableArray();
@@ -25,14 +26,12 @@ let testo = "Loremipsum dolor sit amet, consectetur adipiscing elit, sed do eius
     " Sapien nec sagittis aliquam malesuada bibendum. Tempus iaculis urna id volutpat lacus laoreet non. Luctus accumsan tortor posuere ac ut. Elementum curabitur vitae nunc sed." +
     " Vestibulum morbi blandit cursus risus at ultrices mi tempus imperdiet." +
     " Pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat.";
-let index;
+let index = 0;
 
 function onNavigatingTo(args) {
     page = args.object;
 
     viewModel = observableModule.fromObject({});
-
-
 
     player = new audio.TNSPlayer();
     TTS = new TextToSpeech.TNSTextToSpeech();
@@ -70,12 +69,20 @@ function onNavigatingTo(args) {
 function set_items(data){
     viewModel.set("image", data.image);
     viewModel.set("play_image", "~/images/play.png");
-    viewModel.set("text", testo);
     viewModel.set("text_time", "--:--");
     viewModel.set("value", "0");
     viewModel.set("min", "0");
     viewModel.set("codice", data.id);
     viewModel.set("titolo",data.title);
+
+    if((data.title).startsWith("Intro")){
+        viewModel.set("codice_visibility", "collapsed");
+        viewModel.set("text", data.description);
+    }
+    else{
+        viewModel.set("codice_visibility", "visible");
+        viewModel.set("text", testo);
+    }
 
     let folder = fs.knownFolders.currentApp();
     let file = fs.path.join(folder.path, "/assets/zip/file/MuseoNavale/") + "/" + data.audio;
@@ -309,7 +316,16 @@ exports.onSliderLoaded = function (args) {
 
 function next(){
     if(index == page.navigationContext.all_items.length - 1){
-        return;
+        dialogs.confirm({
+            title: "Fine Tour!!",
+            message: "Complimenti hai completato il tour.",
+            okButtonText: "OK"
+        }).then(function (result) {
+            console.log(result);
+            if(result){
+                backHome();
+            }
+        });
     }
     else {
         if (data.audio != "") {
@@ -328,7 +344,7 @@ function next(){
 
 function back(){
     if(index == 0){
-        return;
+        backHome();
     }
     else {
         if (data.audio != "") {

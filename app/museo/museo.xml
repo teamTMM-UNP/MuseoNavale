@@ -10,7 +10,7 @@
         <StackLayout orientation="vertical" verticalAlignment="top" horizontalAlignment="center">
             <Image tap="settings" src="~/images/logo_museo.png" width="75"/>
             <Label class="optimusFont" text="Museo Navale" fontSize="47" horizontalAlignment="center" textWrap="true"/>
-            <Label class="optimusFont" text="Dell' Universita' Degli Studi ''Parthenope''" horizontalAlignment="center" marginTop="10"/>
+            <Label class="optimusFont" text="Universita' Degli Studi ''Parthenope''" horizontalAlignment="center" marginTop="10"/>
         </StackLayout>
         <Label class="optimusFont_Bold" text="{{ apertura }}" fontSize="27" horizontalAlignment="center" textWrap="true"/>
         <StackLayout margin="5 20 0 20" height="4px" backgroundColor="rgba(64,43,18,0.8)" marginBottom="20" />
@@ -19,7 +19,7 @@
             <StackLayout>
                 <StackLayout orientation="vertical" verticalAlignment="top" horizontalAlignment="center">
                     <Image tap="settings" src="~/images/museo_main.png"/>
-                    <Label class="optimusFont" text="Via Francesco Petrarca n. 80 – 80123" fontSize="18" horizontalAlignment="center" textWrap="true" marginRight="10" marginLeft="10"/>
+                    <Label class="optimusFont" id="address" text="Via Francesco Petrarca n. 80 – 80123" fontSize="18" horizontalAlignment="center" textWrap="true" marginRight="10" marginLeft="10"/>
 
                     <GridLayout marginLeft="10" marginRight="10">
                         <Label class="optimusFont" text="{{ _L('museo_telefono') }}" horizontalAlignment="left" marginTop="10"/>
@@ -27,13 +27,13 @@
                     </GridLayout>
                     <GridLayout marginLeft="10" marginRight="10">
                         <Label class="optimusFont" text="Email:" horizontalAlignment="left" marginTop="10"/>
-                        <Label class="optimusFont" text="museonavale@uniparthenope.it" color="#0000cd" horizontalAlignment="right" marginTop="10"/>
+                        <Label class="optimusFont" id="email" text="museonavale@uniparthenope.it" tap="openEmail" color="#0000cd" horizontalAlignment="right" marginTop="10"/>
                     </GridLayout>
                     <Label class="optimusFont" text="museonavale.uniparthenope.it" tap="web" color="#0000cd" horizontalAlignment="center" marginTop="10"/>
 
                     <StackLayout orientation="horizontal" horizontalAlignment="center">
-                        <Image tap="settings" src="~/images/fb.png" width="25" horizontalAlignment="center" verticalAlignment="center" marginRight="20"/>
-                        <Image tap="settings" src="~/images/pos.png" width="25" horizontalAlignment="center" verticalAlignment="center" marginRight="20"/>
+                        <Image tap="settings" src="~/images/fb.png" width="25" ontap="openFb" horizontalAlignment="center" verticalAlignment="center" marginRight="20"/>
+                        <Image tap="settings" src="~/images/pos.png" width="25" ontap="openMap" horizontalAlignment="center" verticalAlignment="center" marginRight="20"/>
                     </StackLayout>
                 </StackLayout>
 

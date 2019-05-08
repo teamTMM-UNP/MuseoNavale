@@ -12,7 +12,7 @@
         <StackLayout orientation="vertical" verticalAlignment="top" horizontalAlignment="center">
             <Image tap="settings" src="~/images/logo_museo.png" width="75"/>
             <Label class="optimusFont" text="Museo Navale" fontSize="47" horizontalAlignment="center" textWrap="true"/>
-            <Label class="optimusFont" text="Dell' Universita' Degli Studi ''Parthenope''" horizontalAlignment="center" marginTop="10"/>
+            <Label class="optimusFont" text="Universita' Degli Studi ''Parthenope''" horizontalAlignment="center" marginTop="10"/>
         </StackLayout>
         <StackLayout margin="5 20 0 20" height="4px" backgroundColor="rgba(64,43,18,0.8)" marginBottom="20" />
 

@@ -25,6 +25,7 @@ function onNavigatingTo(args) {
 
     if(appSetting.getString("update", "NO") == "YES"){
         appSetting.setString("update", "NO");
+        fs.knownFolders.currentApp().getFolder("/assets/zip").remove();
         if(device.isAndroid)
             download_and_zip_android();
         else
@@ -61,6 +62,8 @@ async function download_and_zip_android() {
         if(res){
             let path_file = uri.substring(8,uri.length);
             console.log(path_file);
+
+            dm.unregisterBroadcast();
 
             native_zip.unzip(path_file,dest);
 

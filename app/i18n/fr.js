@@ -1,5 +1,6 @@
 module.exports = {
     intro : 'Bienvenue',
+    testo_intro : 'Cliquez sur le drapeau pour continuer',
     home_scan : "Scan",
     home_museo : "Musée",
     home_sale : "Halls",

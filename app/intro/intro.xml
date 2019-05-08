@@ -8,14 +8,15 @@
 
     <x:StatusBar ios:barStyle="light" barColor="rgba(64,43,18,0.8)" />
 
-    <StackLayout orientation="vertical" verticalAlignment="top" height="100%">
+    <GridLayout>
+        <StackLayout orientation="vertical" verticalAlignment="top" height="100%">
         <Image src="~/images/logo_museo.png" height="15%" verticalAlignment="top" />
         <StackLayout orientation="vertical" verticalAlignment="top" horizontalAlignment="center" >
             <StackLayout orientation="horizontal">
                  <Label class="optimusFont" text="MUSEO" fontSize="67" horizontalAlignment="left" verticalAlignment="center"/>
             </StackLayout>
                 <Label class="optimusFont" text="NAVALE" fontSize="67" horizontalAlignment="right"/>
-            <Label class="optimusFont" text="Dell' Universita' Degli Studi ''Parthenope''" horizontalAlignment="center" marginTop="10"/>
+            <Label class="optimusFont" text="Universita' Degli Studi ''Parthenope''" horizontalAlignment="center" marginTop="10"/>
         </StackLayout>
 
         <StackLayout class="coverImage" backgroundImage="~/images/home1.png" orientation="vertical" verticalAlignment="center" marginTop="30dp" width="300" height="300">
@@ -24,7 +25,12 @@
                <Image src="~/images/enusButton.png"  tap="onTapEn" marginBottom="45dp" marginLeft="5dp" width="60%" horizontalAlignment="right"/>
                 <Image src="~/images/frButton.png"  tap="onTapFr" marginLeft="5dp" width="60%" horizontalAlignment="right"/>
             -->
-            <Button class="{{ class_button }}" width="100%" text="{{ _L('intro') }}" tap="benvenuto" horizontalAlignment="center"/>
+            <Button class="{{ class_button }}" isEnabled="{{ button_enabled }}" width="100%" text="{{ _L('intro') }}" tap="benvenuto" horizontalAlignment="center"/>
         </StackLayout>
     </StackLayout>
+
+        <StackLayout verticalAlignment="bottom" horizontalAlignment="center" marginRight="10">
+            <Label class="optimusFont" fontSize="19" text="{{ _L('testo_intro') }}"/>
+        </StackLayout>
+    </GridLayout>
 </Page>

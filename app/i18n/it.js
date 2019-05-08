@@ -1,4 +1,5 @@
 module.exports = {
+    testo_intro : 'Clicca sulla bandiera per proseguire',
     intro : 'Benvenuto',
     home_scan : "Scan",
     home_museo : "Museo",
