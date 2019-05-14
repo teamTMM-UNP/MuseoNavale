@@ -4,10 +4,10 @@
       "ios": "it.uniparthenope.museonavale",
       "android": "it.uniparthenope.museonavale"
     },
-    "tns-android": {
+    "tns-ios": {
       "version": "5.3.1"
     },
-    "tns-ios": {
+    "tns-android": {
       "version": "5.3.1"
     }
   },
@@ -36,7 +36,7 @@
     "nativescript-ui-sidedrawer": "^6.0.0",
     "nativescript-zip": "^3.0.2",
     "string-similarity": "^3.0.0",
-    "tns-core-modules": "^5.3.1",
+    "tns-core-modules": "^5.3.2",
     "tns-i18n": "0.0.10"
   },
   "devDependencies": {
