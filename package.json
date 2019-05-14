@@ -4,10 +4,10 @@
       "ios": "it.uniparthenope.museonavale",
       "android": "it.uniparthenope.museonavale"
     },
-    "tns-ios": {
+    "tns-android": {
       "version": "5.3.1"
     },
-    "tns-android": {
+    "tns-ios": {
       "version": "5.3.1"
     }
   },
@@ -27,12 +27,11 @@
     "nativescript-downloadmanager": "^0.1.0",
     "nativescript-email": "^1.5.3",
     "nativescript-handle-file": "^4.0.0",
-    "nativescript-i18n": "^0.3.0",
     "nativescript-phone": "^1.4.0",
     "nativescript-ringer": "^0.1.3",
     "nativescript-statusbar": "^5.0.0",
     "nativescript-texttospeech": "^2.0.3",
-    "nativescript-theme-core": "^1.0.4",
+    "nativescript-theme-core": "^1.0.6",
     "nativescript-ui-sidedrawer": "^6.0.0",
     "nativescript-zip": "^3.0.2",
     "string-similarity": "^3.0.0",
