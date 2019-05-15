@@ -79,6 +79,8 @@ function onNavigatingTo(args) {
                     let img_name = jsonData['tours'][i]['items'][j]['field_image'];
                     let path_img = url_main.path + "/" +img_name;
 
+                    console.log(jsonData['tours'][i]['items'][j]['field_description']);
+
                     if(img_name != ""){
                         items.push({
                             "id" : jsonData['tours'][i]['items'][j]['nid'],
