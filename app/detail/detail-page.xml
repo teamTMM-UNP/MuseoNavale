@@ -43,7 +43,7 @@
 
             <StackLayout orientation="vertical" verticalAlignment="bottom" marginTop="30">
                 <ScrollView height="40%">
-                    <Label text="{{ text }}" color="white" autocorrect="false" textAlignment="center" textWrap="true"></Label>
+                    <Label verticalAlignment="center" text="{{ text }}" color="white" autocorrect="false" textAlignment="center" textWrap="true"></Label>
                 </ScrollView>
 
                 <StackLayout verticalAlignment="bottom" orientation="vertical" marginTop="10" backgroundColor="rgba(0,0,0,0.3)">
