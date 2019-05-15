@@ -3,6 +3,7 @@ let fs = require("tns-core-modules/file-system");
 let Observable = require("tns-core-modules/data/observable");
 let ObservableArray = require("tns-core-modules/data/observable-array").ObservableArray;
 const appSetting = require("tns-core-modules/application-settings");
+let Fresco = require("nativescript-fresco");
 
 let viewModel;
 let page;
@@ -18,6 +19,8 @@ function onNavigatingTo(args) {
     viewModel = observableModule.fromObject({
         items:items
     });
+
+    Fresco.initialize();
 
     data = page.navigationContext.data;
     index = page.navigationContext.index;

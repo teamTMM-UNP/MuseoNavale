@@ -9,16 +9,30 @@
         <StackLayout>
             <Label backgroundColor="rgba(0,0,0,0.3)" width="100%" textAlignment="center" text="{{ titolo }}" class="optimusFont_Bold" fontSize="42" horizontalAlignment="center" marginBottom="10"/>
 
-            <ListView class="list-group" items="{{ items }}" itemTap="onTap" height="100%">
-                <ListView.itemTemplate>
-                    <FlexboxLayout flexDirection="row" class="list-group-item;">
-                        <StackLayout backgroundColor="rgba(0,0,0,0.3)" orientation="vertical" marginBottom="20" marginRight="5" marginLeft="5" >
-                            <Image src="{{ image }}" height="128" stretch="aspectFill"/>
-                            <Label class="TimelessFont"  text="{{ title }}" width="70%" color="white" textWrap="true" verticalAlignment="center" horizontalAlignment="center"/>
-                        </StackLayout>
-                    </FlexboxLayout>
-                </ListView.itemTemplate>
-            </ListView>
+            <GridLayout rows="*" xmlns:lv="nativescript-ui-listview" xmlns:f="nativescript-fresco" height="100%">
+                <lv:RadListView id="list-view" row="0" items="{{ items }}" marginRight="-2" itemTap="onTap">
+                    <lv:RadListView.listViewLayout>
+                        <lv:ListViewGridLayout scrollDirection="Vertical" itemHeight="200" spanCount="1"/>
+                    </lv:RadListView.listViewLayout>
+                    <lv:RadListView.itemTemplate>
+                        <GridLayout rows="*" backgroundColor="White">
+                            <GridLayout rows="*" columns="*" margin="0">
+                                <ios>
+                                    <Image src="{{ image }}" stretch="aspectFill" />
+                                </ios>
+                                <android>
+                                    <f:FrescoDrawee horizontalAlignment="stretch" height="180" imageUri="{{ image }}" />
+                                </android>
+                                <GridLayout verticalAlignment="bottom">
+                                    <StackLayout paddingTop="8" paddingBottom="8" paddingLeft="16" paddingRight="16">
+                                        <Label text="{{ title }}" class="locationCity" />
+                                    </StackLayout>
+                                </GridLayout>
+                            </GridLayout>
+                        </GridLayout>
+                    </lv:RadListView.itemTemplate>
+                </lv:RadListView>
+            </GridLayout>
         </StackLayout>
     </StackLayout>
 </Page>

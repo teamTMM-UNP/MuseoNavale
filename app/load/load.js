@@ -5,7 +5,7 @@ const httpModule = require("tns-core-modules/http");
 let appSetting = require("tns-core-modules/application-settings");
 let DownloaderManager = require("nativescript-downloadmanager").DownloadManager;
 let options = require("nativescript-downloadmanager");
-let device = require("tns-core-modules/platform")
+let device = require("tns-core-modules/platform");
 
 let view;
 let viewModel;

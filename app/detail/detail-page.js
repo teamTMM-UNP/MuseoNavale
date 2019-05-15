@@ -67,6 +67,7 @@ function onNavigatingTo(args) {
 }
 
 function set_items(data){
+    console.log(data);
     viewModel.set("image", data.image);
     viewModel.set("play_image", "~/images/play.png");
     viewModel.set("text_time", "--:--");

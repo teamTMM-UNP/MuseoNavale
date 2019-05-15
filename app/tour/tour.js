@@ -4,6 +4,7 @@ let Observable = require("tns-core-modules/data/observable");
 let ObservableArray = require("tns-core-modules/data/observable-array").ObservableArray;
 const appSetting = require("tns-core-modules/application-settings");
 let device = require("tns-core-modules/platform");
+let Fresco = require("nativescript-fresco");
 
 let viewModel;
 let page;
@@ -18,6 +19,8 @@ function onNavigatingTo(args) {
     viewModel = observableModule.fromObject({
         items:items
     });
+
+    Fresco.initialize();
 
     data = page.navigationContext.data;
     viewModel.set("titolo", data.id);
@@ -78,8 +81,6 @@ function onNavigatingTo(args) {
                 for(let j=0; j<jsonData['tours'][i]['items'].length; j++){
                     let img_name = jsonData['tours'][i]['items'][j]['field_image'];
                     let path_img = url_main.path + "/" +img_name;
-
-                    console.log(jsonData['tours'][i]['items'][j]['field_description']);
 
                     if(img_name != ""){
                         items.push({

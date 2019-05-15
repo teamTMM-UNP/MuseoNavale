@@ -4,6 +4,7 @@ let Observable = require("tns-core-modules/data/observable");
 let ObservableArray = require("tns-core-modules/data/observable-array").ObservableArray;
 const appSetting = require("tns-core-modules/application-settings");
 let stringSimilarity = require('string-similarity');
+let Fresco = require("nativescript-fresco");
 
 let items;
 let viewModel;
@@ -18,6 +19,8 @@ function onNavigatingTo(args) {
     viewModel = observableModule.fromObject({
         items:items
     });
+
+    Fresco.initialize();
 
     let documents = fs.knownFolders.currentApp();
 
