@@ -75,6 +75,8 @@ function set_items(data){
     viewModel.set("codice", data.id);
     viewModel.set("titolo",data.title);
 
+    TTS.speak({text:''});
+
     if((data.title).startsWith("Intro")){
         viewModel.set("codice_visibility", "collapsed");
         viewModel.set("text", data.description);

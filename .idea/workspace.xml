@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e8d9680f-91c4-4f26-a273-d598c67c1e11" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/App_Resources/Android/src/main/res/drawable-hdpi/logo_museo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/App_Resources/Android/src/main/res/drawable-ldpi/logo_museo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/App_Resources/Android/src/main/res/drawable-mdpi/logo_museo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/App_Resources/Android/src/main/res/drawable-xhdpi/logo_museo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/App_Resources/Android/src/main/res/drawable-xxhdpi/logo_museo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/App_Resources/Android/src/main/res/drawable-xxxhdpi/logo_museo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/App_Resources/Android/src/main/res/drawable-nodpi/splash_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/App_Resources/Android/src/main/res/drawable-nodpi/splash_screen.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/detail/detail-page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/detail/detail-page.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -14,17 +22,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/detail/detail-page.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="45" column="53" selection-start-line="45" selection-start-column="53" selection-end-line="45" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -36,10 +34,11 @@
         <option value="$PROJECT_DIR$/app/App_Resources/Android/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/room/room.js" />
         <option value="$PROJECT_DIR$/app/explore/explore.js" />
-        <option value="$PROJECT_DIR$/app/detail/detail-page.js" />
         <option value="$PROJECT_DIR$/app/home/home-page.js" />
         <option value="$PROJECT_DIR$/app/tour/tour.js" />
         <option value="$PROJECT_DIR$/app/detail/detail-page.xml" />
+        <option value="$PROJECT_DIR$/app/detail/detail-page.js" />
+        <option value="$PROJECT_DIR$/app/App_Resources/Android/src/main/res/drawable-nodpi/splash_screen.xml" />
       </list>
     </option>
   </component>
@@ -70,7 +69,41 @@
               <item name="MuseoNavale" type="b2602c69:ProjectViewProjectNode" />
               <item name="MuseoNavale" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="detail" type="462c0819:PsiDirectoryNode" />
+              <item name="App_Resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MuseoNavale" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MuseoNavale" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="App_Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="Android" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MuseoNavale" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MuseoNavale" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="App_Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="Android" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MuseoNavale" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MuseoNavale" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="App_Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="Android" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MuseoNavale" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MuseoNavale" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="App_Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="Android" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -83,6 +116,7 @@
     <property name="editor.config.ad.shown" value="true" />
     <property name="js.ns.project" value="true" />
     <property name="js.ns.project.flavor" value="JavaScript" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Meteo_Uniparthenope1" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -90,8 +124,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\ciro\WebstormProjects\Museo\app" />
-      <recent name="C:\Users\ciro\WebstormProjects\Museo" />
+      <recent name="C:\Users\ciro\WebstormProjects\MuseoNavale\app\App_Resources\Android\src\main\res\drawable-mdpi" />
+      <recent name="C:\Users\ciro\WebstormProjects\MuseoNavale\app\App_Resources\Android\src\main\res\drawable-xhdpi" />
+      <recent name="C:\Users\ciro\WebstormProjects\MuseoNavale\app\App_Resources\Android\src\main\res\drawable-xxhdpi" />
+      <recent name="C:\Users\ciro\WebstormProjects\MuseoNavale\app\App_Resources\Android\src\main\res\drawable-xxxhdpi" />
+      <recent name="C:\Users\ciro\WebstormProjects\MuseoNavale\app\App_Resources\Android\src\main\res" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -117,7 +154,7 @@
       <option name="presentableId" value="Default" />
       <updated>1557911784482</updated>
       <workItem from="1557911786248" duration="1044000" />
-      <workItem from="1557913319401" duration="3691000" />
+      <workItem from="1557913319401" duration="5641000" />
     </task>
     <task id="LOCAL-00001" summary="new version app">
       <created>1557916249229</created>
@@ -133,15 +170,21 @@
       <option name="project" value="LOCAL" />
       <updated>1557916699441</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="new version app">
+      <created>1557917128356</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1557917128356</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4735000" />
+    <option name="totallyTimeSpent" value="6685000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22591093" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -208,13 +251,6 @@
     <entry file="file://$PROJECT_DIR$/app/App_Resources/Android/src/main/res/drawable-xxxhdpi/background.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/App_Resources/Android/src/main/res/drawable-nodpi/splash_screen.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="72" selection-start-line="2" selection-start-column="62" selection-end-line="2" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/App_Resources/Android/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="214">
@@ -236,20 +272,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/detail/detail-page.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="332" selection-start-line="332" selection-end-line="332" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/tour/tour.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="91" column="94" selection-start-line="91" selection-start-column="77" selection-end-line="91" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/home/home-page.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -257,12 +279,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/App_Resources/iOS/Info.plist">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-561" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/detail/detail-page.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="45" column="53" selection-start-line="45" selection-start-column="53" selection-end-line="45" selection-end-column="53" />
+          <caret line="45" column="38" lean-forward="true" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="38" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/tour/tour.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="81" column="87" lean-forward="true" selection-start-line="81" selection-start-column="87" selection-end-line="81" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/detail/detail-page.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-939">
+          <caret line="77" column="21" lean-forward="true" selection-start-line="77" selection-start-column="21" selection-end-line="77" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1965" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/App_Resources/Android/src/main/res/drawable-hdpi/logo.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/App_Resources/Android/src/main/res/drawable-nodpi/splash_screen.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/images/logo_museo.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/App_Resources/Android/src/main/res/drawable-xxxhdpi/logo_museo.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
   </component>
 </project>

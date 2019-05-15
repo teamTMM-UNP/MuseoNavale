@@ -1,8 +1,8 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android" android:gravity="fill">
     <item>
-        <bitmap android:gravity="fill" android:src="@drawable/background" />
+        <color android:color="#402b12"></color>
     </item>
     <item>
-        <bitmap android:gravity="center" android:src="@drawable/logo" />
+        <bitmap android:gravity="center" android:src="@drawable/logo_museo" />
     </item>
 </layer-list>
