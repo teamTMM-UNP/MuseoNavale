@@ -15,7 +15,7 @@
                         <lv:ListViewGridLayout scrollDirection="Vertical" itemHeight="200" spanCount="1"/>
                     </lv:RadListView.listViewLayout>
                     <lv:RadListView.itemTemplate>
-                        <GridLayout rows="*" backgroundColor="White">
+                        <GridLayout rows="*" backgroundColor="rgba(64,43,18,1)">
                             <GridLayout rows="*" columns="*" margin="0">
                                 <ios>
                                     <Image src="{{ image }}" stretch="aspectFill" />
@@ -23,9 +23,9 @@
                                 <android>
                                     <f:FrescoDrawee horizontalAlignment="stretch" height="180" imageUri="{{ image }}" />
                                 </android>
-                                <GridLayout verticalAlignment="bottom">
-                                    <StackLayout paddingTop="8" paddingBottom="8" paddingLeft="16" paddingRight="16">
-                                        <Label text="{{ title }}" class="locationCity" />
+                                <GridLayout verticalAlignment="bottom" height="35" backgroundColor="rgba(0,0,0,0.3)" width="100%" >
+                                    <StackLayout verticalAlignment="center">
+                                        <Label fontSize="16" color="white" textAlignment="center" text="{{ title }}" class="optimusFont"  textWrap="true" verticalAlignment="center"/>
                                     </StackLayout>
                                 </GridLayout>
                             </GridLayout>

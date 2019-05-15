@@ -6,9 +6,9 @@
         actionBarHidden="true">
 
     <GridLayout >
-        <StackLayout verticalAlignment="top" horizontalAlignment="center" marginTop="10">
-            <Label class="optimusFont" textAlignment="center" text="{{ _L('sale_titolo') }}" fontSize="47" textWrap="true"/>
-            <Label marginTop="30" class="optimusFont" text="{{ _L('sale_sottotitolo') }}" fontSize="22" textWrap="true"/>
+        <StackLayout verticalAlignment="top" horizontalAlignment="center" >
+            <Label class="optimusFont"  textAlignment="center" text="{{ _L('sale_titolo') }}" fontSize="42" textWrap="true" backgroundColor="rgba(0,0,0,0.3)" width="100%"/>
+            <Label marginTop="50" class="optimusFont" text="{{ _L('sale_sottotitolo') }}" fontSize="22" textWrap="true" verticalAlignment="center" horizontalAlignment="center"/>
         </StackLayout>
 
             <AbsoluteLayout marginTop="30%" class="mapBackground" backgroundImage="~/images/mappa_museo.png" marginRight="5" marginLeft="5">
