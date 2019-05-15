@@ -39,7 +39,8 @@ function onNavigatingTo(args) {
                     "image": path_img,
                     "other_image": jsonData['rooms'][index]['items'][j]['field_other_image'],
                     "audio": jsonData['rooms'][index]['items'][j]['field_audio'],
-                    "number_tour" : jsonData['rooms'][index]['items'][j]['field_number_tour']
+                    "number_tour" : jsonData['rooms'][index]['items'][j]['field_number_tour'],
+                    "description": jsonData['rooms'][index]['items'][j]['field_description']
                 });
             }
             else{
@@ -49,7 +50,8 @@ function onNavigatingTo(args) {
                     "image": documents.getFile("images/no_image.png").path,
                     "other_image": "",
                     "audio": jsonData['rooms'][index]['items'][j]['field_audio'],
-                    "number_tour" : jsonData['rooms'][index]['items'][j]['field_number_tour']
+                    "number_tour" : jsonData['rooms'][index]['items'][j]['field_number_tour'],
+                    "description": jsonData['rooms'][index]['items'][j]['field_description']
                 })
             }
 

@@ -81,7 +81,7 @@ function set_items(data){
     }
     else{
         viewModel.set("codice_visibility", "visible");
-        viewModel.set("text", testo);
+        viewModel.set("text", data.description);
     }
 
     let folder = fs.knownFolders.currentApp();
@@ -316,9 +316,20 @@ exports.onSliderLoaded = function (args) {
 
 function next(){
     if(index == page.navigationContext.all_items.length - 1){
+        let title;
+        let message;
+        if(page.navigationContext.page === "room"){
+            title = "Fine Tour Sala!!";
+            message = "Complimenti hai visitato tutti i reperti presenti nella stanza."
+        }
+        else if(page.navigationContext.page === "tour"){
+            title = "Fine Tour!!";
+            message = "Complimenti hai completato il tour."
+        }
+
         dialogs.confirm({
-            title: "Fine Tour!!",
-            message: "Complimenti hai completato il tour.",
+            title: title,
+            message: message,
             okButtonText: "OK"
         }).then(function (result) {
             console.log(result);

@@ -87,7 +87,7 @@ function onNavigatingTo(args) {
                             "other_image": jsonData['tours'][i]['items'][j]['field_other_image'],
                             "audio": jsonData['tours'][i]['items'][j]['field_audio'],
                             "number_tour" : jsonData['tours'][i]['items'][j]['field_number_tour'],
-                            "description": ""
+                            "description": jsonData['tours'][i]['items'][j]['field_description']
                         });
                     }
                     else{
@@ -98,7 +98,7 @@ function onNavigatingTo(args) {
                             "other_image": "",
                             "audio": jsonData['tours'][i]['items'][j]['field_audio'],
                             "number_tour" : jsonData['tours'][i]['items'][j]['field_number_tour'],
-                            "description": ""
+                            "description": jsonData['tours'][i]['items'][j]['field_description']
                         })
                     }
 

@@ -38,6 +38,7 @@ function onNavigatingTo(args) {
                     "id": jsonData['items'][i]['nid'],
                     "image": path_img,
                     "title": title,
+                    "description": jsonData['items'][i]['field_description'],
                     "other_image": jsonData['items'][i]['field_other_image'],
                     "audio": jsonData['items'][i]['field_audio']
                 });
@@ -47,6 +48,7 @@ function onNavigatingTo(args) {
                     "id": jsonData['items'][i]['nid'],
                     "image": documents.getFile("images/no_image.png").path,
                     "title": title,
+                    "description": jsonData['items'][i]['field_description'],
                     "other_image": "",
                     "audio": jsonData['items'][i]['field_audio']
                 });

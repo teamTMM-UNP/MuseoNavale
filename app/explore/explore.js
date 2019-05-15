@@ -37,7 +37,8 @@ function onNavigatingTo(args) {
                     "image": path_img,
                     "title": title,
                     "other_image": jsonData['items'][i]['field_other_image'],
-                    "audio": jsonData['items'][i]['field_audio']
+                    "audio": jsonData['items'][i]['field_audio'],
+                    "description": jsonData['items'][i]['field_description']
                 });
             }
             else{
