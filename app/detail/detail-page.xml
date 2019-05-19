@@ -4,6 +4,7 @@
         xmlns="http://schemas.nativescript.org/tns.xsd"
         xmlns:ns="nativescript-carousel"
         xmlns:x="nativescript-statusbar"
+        xmlns:f="nativescript-fresco"
         backgroundImage="~/images/background.jpg"
         actionBarHidden="true">
 
@@ -31,9 +32,14 @@
                                  pageChanged="myChangeEvent" pageTapped="mySelectedEvent" ios:autoPagingInterval="10" android:indicatorAnimation="THIN_WORM"
                                  indicatorColor="#d9bb84" indicatorOffset="0,0" showIndicator="true">
                         <ns:Carousel.itemTemplate>
-                            <ns:CarouselItem backgroundColor="#9FC8DA">
+                            <ns:CarouselItem backgroundColor="rgba(64,43,18,1)">
                                 <GridLayout >
-                                    <Image src="{{ image }}" stretch="aspectFill" />
+                                    <ios>
+                                        <Image src="{{ image }}" stretch="aspectFill" />
+                                    </ios>
+                                    <android>
+                                        <f:FrescoDrawee stretch="aspectFill" imageUri="{{ image }}" />
+                                    </android>
                                 </GridLayout>
                             </ns:CarouselItem>
                         </ns:Carousel.itemTemplate>
