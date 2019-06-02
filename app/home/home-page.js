@@ -3,7 +3,8 @@ let fs = require("tns-core-modules/file-system");
 let Observable = require("tns-core-modules/data/observable");
 let device = require("tns-core-modules/platform");
 let ObservableArray = require("tns-core-modules/data/observable-array").ObservableArray;
-const appSetting = require("tns-core-modules/application-settings");let BarcodeScanner = require("nativescript-barcodescanner").BarcodeScanner;
+const appSetting = require("tns-core-modules/application-settings");
+let BarcodeScanner = require("nativescript-barcodescanner").BarcodeScanner;
 let barcodescanner = new BarcodeScanner();
 
 let viewModel;

@@ -40,7 +40,7 @@ function onNavigatingTo(args) {
 
         if(jsonData['orari'][data.getDay()]["orari"][0]["apertura"] != "N/A")
         {
-            if(data.getHours() < jsonData['orari'][data.getDay()]["orari"][0]["apertura"] || data.getHours() > jsonData['orari'][data.getDay()]["orari"][0]["chiusura"]){
+            if((data.getHours() < jsonData['orari'][data.getDay()]["orari"][0]["apertura"] || data.getHours() > jsonData['orari'][data.getDay()]["orari"][0]["chiusura"])){
                 if((platformModule.device.language).includes("it"))
                     viewModel.set("apertura", "- Chiuso -");
                 else if((platformModule.device.language).includes("en"))
